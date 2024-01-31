@@ -11,10 +11,8 @@ body {
 }
 
 h1 {
-  color: black;
+  color: white;
   /* font-family: */
-  font-family: "Bebas Neue", sans-serif;
-  letter-spacing: 1.4px;
 }
 
 /*TOP BAR STYLINGS  */
@@ -68,9 +66,8 @@ li h1 {
 }
 
 .game-desc {
-  color: black;
+  color: white;
   max-width: 75%;
-  font-family: "Poppins", sans-serif;
 }
 
 /* LARGESCREEN MEDIA QUERIES*/
@@ -78,6 +75,8 @@ li h1 {
   #logo {
     width: 230px;
   }
+
+  .a
 
   .game-data {
     flex-direction: row;

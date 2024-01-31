@@ -11,3 +11,4 @@ searchButton.addEventListener("click", () => {
     introList.appendChild(h2);
   }
 });
+

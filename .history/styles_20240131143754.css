@@ -11,10 +11,8 @@ body {
 }
 
 h1 {
-  color: black;
+  color: white;
   /* font-family: */
-  font-family: "Bebas Neue", sans-serif;
-  letter-spacing: 1.4px;
 }
 
 /*TOP BAR STYLINGS  */
@@ -36,11 +34,10 @@ li h1 {
 
 .store-fronts h1 {
   margin-bottom: 45px;
-  text-align: center;
 }
 
 .store-fronts img {
-  padding-right: 10px;
+  padding-right: 20px;
 }
 
 /* 
@@ -48,6 +45,9 @@ li h1 {
     margin: 0
 } */
 
+.game-title {
+  text-align: center;
+}
 .game-list {
   /* padding-right: 40px; */
   margin-left: -40px;
@@ -68,13 +68,12 @@ li h1 {
 }
 
 .game-desc {
-  color: black;
+  color: white;
   max-width: 75%;
-  font-family: "Poppins", sans-serif;
 }
 
 /* LARGESCREEN MEDIA QUERIES*/
-@media only screen and (min-width: 908px) {
+@media only screen and (min-width: 768px) {
   #logo {
     width: 230px;
   }
