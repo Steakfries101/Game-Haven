@@ -1,0 +1,88 @@
+/* GLOBAL STYLINGS html,
+body {
+    padding: 0;
+    margin: 0;
+} */
+
+body {
+    background: black;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    color: white;
+    /* font-family: */
+}
+
+/*TOP BAR STYLINGS  */
+#top-bar {
+    background-color: Orange;
+}
+
+#logo {
+    width: 175px;
+}
+
+li img {
+    text-align: center;
+}
+
+li h1 {
+    text-align: left;
+}
+
+.store-fronts h1 {
+    margin-bottom: 45px;
+}
+
+.store-fronts img {
+    padding-right: 20px;
+}
+
+/* 
+.game-list {
+    margin: 0
+} */
+
+.game-list {
+    /* padding-right: 40px; */
+    margin-left: -40px;
+    /* padding-right: 60px; */
+}
+
+.game-cover {
+    max-width: 200px;
+}
+
+.game-data {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: orange
+}
+
+.game-desc {
+    color: white;
+    max-width: 75%;
+}
+
+/* LARGESCREEN MEDIA QUERIES*/
+@media only screen and (min-width: 768px) {
+
+    #logo {
+        width: 230px;
+    }
+
+    .game-data {
+        flex-direction: row;
+    }
+
+    .game-desc {
+        max-width: 50%;
+        font-size: 1.5rem;
+
+    }
+}
