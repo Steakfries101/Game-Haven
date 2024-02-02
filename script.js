@@ -8,7 +8,7 @@ console.log(baseUrl + 54 + apiKey);
 //Get the game data
 async function fetchGameData(gameName) {
   const response = await fetch(
-    `https://api.rawg.io/api/games?key=652dc6a240454ec7a98d610a0041a14e&search=${gameName}&parent_platforms=1`
+    `https://api.rawg.io/api/games?key=652dc6a240454ec7a98d610a0041a14e&search=${gameName}&parent_platforms=1&search_precise=true`
   );
 
   const data = await response.json();
@@ -16,14 +16,14 @@ async function fetchGameData(gameName) {
   return games;
 }
 
-async function fetchGameStoreData(gameId) {
-  const response = await fetch(
-    `https://api.rawg.io/api/games/${gameId}stores?key=652dc6a240454ec7a98d610a0041a14e`
-  );
-  const data = await response.json();
-  const stores = data.results;
-  console.log(stores.stores);
-}
+// async function fetchGameStoreData(gameId) {
+//   const response = await fetch(
+//     `https://api.rawg.io/api/games/${gameId}stores?key=652dc6a240454ec7a98d610a0041a14e`
+//   );
+//   const data = await response.json();
+//   const stores = data.results;
+//   console.log(stores.stores);
+// }
 
 // loopData("little big planet");
 
@@ -31,21 +31,32 @@ let search = document.querySelector(".search-button");
 search.addEventListener("click", duh);
 let gameList = document.querySelector(".game-list");
 
+async function loopData(gameName) {
+  const gameData = await fetchGameData(gameName);
+  const gameList = document.querySelector(".game-list");
+
+  gameData.forEach((game) => {
+    const gameItem = document.createElement("li");
+    gameItem.className = "game-item";
+
+    const gameInfo = document.createElement("article");
+    gameInfo.className = "game-data";
+    gameItem.appendChild(gameInfo);
+
+    const gameCover = document.createElement("img");
+    gameCover.src = game.background_image;
+    gameCover.className = "game-cover";
+    gameInfo.appendChild(gameCover);
+
+    const storeFronts = document.createElement("div");
+
+    gameList.appendChild(gameItem);
+    // // console.log(game.name);
+  });
+}
+
 function duh() {
   gameList.innerHTML = "";
   let search = document.querySelector(".search-bar").value;
   loopData(search);
-}
-
-async function loopData(gameName) {
-  const gameData = await fetchGameData(gameName);
-  const gameList = document.querySelector(".game-list");
-  gameData.forEach((game) => {
-    const gameItem = document.createElement("li");
-    gameItem.className = "game-item";
-    gameItem.textContent = "Hu";
-    gameList.appendChild(gameItem);
-
-    console.log(game.name);
-  });
 }
