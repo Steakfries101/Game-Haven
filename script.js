@@ -49,7 +49,8 @@ async function loopData(gameName) {
       gameCover.className = "game-cover";
       gameInfo.appendChild(gameCover);
 
-      // ADD CONDITIONAL TO CHECK WHAT STORES EXIST AND ADD ICONS AND LINKS AS NECCESSARY
+      // ADD CONDITIONAL TO CHECK WHAT STORES EXIST.
+      // AND ADD ICONS AND LINKS AS NECCESSARY ACCORDING TO RESULTS
       const storeFronts = document.createElement("div");
       gameInfo.appendChild(storeFronts);
 
@@ -58,7 +59,8 @@ async function loopData(gameName) {
       gameTitle.textContent = game.name;
       storeFronts.appendChild(gameTitle);
 
-      gameList.appendChild(gameItem);
+      const description = document.createElement("p");
+      description.textContent = game.gameList.appendChild(gameItem);
       // // console.log(game.name);
     }
   });
