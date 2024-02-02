@@ -30,11 +30,7 @@ li img {
   text-align: center;
 }
 
-li h1 {
-  text-align: left;
-}
-
-.store-fronts h1 {
+.store-fronts h2 {
   margin-bottom: 45px;
   text-align: center;
 }
@@ -55,7 +51,7 @@ li h1 {
 }
 
 .game-cover {
-  max-width: 450px;
+  /* max-width: 450px; */
 }
 
 .game-data {
@@ -71,6 +67,7 @@ li h1 {
   color: black;
   max-width: 75%;
   font-family: "Poppins", sans-serif;
+  font-size: 19px;
 }
 
 /* LARGESCREEN MEDIA QUERIES*/
@@ -81,10 +78,15 @@ li h1 {
 
   .game-data {
     flex-direction: row;
+    /* justify-content: space-evenly; */
   }
 
   .game-desc {
     max-width: 50%;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
+}
+
+.game-cover {
+  width: 25%
 }
