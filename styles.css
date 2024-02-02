@@ -10,7 +10,7 @@ body {
   padding: 0px;
 }
 
-h1 {
+h2 {
   color: black;
   /* font-family: */
   font-family: "Bebas Neue", sans-serif;
@@ -55,7 +55,7 @@ li h1 {
 }
 
 .game-cover {
-  max-width: 200px;
+  max-width: 450px;
 }
 
 .game-data {

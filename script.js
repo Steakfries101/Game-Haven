@@ -36,22 +36,31 @@ async function loopData(gameName) {
   const gameList = document.querySelector(".game-list");
 
   gameData.forEach((game) => {
-    const gameItem = document.createElement("li");
-    gameItem.className = "game-item";
+    if (game.stores !== null) {
+      const gameItem = document.createElement("li");
+      gameItem.className = "game-item";
 
-    const gameInfo = document.createElement("article");
-    gameInfo.className = "game-data";
-    gameItem.appendChild(gameInfo);
+      const gameInfo = document.createElement("article");
+      gameInfo.className = "game-data";
+      gameItem.appendChild(gameInfo);
 
-    const gameCover = document.createElement("img");
-    gameCover.src = game.background_image;
-    gameCover.className = "game-cover";
-    gameInfo.appendChild(gameCover);
+      const gameCover = document.createElement("img");
+      gameCover.src = game.background_image;
+      gameCover.className = "game-cover";
+      gameInfo.appendChild(gameCover);
 
-    const storeFronts = document.createElement("div");
+      // ADD CONDITIONAL TO CHECK WHAT STORES EXIST AND ADD ICONS AND LINKS AS NECCESSARY
+      const storeFronts = document.createElement("div");
+      gameInfo.appendChild(storeFronts);
 
-    gameList.appendChild(gameItem);
-    // // console.log(game.name);
+      const gameTitle = document.createElement("h2");
+      gameTitle.className = "game-title";
+      gameTitle.textContent = game.name;
+      storeFronts.appendChild(gameTitle);
+
+      gameList.appendChild(gameItem);
+      // // console.log(game.name);
+    }
   });
 }
 
