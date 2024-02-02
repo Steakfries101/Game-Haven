@@ -3,8 +3,6 @@ const apiKey = "?key=652dc6a240454ec7a98d610a0041a14e";
 
 console.log(baseUrl + 54 + apiKey);
 
-// search.addEventListener("click", duh);
-
 // fetchData(gameName);
 
 //Get the game data
@@ -27,22 +25,27 @@ async function fetchGameStoreData(gameId) {
   console.log(stores.stores);
 }
 
-async function loopData(gameName) {
-  const gameData = await fetchGameData(gameName);
-  gameData.forEach((game) => {
-    // const storeData = fetchGameStoreData(game.id);
+// loopData("little big planet");
 
-    console.log(game);
-  });
+let search = document.querySelector(".search-button");
+search.addEventListener("click", duh);
+let gameList = document.querySelector(".game-list");
+
+function duh() {
+  gameList.innerHTML = "";
+  let search = document.querySelector(".search-bar").value;
+  loopData(search);
 }
 
-loopData("little big planet");
-// let search = document.querySelector(".search-button");
-// function duh() {
-//   let search = document.querySelector(".search-bar").value;
-//   let list = document.getElementById("intro");
-//   let h2 = document.createElement("h1");
-//   h2.textContent = search;
-//   h2.classList = "game-desc"; // Remove the dot before "game-desc"
-//   list.appendChild(h2);
-// }
+async function loopData(gameName) {
+  const gameData = await fetchGameData(gameName);
+  const gameList = document.querySelector(".game-list");
+  gameData.forEach((game) => {
+    const gameItem = document.createElement("li");
+    gameItem.className = "game-item";
+    gameItem.textContent = "Hu";
+    gameList.appendChild(gameItem);
+
+    console.log(game.name);
+  });
+}
