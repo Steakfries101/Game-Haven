@@ -7,24 +7,26 @@ console.log(baseUrl + 54 + apiKey);
 
 // fetchData(gameName);
 
-async function fetchData(gameName) {
+//Get the game data
+async function fetchGameData(gameName) {
   const response = await fetch(
-    `https://api.rawg.io/api/games?key=652dc6a240454ec7a98d610a0041a14e&search=${gameName}`
+    `https://api.rawg.io/api/games?key=652dc6a240454ec7a98d610a0041a14e&search=${gameName}&parent_platforms=1`
   );
   const data = await response.json();
 
   games = data.results;
   return games;
 }
+
 async function loopData(gameName) {
   const gameData = await fetchData(gameName);
 
-  gameData.forEach((game) => console.log(game.name));
-
-  console.log(gameData);
+  gameData.forEach((game) => {
+    console.log(game);
+  });
 }
 
-loopData("Hello");
+loopData("little big planet");
 // let search = document.querySelector(".search-button");
 // function duh() {
 //   let search = document.querySelector(".search-bar").value;
