@@ -1,3 +1,6 @@
+const baseUrl = "https://api.rawg.io/api/games/";
+const apiKey = "652dc6a240454ec7a98d610a0041a14e";
+
 let search = document.querySelector(".search-button");
 function duh() {
   let search = document.querySelector(".search-bar").value;
