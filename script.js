@@ -12,6 +12,7 @@ async function fetchGameData(gameName) {
   const response = await fetch(
     `https://api.rawg.io/api/games?key=652dc6a240454ec7a98d610a0041a14e&search=${gameName}&parent_platforms=1`
   );
+
   const data = await response.json();
   const games = data.results;
   return games;
@@ -19,27 +20,23 @@ async function fetchGameData(gameName) {
 
 async function fetchGameStoreData(gameId) {
   const response = await fetch(
-    `https://api.rawg.io/api/games/${gameId}/stores?key=652dc6a240454ec7a98d610a0041a14e`
+    `https://api.rawg.io/api/games/${gameId}stores?key=652dc6a240454ec7a98d610a0041a14e`
   );
   const data = await response.json();
   const stores = data.results;
-
-  stores.forEach((store) => {
-    console.log(store.game_id, store.url);
-  });
+  console.log(stores.stores);
 }
 
 async function loopData(gameName) {
   const gameData = await fetchGameData(gameName);
-
   gameData.forEach((game) => {
-    const storeData = fetchGameStoreData(game.id);
-    console.log(storeData);
+    // const storeData = fetchGameStoreData(game.id);
+
+    console.log(game);
   });
 }
 
-// fetchGameStoreData(5);
-loopData("lt");
+loopData("little big planet");
 // let search = document.querySelector(".search-button");
 // function duh() {
 //   let search = document.querySelector(".search-bar").value;
