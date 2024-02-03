@@ -98,10 +98,7 @@ async function loopData(gameName) {
         } else if (store.store_id === 5) {
           createGOG(store, storeFronts);
         } else if (store.store_id === 9) {
-          const storeLink = document.createElement("a");
-          storeLink.textContent = "Itch";
-          storeLink.href = store.url;
-          storeFronts.appendChild(storeLink);
+          createItch(store, storeFronts);
         } else if (store.store_id === 11) {
           const storeLink = document.createElement("a");
           storeLink.textContent = "Epic Games";
@@ -128,6 +125,7 @@ function duh() {
   loopData(search);
 }
 
+//-----------------STORE FRONT LINKS + LOGO GENERATOR FUNCTIONS-----------------//
 function createSteam(store, storeFronts) {
   const storeLink = document.createElement("a");
   const image = document.createElement("img");
@@ -141,6 +139,15 @@ function createGOG(store, storeFronts) {
   const storeLink = document.createElement("a");
   const image = document.createElement("img");
   image.src = "assets/gog_icon_135545.png";
+  storeLink.appendChild(image);
+  storeLink.href = store.url;
+  storeFronts.appendChild(storeLink);
+}
+
+function createItch(store, storeFronts) {
+  const storeLink = document.createElement("a");
+  const image = document.createElement("img");
+  image.src = "assets/itch-io-icon-512x512-wwio9bi8.png";
   storeLink.appendChild(image);
   storeLink.href = store.url;
   storeFronts.appendChild(storeLink);
