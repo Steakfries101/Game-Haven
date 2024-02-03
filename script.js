@@ -100,15 +100,9 @@ async function loopData(gameName) {
         } else if (store.store_id === 9) {
           createItch(store, storeFronts);
         } else if (store.store_id === 11) {
-          const storeLink = document.createElement("a");
-          storeLink.textContent = "Epic Games";
-          storeLink.href = store.url;
-          storeFronts.appendChild(storeLink);
+          createEpicGames(store, storeFronts);
         } else if (store.store_id === 2) {
-          const storeLink = document.createElement("a");
-          storeLink.textContent = "XBOX store";
-          storeLink.href = store.url;
-          storeFronts.appendChild(storeLink);
+          createXboxStore(store, storeFronts);
         }
       });
       // console.log(description);
@@ -149,6 +143,24 @@ function createItch(store, storeFronts) {
   const image = document.createElement("img");
   image.src = "assets/itch-io-icon-512x512-wwio9bi8.png";
   storeLink.appendChild(image);
+  storeLink.href = store.url;
+  storeFronts.appendChild(storeLink);
+}
+
+function createEpicGames(store, storeFronts) {
+  const storeLink = document.createElement("a");
+  const image = document.createElement("img");
+  image.src = "assets/Epic_Games_logo.svg.png";
+  storeLink.appendChild(image);
+  storeLink.href = store.url;
+  storeFronts.appendChild(storeLink);
+}
+
+function createXboxStore(store, storeFronts) {
+  const storeLink = document.createElement("a");
+  const image = document.createElement("img");
+  image.src = "assets/xbox-png-download-best-xbox-png-clipartmagm-15.png";
+  storeLink.append(image);
   storeLink.href = store.url;
   storeFronts.appendChild(storeLink);
 }
