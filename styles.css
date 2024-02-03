@@ -51,7 +51,7 @@ li img {
 }
 
 .game-cover {
-  /* max-width: 450px; */
+  max-width: 450px;
 }
 
 .game-data {
@@ -78,15 +78,16 @@ li img {
 
   .game-data {
     flex-direction: row;
-    /* justify-content: space-evenly; */
+    justify-content: space-between;
+
   }
 
   .game-desc {
     max-width: 50%;
     font-size: 1.1rem;
   }
-}
 
-.game-cover {
-  width: 25%
+  .game-cover {
+    max-width: 35%;
+  }
 }

@@ -1,5 +1,7 @@
+//RAWG API
 const baseUrl = "https://api.rawg.io/api/games/";
 const apiKey = "?key=652dc6a240454ec7a98d610a0041a14e";
+//IGDB API
 
 console.log(baseUrl + 54 + apiKey);
 
@@ -37,6 +39,15 @@ async function getGameDescription(gameId) {
   );
   const data = await response.json();
   return data.description_raw;
+}
+
+async function getGameStores(gameId) {
+  const response = await fetch(
+    `https://api.rawg.io/api/games/${gameId}/stores?key=652dc6a240454ec7a98d610a0041a14e`
+  );
+  const data = await response.json();
+
+  return data.results;
 }
 
 async function loopData(gameName) {
@@ -79,6 +90,16 @@ async function loopData(gameName) {
       description.textContent = content;
       // console.log(content);
       gameDesc.appendChild(description);
+
+      const stores = await getGameStores(game.id);
+      stores.forEach((store) => {
+        if (store.store_id === 1) {
+          const storeLink = document.createElement("a");
+          storeLink.textContent = "Steam";
+          storeLink.href = store.url;
+          description.appendChild(storeLink);
+        }
+      });
       // console.log(description);
       // const description = document.createElement("p");
       // description.textContent = getGameDescription(game.id);
