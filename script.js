@@ -55,9 +55,9 @@ async function loopData(gameName) {
   const gameList = document.querySelector(".game-list");
 
   gameData.forEach(async (game) => {
-    if (game.stores !== null) {
+    if (game.store_id !== null) {
       // getGameDescription(game.id);
-
+      console.log(game);
       const gameItem = document.createElement("li");
       gameItem.className = "game-item";
       gameList.appendChild(gameItem);
@@ -94,17 +94,9 @@ async function loopData(gameName) {
       const stores = await getGameStores(game.id);
       stores.forEach((store) => {
         if (store.store_id === 1) {
-          const storeLink = document.createElement("a");
-          const image = document.createElement("img");
-          image.src = "assets/Steam_icon_logo.svg.png";
-          storeLink.appendChild(image);
-          storeLink.href = store.url;
-          storeFronts.appendChild(storeLink);
+          createSteam(store, storeFronts);
         } else if (store.store_id === 5) {
-          const storeLink = document.createElement("a");
-          storeLink.textContent = "GOG";
-          storeLink.href = store.url;
-          storeFronts.appendChild(storeLink);
+          createGOG(store, storeFronts);
         } else if (store.store_id === 9) {
           const storeLink = document.createElement("a");
           storeLink.textContent = "Itch";
@@ -113,6 +105,11 @@ async function loopData(gameName) {
         } else if (store.store_id === 11) {
           const storeLink = document.createElement("a");
           storeLink.textContent = "Epic Games";
+          storeLink.href = store.url;
+          storeFronts.appendChild(storeLink);
+        } else if (store.store_id === 2) {
+          const storeLink = document.createElement("a");
+          storeLink.textContent = "XBOX store";
           storeLink.href = store.url;
           storeFronts.appendChild(storeLink);
         }
@@ -129,4 +126,22 @@ function duh() {
   gameList.innerHTML = "";
   let search = document.querySelector(".search-bar").value;
   loopData(search);
+}
+
+function createSteam(store, storeFronts) {
+  const storeLink = document.createElement("a");
+  const image = document.createElement("img");
+  image.src = "assets/Steam_icon_logo.svg.png";
+  storeLink.appendChild(image);
+  storeLink.href = store.url;
+  storeFronts.appendChild(storeLink);
+}
+
+function createGOG(store, storeFronts) {
+  const storeLink = document.createElement("a");
+  const image = document.createElement("img");
+  image.src = "assets/gog_icon_135545.png";
+  storeLink.appendChild(image);
+  storeLink.href = store.url;
+  storeFronts.appendChild(storeLink);
 }
