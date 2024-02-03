@@ -55,8 +55,15 @@ async function loopData(gameName) {
   const gameList = document.querySelector(".game-list");
 
   gameData.forEach(async (game) => {
-    if (game.store_id !== null) {
+    // const gameStores = game.stores;
+    const hasStoreThree = game.stores.some((store) => store.store.id === 9);
+    console.log(hasStoreThree);
+    if (hasStoreThree) {
+      return;
+    }
+    if (game.store_id == null) {
       // getGameDescription(game.id);
+
       console.log(game);
       const gameItem = document.createElement("li");
       gameItem.className = "game-item";
@@ -71,8 +78,6 @@ async function loopData(gameName) {
       gameCover.className = "game-cover";
       gameInfo.appendChild(gameCover);
 
-      // ADD CONDITIONAL TO CHECK WHAT STORES EXIST.
-      // AND ADD ICONS AND LINKS AS NECCESSARY ACCORDING TO RESULTS
       const storeFronts = document.createElement("div");
       storeFronts.className = "store-fronts";
       gameInfo.appendChild(storeFronts);
@@ -88,8 +93,9 @@ async function loopData(gameName) {
       const description = document.createElement("p");
       const content = await getGameDescription(game.id);
       description.textContent = content;
-      // console.log(content);
       gameDesc.appendChild(description);
+
+      //-----------------STORE FRONT LOGO CODE-----------------//
 
       const stores = await getGameStores(game.id);
       stores.forEach((store) => {
