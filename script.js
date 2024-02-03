@@ -95,24 +95,26 @@ async function loopData(gameName) {
       stores.forEach((store) => {
         if (store.store_id === 1) {
           const storeLink = document.createElement("a");
-          storeLink.textContent = "Steam";
+          const image = document.createElement("img");
+          image.src = "assets/Steam_icon_logo.svg.png";
+          storeLink.appendChild(image);
           storeLink.href = store.url;
-          description.appendChild(storeLink);
+          storeFronts.appendChild(storeLink);
         } else if (store.store_id === 5) {
           const storeLink = document.createElement("a");
           storeLink.textContent = "GOG";
           storeLink.href = store.url;
-          description.appendChild(storeLink);
+          storeFronts.appendChild(storeLink);
         } else if (store.store_id === 9) {
           const storeLink = document.createElement("a");
           storeLink.textContent = "Itch";
           storeLink.href = store.url;
-          description.appendChild(storeLink);
+          storeFronts.appendChild(storeLink);
         } else if (store.store_id === 11) {
           const storeLink = document.createElement("a");
           storeLink.textContent = "Epic Games";
           storeLink.href = store.url;
-          description.appendChild(storeLink);
+          storeFronts.appendChild(storeLink);
         }
       });
       // console.log(description);

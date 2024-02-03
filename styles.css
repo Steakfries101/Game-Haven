@@ -37,6 +37,12 @@ li img {
 
 .store-fronts img {
   padding-right: 10px;
+  width: 50px;
+
+}
+
+.store-fronts {
+  text-align: center;
 }
 
 /* 
