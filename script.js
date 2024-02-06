@@ -127,7 +127,12 @@ async function loopData(gameName) {
 function duh() {
   gameList.innerHTML = "";
   let search = document.querySelector(".search-bar").value;
-  loopData(search);
+  if (search == "") {
+    alert("Please Enter A Game Name!");
+    return;
+  } else {
+    loopData(search);
+  }
 }
 
 //-----------------STORE FRONT LINKS + LOGO GENERATOR FUNCTIONS-----------------//
