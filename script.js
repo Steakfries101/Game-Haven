@@ -9,30 +9,52 @@ let gameList = document.querySelector(".game-list");
 
 //Get the game data
 async function fetchGameData(gameName) {
-  const response = await fetch(
-    `https://api.rawg.io/api/games?key=652dc6a240454ec7a98d610a0041a14e&search=${gameName}&parent_platforms=1&search_precise=true`
-  );
-  const data = await response.json();
-  const games = data.results;
-  return games;
+  try {
+    const response = await fetch(
+      `https://api.rawg.io/api/nonexistent?key=652dc6a240454ec7a98d610a0041a14e&search=${gameName}&parent_platforms=1&search_precise=true`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch game data");
+    }
+
+    const data = await response.json();
+    const games = data.results;
+    return games;
+  } catch (error) {
+    console.error("Error fetching game data", error);
+  }
 }
 
 //Reponsible for getting the game description
 async function getGameDescription(gameId) {
-  const response = await fetch(
-    `https://api.rawg.io/api/games/${gameId}?key=652dc6a240454ec7a98d610a0041a14e`
-  );
-  const data = await response.json();
-  return data.description_raw;
+  try {
+    const response = await fetch(
+      `https://api.rawg.io/api/games/${gameId}?key=652dc6a240454ec7a98d610a0041a14e`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch game desc data");
+    }
+    const data = await response.json();
+    return data.description_raw;
+  } catch (error) {
+    console.error("Error fetching game descriptions ERROR: ", error);
+  }
 }
 
 //Get stores for each game based on game id
 async function getGameStores(gameId) {
-  const response = await fetch(
-    `https://api.rawg.io/api/games/${gameId}/stores?key=652dc6a240454ec7a98d610a0041a14e`
-  );
-  const data = await response.json();
-  return data.results;
+  try {
+    const response = await fetch(
+      `https://api.rawg.io/api/games/${gameId}/stores?key=652dc6a240454ec7a98d610a0041a14e`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch game stores data");
+    }
+    const data = await response.json();
+    return data.results;
+  } catch (error) {
+    console.error("Error fetching game stores data ERROR: ", error);
+  }
 }
 
 //Beginning of loop that loops through returned data games and builds javascript
