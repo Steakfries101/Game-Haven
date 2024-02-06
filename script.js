@@ -3,10 +3,6 @@ const baseUrl = "https://api.rawg.io/api/games/";
 const apiKey = "?key=652dc6a240454ec7a98d610a0041a14e";
 //IGDB API
 
-console.log(baseUrl + 54 + apiKey);
-
-// fetchData(gameName);
-
 //Get the game data
 async function fetchGameData(gameName) {
   const response = await fetch(
@@ -18,19 +14,8 @@ async function fetchGameData(gameName) {
   return games;
 }
 
-// async function fetchGameStoreData(gameId) {
-//   const response = await fetch(
-//     `https://api.rawg.io/api/games/${gameId}stores?key=652dc6a240454ec7a98d610a0041a14e`
-//   );
-//   const data = await response.json();
-//   const stores = data.results;
-//   console.log(stores.stores);
-// }
-
-// loopData("little big planet");
-
-let search = document.querySelector(".search-button");
-search.addEventListener("click", duh);
+let searchButt = document.querySelector(".search-button");
+searchButt.addEventListener("click", search);
 let gameList = document.querySelector(".game-list");
 
 async function getGameDescription(gameId) {
@@ -54,6 +39,11 @@ async function loopData(gameName) {
   const gameData = await fetchGameData(gameName);
   const gameList = document.querySelector(".game-list");
 
+  if (gameData == "") {
+    const error = document.createElement("h2");
+    error.textContent = `No game by the name of ${getSearchValue()}`;
+    gameList.appendChild(error);
+  }
   gameData.forEach(async (game) => {
     if (game.store_id !== null) {
       const includesStore = game.stores.some(
@@ -68,8 +58,7 @@ async function loopData(gameName) {
         return;
       }
       // getGameDescription(game.id);
-      console.log(game.name);
-      console.log(game);
+
       const gameItem = document.createElement("li");
       gameItem.className = "game-item";
       gameList.appendChild(gameItem);
@@ -124,17 +113,6 @@ async function loopData(gameName) {
   });
 }
 
-function duh() {
-  gameList.innerHTML = "";
-  let search = document.querySelector(".search-bar").value;
-  if (search == "") {
-    alert("Please Enter A Game Name!");
-    return;
-  } else {
-    loopData(search);
-  }
-}
-
 //-----------------STORE FRONT LINKS + LOGO GENERATOR FUNCTIONS-----------------//
 function createSteam(store, storeFronts) {
   const storeLink = document.createElement("a");
@@ -179,4 +157,19 @@ function createXboxStore(store, storeFronts) {
   storeLink.append(image);
   storeLink.href = store.url;
   storeFronts.appendChild(storeLink);
+}
+
+function getSearchValue() {
+  const value = document.querySelector(".search-bar").value;
+  return value;
+}
+
+function search() {
+  gameList.innerHTML = "";
+  if (!getSearchValue()) {
+    alert("Please Enter A Game Name!");
+    return;
+  } else {
+    loopData(getSearchValue());
+  }
 }
