@@ -11,7 +11,7 @@ let gameList = document.querySelector(".game-list");
 async function fetchGameData(gameName) {
   try {
     const response = await fetch(
-      `https://api.rawg.io/api/nonexistent?key=652dc6a240454ec7a98d610a0041a14e&search=${gameName}&parent_platforms=1&search_precise=true`
+      `https://api.rawg.io/api/games?key=652dc6a240454ec7a98d610a0041a14e&search=${gameName}&parent_platforms=1&search_precise=true`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch game data");
@@ -25,7 +25,6 @@ async function fetchGameData(gameName) {
   }
 }
 
-//Reponsible for getting the game description
 async function getGameDescription(gameId) {
   try {
     const response = await fetch(
@@ -36,6 +35,14 @@ async function getGameDescription(gameId) {
     }
     const data = await response.json();
     return data.description_raw;
+
+    // Truncate the description if it's too long
+    // const maxLength = 500; // Set your desired max length
+    // if (description.length > maxLength) {
+    //   description = description.substring(0, maxLength) + "...";
+    // }
+
+    return description;
   } catch (error) {
     console.error("Error fetching game descriptions ERROR: ", error);
   }
@@ -111,6 +118,29 @@ async function loopData(gameName) {
       const content = await getGameDescription(game.id);
       description.textContent = content;
       gameDesc.appendChild(description);
+
+      const text = await getGameDescription(game.id);
+      textDecider(text);
+
+      // num = 250;
+      // //replace num with the amount of characters you want
+      // console.log(`PART 1: ${part1}`);
+      // const part2 = text.slice(num);
+      // console.log(`PART 2: ${part2}`);
+      // document.getElementById("part1").InnerHTML = part1;
+      // document.getElementById("part2").innerHTML = part2;
+
+      function textDecider(text) {
+        const num = 250;
+
+        if (text.length > num) {
+          const part1 = text.slice(0, num);
+          const part2 = text.slice(num);
+          const part1Para = document.createElement("p");
+          const part2Para = document.createElement("p");
+          console.log(part1 + part2);
+        }
+      }
 
       //-----------------STOREFRONT LOGO CODE-----------------//
 
