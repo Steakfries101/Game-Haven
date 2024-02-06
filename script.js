@@ -3,21 +3,21 @@ const baseUrl = "https://api.rawg.io/api/games/";
 const apiKey = "?key=652dc6a240454ec7a98d610a0041a14e";
 //IGDB API
 
+let searchButt = document.querySelector(".search-button");
+searchButt.addEventListener("click", search);
+let gameList = document.querySelector(".game-list");
+
 //Get the game data
 async function fetchGameData(gameName) {
   const response = await fetch(
     `https://api.rawg.io/api/games?key=652dc6a240454ec7a98d610a0041a14e&search=${gameName}&parent_platforms=1&search_precise=true`
   );
-
   const data = await response.json();
   const games = data.results;
   return games;
 }
 
-let searchButt = document.querySelector(".search-button");
-searchButt.addEventListener("click", search);
-let gameList = document.querySelector(".game-list");
-
+//Reponsible for getting the game description
 async function getGameDescription(gameId) {
   const response = await fetch(
     `https://api.rawg.io/api/games/${gameId}?key=652dc6a240454ec7a98d610a0041a14e`
@@ -26,24 +26,27 @@ async function getGameDescription(gameId) {
   return data.description_raw;
 }
 
+//Get stores for each game based on game id
 async function getGameStores(gameId) {
   const response = await fetch(
     `https://api.rawg.io/api/games/${gameId}/stores?key=652dc6a240454ec7a98d610a0041a14e`
   );
   const data = await response.json();
-
   return data.results;
 }
 
+//Beginning of loop that loops through returned data games and builds javascript
 async function loopData(gameName) {
   const gameData = await fetchGameData(gameName);
   const gameList = document.querySelector(".game-list");
 
-  if (gameData == "") {
-    const error = document.createElement("h2");
-    error.textContent = `No game by the name of ${getSearchValue()}`;
-    gameList.appendChild(error);
-  }
+  const error = document.createElement("h2");
+  error.className = "search-display";
+  error.textContent = dataCheck(gameData);
+  gameList.appendChild(error);
+  //Check if data returned from search query
+
+  //If data is there this checks each games storefronts to confirm it has one of the following as a store (5,1,2,11)
   gameData.forEach(async (game) => {
     if (game.store_id !== null) {
       const includesStore = game.stores.some(
@@ -51,13 +54,11 @@ async function loopData(gameName) {
           store.store.id === 5 ||
           store.store.id === 1 ||
           store.store.id === 2 ||
-          // store.store.id === 9 ||
           store.store.id === 11
       );
       if (!includesStore) {
         return;
       }
-      // getGameDescription(game.id);
 
       const gameItem = document.createElement("li");
       gameItem.className = "game-item";
@@ -89,7 +90,7 @@ async function loopData(gameName) {
       description.textContent = content;
       gameDesc.appendChild(description);
 
-      //-----------------STORE FRONT LOGO CODE-----------------//
+      //-----------------STOREFRONT LOGO CODE-----------------//
 
       const stores = await getGameStores(game.id);
       stores.forEach((store) => {
@@ -171,5 +172,13 @@ function search() {
     return;
   } else {
     loopData(getSearchValue());
+  }
+}
+
+function dataCheck(data) {
+  if (data == "") {
+    return `No game by the name of ${getSearchValue()}`;
+  } else {
+    return `Showing results for ${getSearchValue()}`;
   }
 }
