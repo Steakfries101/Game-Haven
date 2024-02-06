@@ -55,15 +55,20 @@ async function loopData(gameName) {
   const gameList = document.querySelector(".game-list");
 
   gameData.forEach(async (game) => {
-    // const gameStores = game.stores;
-    const hasStoreThree = game.stores.some((store) => store.store.id === 9);
-    console.log(hasStoreThree);
-    if (hasStoreThree) {
-      return;
-    }
-    if (game.store_id == null) {
+    if (game.store_id !== null) {
+      const includesStore = game.stores.some(
+        (store) =>
+          store.store.id === 5 ||
+          store.store.id === 1 ||
+          store.store.id === 2 ||
+          // store.store.id === 9 ||
+          store.store.id === 11
+      );
+      if (!includesStore) {
+        return;
+      }
       // getGameDescription(game.id);
-
+      console.log(game.name);
       console.log(game);
       const gameItem = document.createElement("li");
       gameItem.className = "game-item";
@@ -103,8 +108,8 @@ async function loopData(gameName) {
           createSteam(store, storeFronts);
         } else if (store.store_id === 5) {
           createGOG(store, storeFronts);
-        } else if (store.store_id === 9) {
-          createItch(store, storeFronts);
+          // } else if (store.store_id === 9) {
+          //   createItch(store, storeFronts);
         } else if (store.store_id === 11) {
           createEpicGames(store, storeFronts);
         } else if (store.store_id === 2) {
@@ -165,7 +170,7 @@ function createEpicGames(store, storeFronts) {
 function createXboxStore(store, storeFronts) {
   const storeLink = document.createElement("a");
   const image = document.createElement("img");
-  image.src = "assets/xbox-png-download-best-xbox-png-clipartmagm-15.png";
+  image.src = "assets/xbox.png";
   storeLink.append(image);
   storeLink.href = store.url;
   storeFronts.appendChild(storeLink);
