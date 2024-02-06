@@ -42,7 +42,7 @@ async function loopData(gameName) {
 
   const error = document.createElement("h2");
   error.className = "search-display";
-  error.textContent = dataCheck(gameData);
+  error.textContent = searchDisplay(gameData);
   gameList.appendChild(error);
   //Check if data returned from search query
 
@@ -175,7 +175,7 @@ function search() {
   }
 }
 
-function dataCheck(data) {
+function searchDisplay(data) {
   if (data == "") {
     return `No game by the name of ${getSearchValue()}`;
   } else {
