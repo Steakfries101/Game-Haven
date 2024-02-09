@@ -12,6 +12,14 @@ body {
   display: none;
 }
 
+.part-1 {
+  margin-bottom: 0;
+}
+
+.part-2 {
+  margin-top: 0;
+}
+
 body {
   background: black;
   margin: 0px;
@@ -31,6 +39,7 @@ h2 {
   /* font-family: */
   font-family: "Bebas Neue", sans-serif;
   letter-spacing: 1.4px;
+  font-size: 2rem;
 }
 
 /*TOP BAR STYLINGS  */
@@ -53,7 +62,7 @@ li img {
 
 .store-fronts img {
   padding-right: 10px;
-  width: 50px;
+  width: 75px;
 
 }
 
@@ -73,12 +82,18 @@ li img {
 .game-list {
   /* padding-right: 40px; */
   margin-left: -40px;
+  background-color: #F43C04;
   /* padding-right: 60px; */
 }
 
 .game-cover {
-  max-width: 250px;
+  max-width: 65%;
+  margin-bottom: 50px;
+
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
 
 .game-data {
   padding-top: 20px;
@@ -87,6 +102,7 @@ li img {
   justify-content: space-around;
   align-items: center;
   background-color: orange;
+  /* width: 75%; */
 }
 
 .game-desc {
@@ -97,20 +113,45 @@ li img {
 }
 
 /* LARGESCREEN MEDIA QUERIES*/
-@media only screen and (min-width: 908px) {
+@media only screen and (min-width: 1000px) {
   #logo {
     width: 230px;
+  }
+
+  h2 {
+    font-size: 1.7rem;
   }
 
   .game-data {
     flex-direction: row;
     justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: border-left .5s ease, border-right .5s ease, box-shadow .5s;
+    background-color: orange;
+    margin-bottom: 20px;
+
+
+
+
+  }
+
+  .game-data:hover {
+    border-left: solid #F43C04 15px;
+    border-right: solid #F43C04 15px;
+
+    /* border-top: solid #F43C04 15px; */
+    /* border-bottom: solid #F43C04 15px; */
+    /* background-color: #F43C04; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+    /* Border-left when hovered */
 
   }
 
   .game-desc {
     max-width: 45%;
-    font-size: 1.1rem;
+    font-size: 1rem;
     min-width: 15%;
     word-wrap: break-word;
     margin: 0 25px 0 25px;
@@ -119,11 +160,15 @@ li img {
 
   .defaultDesc {
     margin-right: 4%;
-    font-size: 2rem;
+    margin-left: -50px;
+    font-size: 1.5rem;
   }
 
   .game-cover {
     max-width: 550px;
+    margin-left: 15px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
 
   .store-fronts {
@@ -131,11 +176,9 @@ li img {
     margin-left: 25px;
   }
 
-  .part-1 {
-    margin-bottom: 0;
+  .store-fronts img {
+    width: 50px;
   }
 
-  .part-2 {
-    margin-top: 0;
-  }
+
 }
