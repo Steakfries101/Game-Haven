@@ -114,11 +114,6 @@ async function loopData(gameName) {
       gameDesc.className = "game-desc";
       gameInfo.appendChild(gameDesc);
 
-      const description = document.createElement("p");
-      const content = await getGameDescription(game.id);
-      description.textContent = content;
-      gameDesc.appendChild(description);
-
       const text = await getGameDescription(game.id);
       textDecider(text);
 
@@ -129,16 +124,50 @@ async function loopData(gameName) {
       // console.log(`PART 2: ${part2}`);
       // document.getElementById("part1").InnerHTML = part1;
       // document.getElementById("part2").innerHTML = part2;
-
       function textDecider(text) {
         const num = 250;
 
         if (text.length > num) {
           const part1 = text.slice(0, num);
           const part2 = text.slice(num);
+
           const part1Para = document.createElement("p");
+          part1Para.textContent = part1;
+          part1Para.className = "part-1";
+          gameDesc.appendChild(part1Para);
+
           const part2Para = document.createElement("p");
-          console.log(part1 + part2);
+          part2Para.textContent = "";
+          part2Para.className = "part-2";
+          part1Para.appendChild(part2Para);
+
+          const readMore = document.createElement("button");
+          readMore.className = "read-more";
+          readMore.textContent = "Read More";
+          part1Para.appendChild(readMore);
+
+          readMore.addEventListener("click", () => {
+            part2Para.textContent = part2;
+            readMore.style.display = "none"; // Hide the "Read More" button
+            const readLess = document.createElement("button");
+            readLess.textContent = "Read Less";
+            readLess.className = "read-less"; // Add class name for styling
+            part2Para.appendChild(readLess);
+
+            // Add event listener for "Read Less" button
+            readLess.addEventListener("click", () => {
+              part2Para.textContent = "";
+              readMore.style.display = ""; // Show the "Read More" button
+              readLess.remove(); // Remove the "Read Less" button
+            });
+          });
+        } else if (text.length < num) {
+          const defaultDesc = document.createElement("h3");
+          defaultDesc.className = "defaultDesc";
+          defaultDesc.textContent = "No game description found";
+          gameInfo.appendChild(defaultDesc);
+        }
+        {
         }
       }
 

@@ -3,11 +3,27 @@ body {
     padding: 0;
     margin: 0;
 } */
+.part-2-display {
+  display: block;
+  margin-top: 20px;
+}
+
+.part-2-display-off {
+  display: none;
+}
 
 body {
   background: black;
   margin: 0px;
   padding: 0px;
+}
+
+.hidden {
+  display: none;
+}
+
+.read-more {
+  display: block;
 }
 
 h2 {
@@ -93,11 +109,33 @@ li img {
   }
 
   .game-desc {
-    max-width: 50%;
+    max-width: 45%;
     font-size: 1.1rem;
+    min-width: 15%;
+    word-wrap: break-word;
+    margin: 0 25px 0 25px;
+    /* text-align: left; */
+  }
+
+  .defaultDesc {
+    margin-right: 4%;
+    font-size: 2rem;
   }
 
   .game-cover {
-    max-width: 35%;
+    max-width: 550px;
+  }
+
+  .store-fronts {
+    max-width: 994px;
+    margin-left: 25px;
+  }
+
+  .part-1 {
+    margin-bottom: 0;
+  }
+
+  .part-2 {
+    margin-top: 0;
   }
 }
