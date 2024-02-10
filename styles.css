@@ -49,11 +49,23 @@ body {
   height: 100px;
   width: 100%;
   margin-top: 0;
+  display: flex;
+  justify-content: end;
+}
+
+#footer h4 {
+  align-self: flex-end;
+  margin-right: 20px;
+  font-size: 1.3rem;
 }
 .site-body {
   flex: 1;
 }
 
+.test {
+  width: 50%;
+  display: inline-block;
+}
 /*Read more and Read less button stylings */
 .read-more,
 .read-less {
