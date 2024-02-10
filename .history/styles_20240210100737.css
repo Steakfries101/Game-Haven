@@ -10,9 +10,23 @@ body {
 #search-bar {
   border-radius: 5px;
   border: #f43c04 solid 5px;
-  width: 75%;
-  display: inline-block;
-  margin: 0 auto;
+}
+
+.part-2-display {
+  display: block;
+  margin-top: 20px;
+}
+
+.part-2-display-off {
+  display: none;
+}
+
+.part-1 {
+  margin-bottom: 0;
+}
+
+.part-2 {
+  margin-top: 0;
 }
 
 body {
@@ -40,6 +54,10 @@ body {
   z-index: 9;
   border: 0;
   transition: box-shadow 0.5s, font-size 0.5s, width 0.5s, height 0.5s;
+}
+
+.game-data {
+  display: flex;
 }
 
 /* CSS */
@@ -101,8 +119,7 @@ li img {
   margin-bottom: 50px;
   margin-top: 50px;
   border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
@@ -184,8 +201,7 @@ li img {
     max-width: 550px;
     margin-left: 15px;
     border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
       rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
 
@@ -215,8 +231,7 @@ li img {
 
   .read-more:hover,
   .read-less:hover {
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
       rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     height: 42px;
     width: 42%;

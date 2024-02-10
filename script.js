@@ -27,7 +27,9 @@ async function fetchGameData(gameName) {
 
 async function getGameDescription(gameId) {
   try {
-    const response = await fetch(`https://api.rawg.io/api/games/${gameId}?key=652dc6a240454ec7a98d610a0041a14e`);
+    const response = await fetch(
+      `https://api.rawg.io/api/games/${gameId}?key=652dc6a240454ec7a98d610a0041a14e`
+    );
     if (!response.ok) {
       throw new Error("Failed to fetch game desc data");
     }
@@ -41,7 +43,9 @@ async function getGameDescription(gameId) {
 //Get stores for each game based on game id
 async function getGameStores(gameId) {
   try {
-    const response = await fetch(`https://api.rawg.io/api/games/${gameId}/stores?key=652dc6a240454ec7a98d610a0041a14e`);
+    const response = await fetch(
+      `https://api.rawg.io/api/games/${gameId}/stores?key=652dc6a240454ec7a98d610a0041a14e`
+    );
 
     if (!response.ok) {
       throw new Error("Failed to fetch game stores data");
@@ -71,7 +75,11 @@ async function loopData(gameName) {
 
     if (game.stores !== null) {
       const includesStore = game.stores.some(
-        (store) => store.store.id === 5 || store.store.id === 1 || store.store.id === 2 || store.store.id === 11
+        (store) =>
+          store.store.id === 5 ||
+          store.store.id === 1 ||
+          store.store.id === 2 ||
+          store.store.id === 11
       );
       if (!includesStore) {
         return;
@@ -113,61 +121,19 @@ async function loopData(gameName) {
       // gameList.appendChild(gameTitle);
 
       const text = await getGameDescription(game.id);
-      textDecider(text);
 
-      // num = 250;
-      // //replace num with the amount of characters you want
-      // console.log(`PART 1: ${part1}`);
-      // const part2 = text.slice(num);
-      // console.log(`PART 2: ${part2}`);
-      // document.getElementById("part1").InnerHTML = part1;
-      // document.getElementById("part2").innerHTML = part2;
-      function textDecider(text) {
-        const num = 250;
+      textDecider(text, gameDesc);
 
-        if (text.length > num) {
-          const part1 = text.slice(0, num);
-          const part2 = text.slice(num);
-
-          const part1Para = document.createElement("p");
-          part1Para.textContent = part1;
-          part1Para.className = "part-1";
-          gameDesc.appendChild(part1Para);
-
-          const part2Para = document.createElement("p");
-          part2Para.textContent = "";
-          part2Para.className = "part-2";
-          part1Para.appendChild(part2Para);
-
-          const readMore = document.createElement("button");
-          readMore.className = "read-more";
-          readMore.textContent = "Read More";
-          part1Para.appendChild(readMore);
-
-          readMore.addEventListener("click", () => {
-            part2Para.textContent = part2;
-            readMore.style.display = "none"; // Hide the "Read More" button
-            const readLess = document.createElement("button");
-            readLess.textContent = "Read Less";
-            readLess.className = "read-less"; // Add class name for styling
-            gameDesc.appendChild(readLess);
-
-            // Add event listener for "Read Less" button
-            readLess.addEventListener("click", () => {
-              part2Para.textContent = "";
-              readMore.style.display = ""; // Show the "Read More" button
-              readLess.remove(); // Remove the "Read Less" button
-            });
-          });
-        } else if (text.length < num) {
-          const defaultDesc = document.createElement("h3");
-          defaultDesc.className = "defaultDesc";
-          defaultDesc.textContent = "No game description found";
-          gameInfo.appendChild(defaultDesc);
-        }
-        {
-        }
-      }
+      //   // Add event listener for "Read Less" button
+      //   readLess.addEventListener("click", () => {
+      //     part2Para.textContent = "";
+      //     readMore.style.display = ""; // Show the "Read More" button
+      //     readLess.remove(); // Remove the "Read Less" button
+      //   });
+      // });
+      // } else if (text.length < num) {
+      //
+      // }
 
       //-----------------STOREFRONT LOGO CODE-----------------//
 
@@ -185,11 +151,6 @@ async function loopData(gameName) {
           createXboxStore(store, storeFronts);
         }
       });
-
-      // console.log(description);
-      // const description = document.createElement("p");
-      // description.textContent = getGameDescription(game.id);
-      // // console.log(game.name);
     }
   });
 }
@@ -270,5 +231,51 @@ function searchDisplay(data) {
     return `No game by the name of ${getSearchValue()}`;
   } else {
     return `Showing results for ${getSearchValue()}`;
+  }
+}
+
+function textDecider(text, gameDesc) {
+  const num = 250;
+
+  if (text.length > num) {
+    const part1 = text.slice(0, num);
+    const part2 = text.slice(num);
+
+    const part1Para = document.createElement("p");
+    part1Para.textContent = part1;
+    gameDesc.appendChild(part1Para);
+
+    const part2Para = document.createElement("p");
+    part2Para.innerHTML = `<p>${part1}${part2}</p>`;
+    part2Para.style.display = "none";
+    gameDesc.appendChild(part2Para);
+
+    const readMore = document.createElement("button");
+    readMore.className = "read-more";
+    readMore.textContent = "Read More";
+    part1Para.appendChild(readMore);
+
+    const readLess = document.createElement("button");
+    readLess.className = "read-less";
+    readLess.textContent = "Read Less";
+    part2Para.appendChild(readLess);
+
+    readMore.addEventListener("click", () => {
+      part2Para.style.display = "block";
+      part1Para.style.display = "none";
+    });
+    readLess.addEventListener("click", () => {
+      part2Para.style.display = "none";
+      part1Para.style.display = "block";
+    });
+  } else if (text.length < num) {
+    const part1Para = document.createElement("p");
+    part1Para.textContent = text;
+    gameDesc.appendChild(part1Para);
+  } else {
+    const defaultDesc = document.createElement("h3");
+    defaultDesc.className = "defaultDesc";
+    defaultDesc.textContent = "No game description found";
+    gameInfo.appendChild(defaultDesc);
   }
 }
