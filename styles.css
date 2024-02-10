@@ -84,6 +84,12 @@ body {
   transition: box-shadow 0.2s, font-size 0.2s, width 0.2s, height 0.2s;
 }
 
+.intro {
+  width: 75%;
+  display: block;
+  margin: auto;
+}
+
 .read-more:hover,
 .read-less:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
