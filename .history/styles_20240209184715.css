@@ -221,13 +221,13 @@ li img {
     text-align: center;
     font-weight: 100;
   }
-
+  /* 
   .store-fronts img {
-    width: 60px;
-    height: 60px;
+    /* width: 60px;
+    height: 60px; */
     transition: width 100ms linear, height 100ms linear;
     margin-right: 10px;
-  }
+  } */
 
   .read-less,
   .read-more {

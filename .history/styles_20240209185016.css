@@ -98,7 +98,7 @@ li img {
 
 .store-fronts img {
   padding-right: 10px;
-  width: 75px;
+  width: 65px;
 }
 
 .store-fronts {
@@ -122,7 +122,7 @@ li img {
 }
 
 .game-cover {
-  max-width: 65%;
+  max-width: 55%;
   margin-bottom: 50px;
 
   border-radius: 20px;
@@ -225,8 +225,8 @@ li img {
   .store-fronts img {
     width: 60px;
     height: 60px;
-    transition: width 100ms linear, height 100ms linear;
-    margin-right: 10px;
+    /* transition: width 100ms linear, height 100ms linear;
+    margin-right: 10px; */
   }
 
   .read-less,

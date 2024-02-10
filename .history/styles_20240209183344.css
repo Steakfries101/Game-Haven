@@ -211,15 +211,13 @@ li img {
   }
 
   .store-fronts {
+    max-width: 994px;
     margin-left: 25px;
-    text-align: center;
-  }
-
-  .store-fronts h4 {
-    font-size: 20px;
+    color: black;
+    /* position: absolute; */
+    text-align: left;
     font-family: "Poppins", sans-serif;
-    text-align: center;
-    font-weight: 100;
+    border: orange solid 1px;
   }
 
   .store-fronts img {

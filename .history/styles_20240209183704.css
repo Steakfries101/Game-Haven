@@ -211,8 +211,12 @@ li img {
   }
 
   .store-fronts {
+    max-width: 994px;
     margin-left: 25px;
-    text-align: center;
+    color: black;
+    background-color: orange;
+    border-
+    /* position: absolute; */
   }
 
   .store-fronts h4 {
