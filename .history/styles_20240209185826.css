@@ -3,9 +3,7 @@ body {
     padding: 0;
     margin: 0;
 } */
-.game-title-mobile {
-  display: none;
-}
+
 
 #search-bar {
   border-radius: 5px;
@@ -83,6 +81,11 @@ h2 {
 #top-bar {
   background-color: Orange;
   text-align: center;
+}
+
+#logo {
+  text-align: center;
+  width: 175px;
 }
 
 li img {

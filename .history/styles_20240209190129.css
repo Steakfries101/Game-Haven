@@ -85,6 +85,12 @@ h2 {
   text-align: center;
 }
 
+#logo {
+  text-align: center;
+  width: 175px;
+  
+}
+
 li img {
   text-align: center;
 }

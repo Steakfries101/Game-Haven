@@ -107,7 +107,6 @@ async function loopData(gameName) {
       gameDesc.appendChild(gameTitle);
 
       // const gameTitleMobile = document.createElement("h3");
-      // gameTitleMobile.className = game - title - mobile;
       // gameTitleMobile.textContent = game.name;
       // gameList.appendChild(gameTitle);
 

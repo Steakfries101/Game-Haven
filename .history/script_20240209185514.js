@@ -89,6 +89,10 @@ async function loopData(gameName) {
       gameCover.className = "game-cover";
       gameInfo.appendChild(gameCover);
 
+      const gameTitleMobile = document.createElement("h2");
+      gameTitle.textContent = game.name;
+      gameDesc.appendChild(gameTitle);
+
       const storeFronts = document.createElement("div");
       storeFronts.className = "store-fronts";
       gameInfo.appendChild(storeFronts);
@@ -105,11 +109,6 @@ async function loopData(gameName) {
       const gameTitle = document.createElement("h2");
       gameTitle.textContent = game.name;
       gameDesc.appendChild(gameTitle);
-
-      // const gameTitleMobile = document.createElement("h3");
-      // gameTitleMobile.className = game - title - mobile;
-      // gameTitleMobile.textContent = game.name;
-      // gameList.appendChild(gameTitle);
 
       const text = await getGameDescription(game.id);
       textDecider(text);
