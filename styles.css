@@ -15,15 +15,19 @@ body {
   margin: 0 auto;
 }
 
+footer {
+  background-color: #f43c04;
+  height: 50px;
+}
 body {
   background: black;
   margin: 0px;
   padding: 0px;
 }
 
-.hidden {
+/* .hidden {
   display: none;
-}
+} */
 
 .read-more,
 .read-less {
