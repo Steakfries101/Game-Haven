@@ -1,0 +1,225 @@
+/* GLOBAL STYLINGS html,
+body {
+    padding: 0;
+    margin: 0;
+} */
+
+#search-bar {
+  border-radius: 5px;
+  border: #f43c04 solid 5px;
+}
+
+.part-2-display {
+  display: block;
+  margin-top: 20px;
+}
+
+.part-2-display-off {
+  display: none;
+}
+
+.part-1 {
+  margin-bottom: 0;
+}
+
+.part-2 {
+  margin-top: 0;
+}
+
+body {
+  background: black;
+  margin: 0px;
+  padding: 0px;
+}
+
+.hidden {
+  display: none;
+}
+
+.read-more {
+  display: block;
+  background-color: black;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+  height: 40px;
+  line-height: 40px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  pointer-events: auto;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 100%;
+  z-index: 9;
+  border: 0;
+  transition: box-shadow 0.2s;
+}
+
+.read-more:hover {
+  background-image: linear-gradient(-90deg, black, #e62c03, black);
+
+  box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+}
+
+/* CSS */
+
+/* .read-less{
+  margin-top
+} */
+
+h2 {
+  color: white;
+  /* font-family: */
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1.4px;
+  font-size: 2rem;
+}
+
+/*TOP BAR STYLINGS  */
+#top-bar {
+  background-color: Orange;
+  text-align: center;
+}
+
+#logo {
+  text-align: center;
+  width: 175px;
+}
+
+li img {
+  text-align: center;
+}
+
+.store-fronts h2 {
+  margin-bottom: 45px;
+  text-align: center;
+}
+
+.store-fronts img {
+  padding-right: 10px;
+  width: 75px;
+}
+
+.store-fronts {
+  text-align: center;
+}
+
+.search-display {
+  color: white;
+}
+
+/* 
+.game-list {
+    margin: 0
+} */
+
+.game-list {
+  /* padding-right: 40px; */
+  margin-left: -40px;
+  background-color: #f43c04;
+  /* padding-right: 60px; */
+}
+
+.game-cover {
+  max-width: 65%;
+  margin-bottom: 50px;
+
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.game-data {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: orange;
+  /* width: 75%; */
+}
+
+.game-desc {
+  color: black;
+  max-width: 75%;
+  font-family: "Poppins", sans-serif;
+  font-size: 19px;
+}
+
+/* LARGESCREEN MEDIA QUERIES*/
+@media only screen and (min-width: 1000px) {
+  #logo {
+    width: 230px;
+    padding-left: 200px;
+  }
+  #top-bar {
+    text-align: left;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+
+  .game-data {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: border-left 0.5s ease, border-right 0.5s ease, box-shadow 0.5s;
+    background-color: orange;
+    margin-bottom: 20px;
+  }
+
+  .game-data:hover {
+    border-left: solid #f43c04 15px;
+    border-right: solid #f43c04 15px;
+
+    /* border-top: solid #F43C04 15px; */
+    /* border-bottom: solid #F43C04 15px; */
+    /* background-color: #F43C04; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+    /* Border-left when hovered */
+  }
+
+  .game-desc {
+    max-width: 45%;
+    font-size: 1rem;
+    min-width: 15%;
+    word-wrap: break-word;
+    margin: 0 25px 0 25px;
+    /* text-align: left; */
+  }
+
+  .defaultDesc {
+    margin-right: 4%;
+    margin-left: -50px;
+    font-size: 1.5rem;
+  }
+
+  .game-cover {
+    max-width: 550px;
+    margin-left: 15px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+
+  .store-fronts {
+    max-width: 994px;
+    margin-left: 25px;
+  }
+
+  .store-fronts img {
+    width: 50px;
+  }
+}
