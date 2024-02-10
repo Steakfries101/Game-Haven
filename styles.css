@@ -3,6 +3,12 @@ body {
     padding: 0;
     margin: 0;
 } */
+
+#search-bar {
+  border-radius: 5px;
+  border: #f43c04 solid 5px;
+}
+
 .part-2-display {
   display: block;
   margin-top: 20px;
@@ -30,12 +36,39 @@ body {
   display: none;
 }
 
-.read-more {
+.read-more,
+.read-less {
   display: block;
+  background-color: black;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #ffffff;
+  cursor: pointer;
+  height: 40px;
+  text-align: center;
+  margin: auto;
+  width: 40%;
+  z-index: 9;
+  border: 0;
+  transition: box-shadow 0.5s, font-size 0.5s, width 0.5s, height 0.5s;
 }
 
+.read-more:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  height: 45px;
+  width: 45%;
+  font-size: 1rem;
+}
+
+/* CSS */
+
+/* .read-less{
+  margin-top
+} */
+
 h2 {
-  color: black;
+  color: white;
   /* font-family: */
   font-family: "Bebas Neue", sans-serif;
   letter-spacing: 1.4px;
@@ -45,9 +78,11 @@ h2 {
 /*TOP BAR STYLINGS  */
 #top-bar {
   background-color: Orange;
+  text-align: center;
 }
 
 #logo {
+  text-align: center;
   width: 175px;
 }
 
@@ -63,7 +98,6 @@ li img {
 .store-fronts img {
   padding-right: 10px;
   width: 75px;
-
 }
 
 .store-fronts {
@@ -82,7 +116,7 @@ li img {
 .game-list {
   /* padding-right: 40px; */
   margin-left: -40px;
-  background-color: #F43C04;
+  background-color: #f43c04;
   /* padding-right: 60px; */
 }
 
@@ -91,9 +125,9 @@ li img {
   margin-bottom: 50px;
 
   border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-
 
 .game-data {
   padding-top: 20px;
@@ -116,6 +150,10 @@ li img {
 @media only screen and (min-width: 1000px) {
   #logo {
     width: 230px;
+    padding-left: 200px;
+  }
+  #top-bar {
+    text-align: left;
   }
 
   h2 {
@@ -127,26 +165,22 @@ li img {
     justify-content: space-between;
     padding-top: 20px;
     padding-bottom: 20px;
-    transition: border-left .5s ease, border-right .5s ease, box-shadow .5s;
+    transition: border-left 0.5s ease, border-right 0.5s ease, box-shadow 0.5s;
     background-color: orange;
     margin-bottom: 20px;
-
-
-
-
   }
 
   .game-data:hover {
-    border-left: solid #F43C04 15px;
-    border-right: solid #F43C04 15px;
+    border-left: solid #f43c04 15px;
+    border-right: solid #f43c04 15px;
 
     /* border-top: solid #F43C04 15px; */
     /* border-bottom: solid #F43C04 15px; */
     /* background-color: #F43C04; */
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
     /* Border-left when hovered */
-
   }
 
   .game-desc {
@@ -168,7 +202,8 @@ li img {
     max-width: 550px;
     margin-left: 15px;
     border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
 
   .store-fronts {
@@ -180,5 +215,8 @@ li img {
     width: 50px;
   }
 
-
+  .read-less,
+  .read-more {
+    margin: 0;
+  }
 }
