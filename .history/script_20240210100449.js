@@ -27,7 +27,9 @@ async function fetchGameData(gameName) {
 
 async function getGameDescription(gameId) {
   try {
-    const response = await fetch(`https://api.rawg.io/api/games/${gameId}?key=652dc6a240454ec7a98d610a0041a14e`);
+    const response = await fetch(
+      `https://api.rawg.io/api/games/${gameId}?key=652dc6a240454ec7a98d610a0041a14e`
+    );
     if (!response.ok) {
       throw new Error("Failed to fetch game desc data");
     }
@@ -41,7 +43,9 @@ async function getGameDescription(gameId) {
 //Get stores for each game based on game id
 async function getGameStores(gameId) {
   try {
-    const response = await fetch(`https://api.rawg.io/api/games/${gameId}/stores?key=652dc6a240454ec7a98d610a0041a14e`);
+    const response = await fetch(
+      `https://api.rawg.io/api/games/${gameId}/stores?key=652dc6a240454ec7a98d610a0041a14e`
+    );
 
     if (!response.ok) {
       throw new Error("Failed to fetch game stores data");
@@ -69,9 +73,13 @@ async function loopData(gameName) {
   gameData.forEach(async (game) => {
     console.log(game);
 
-    if (game.stores !== null) {
+    if (game.storess !== null) {
       const includesStore = game.stores.some(
-        (store) => store.store.id === 5 || store.store.id === 1 || store.store.id === 2 || store.store.id === 11
+        (store) =>
+          store.store.id === 5 ||
+          store.store.id === 1 ||
+          store.store.id === 2 ||
+          store.store.id === 11
       );
       if (!includesStore) {
         return;
