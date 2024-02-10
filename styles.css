@@ -1,5 +1,12 @@
 /* GLOBAL STYLINGS html*/
-
+h2 {
+  color: black;
+  text-align: center;
+  /* font-family: */
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1.4px;
+  font-size: 2rem;
+}
 #search-bar {
   border-radius: 5px;
   border: #f43c04 solid 5px;
@@ -7,7 +14,11 @@
   display: inline-block;
   margin: 0 auto;
 }
+.search-display {
+  color: white;
+}
 
+/*CSS responsible for keeping footer at bottom*/
 body,
 html {
   height: 100%;
@@ -23,16 +34,17 @@ body {
   min-height: 100%;
 }
 
-.site-body {
-  flex: 1;
-}
-
 #footer {
-  flex-shrink: 0; /* Prevent footer from shrinking */
+  flex-shrink: 0;
   background-color: red;
   width: 100%;
   margin-top: 0;
 }
+.site-body {
+  flex: 1;
+}
+
+/*Read more and Read less button stylings */
 .read-more,
 .read-less {
   display: block;
@@ -61,14 +73,6 @@ body {
 }
 
 /* CSS */
-h2 {
-  color: black;
-  text-align: center;
-  /* font-family: */
-  font-family: "Bebas Neue", sans-serif;
-  letter-spacing: 1.4px;
-  font-size: 2rem;
-}
 
 .store-fronts h4 {
   display: none;
@@ -84,6 +88,8 @@ li img {
   text-align: center;
 }
 
+/*Storefront CSS (Store logos and links)*/
+
 .store-fronts img {
   padding-right: 10px;
   width: 75px;
@@ -93,27 +99,13 @@ li img {
   text-align: center;
 }
 
-.search-display {
-  color: white;
-}
-
+/* Game infos related CSS */
 .game-list {
   margin-left: -40px;
   background-color: #f43c04;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   margin-bottom: 0;
 }
-
-.game-cover {
-  max-width: 65%;
-  margin-bottom: 50px;
-  margin-top: 50px;
-  border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-
 .game-data {
   display: flex;
   margin: auto;
@@ -132,7 +124,15 @@ li img {
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border-radius: 5px;
 }
-
+.game-cover {
+  max-width: 65%;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
 .game-desc {
   color: black;
   max-width: 75%;
@@ -194,12 +194,13 @@ li img {
     text-align: center;
   }
 
-  .store-fronts h4 {
+  /* .store-fronts h4 {
     font-size: 20px;
     font-family: "Poppins", sans-serif;
     text-align: center;
     font-weight: 100;
-  }
+    display:block;
+  } */
 
   .store-fronts img {
     width: 60px;
