@@ -61,11 +61,9 @@ async function getGameStores(gameId) {
 async function loopData(gameName) {
   const gameData = await fetchGameData(gameName);
   const gameList = document.querySelector(".game-list");
-
   const error = document.createElement("h2");
   error.className = "search-display";
   error.textContent = searchDisplay(gameData);
-
   gameList.appendChild(error);
   //Check if data returned from search query
 
@@ -102,38 +100,21 @@ async function loopData(gameName) {
       storeFronts.className = "store-fronts";
       gameInfo.appendChild(storeFronts);
 
-      const ass = document.createElement("h4");
-      ass.textContent = "Storefronts";
-      storeFronts.appendChild(ass);
+      const storeFrontTitle = document.createElement("h4");
+      storeFrontTitle.textContent = "Storefronts";
+      storeFronts.appendChild(storeFrontTitle);
 
       const gameDesc = document.createElement("div");
       gameDesc.className = "game-desc";
       gameInfo.appendChild(gameDesc);
-      // createTitle(gameDesc);
 
       const gameTitle = document.createElement("h2");
       gameTitle.textContent = game.name;
       gameDesc.appendChild(gameTitle);
 
-      // const gameTitleMobile = document.createElement("h3");
-      // gameTitleMobile.className = game - title - mobile;
-      // gameTitleMobile.textContent = game.name;
-      // gameList.appendChild(gameTitle);
-
       const text = await getGameDescription(game.id);
 
       textDecider(text, gameDesc);
-
-      //   // Add event listener for "Read Less" button
-      //   readLess.addEventListener("click", () => {
-      //     part2Para.textContent = "";
-      //     readMore.style.display = ""; // Show the "Read More" button
-      //     readLess.remove(); // Remove the "Read Less" button
-      //   });
-      // });
-      // } else if (text.length < num) {
-      //
-      // }
 
       //-----------------STOREFRONT LOGO CODE-----------------//
 

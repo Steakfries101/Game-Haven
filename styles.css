@@ -35,25 +35,35 @@ body {
   cursor: pointer;
   height: 40px;
   text-align: center;
-  margin: auto;
-  width: 40%;
+  margin: 35px auto;
+  width: 25%;
   z-index: 9;
   border: 0;
-  transition: box-shadow 0.5s, font-size 0.5s, width 0.5s, height 0.5s;
+  transition: box-shadow 0.2s, font-size 0.2s, width 0.2s, height 0.2s;
+}
+
+.read-more:hover,
+.read-less:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  height: 42px;
+  width: 26%;
+  font-size: 0.9rem;
 }
 
 /* CSS */
-
-/* .read-less{
-  margin-top
-} */
-
 h2 {
   color: black;
+  text-align: center;
   /* font-family: */
   font-family: "Bebas Neue", sans-serif;
   letter-spacing: 1.4px;
   font-size: 2rem;
+}
+
+.store-fronts h4 {
+  display: none;
 }
 
 /*TOP BAR STYLINGS  */
@@ -63,11 +73,6 @@ h2 {
 }
 
 li img {
-  text-align: center;
-}
-
-.store-fronts h2 {
-  margin-bottom: 45px;
   text-align: center;
 }
 
@@ -84,15 +89,12 @@ li img {
   color: white;
 }
 
-/* 
-.game-list {
-    margin: 0
-} */
-
 .game-list {
   /* padding-right: 40px; */
   margin-left: -40px;
   background-color: #f43c04;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
   /* padding-right: 60px; */
 }
 
@@ -107,17 +109,26 @@ li img {
 }
 
 .game-data {
-  padding-top: 20px;
+  /* padding-top: 20px; */
   display: flex;
+  /* width: 90%; */
+  margin: auto;
+  width: 86%;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   background-color: orange;
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
   transition: border-left 200ms ease, border-right 200ms ease, box-shadow 200ms;
   background-color: orange;
   filter: brightness(85%);
   transition: filter 200ms linear;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius: 5px;
+
   /* width: 75%; */
 }
 
@@ -125,7 +136,7 @@ li img {
   color: black;
   max-width: 75%;
   font-family: "Poppins", sans-serif;
-  font-size: 19px;
+  font-size: 0.85rem;
 }
 
 /* LARGESCREEN MEDIA QUERIES*/
@@ -141,28 +152,18 @@ li img {
 
   h2 {
     font-size: 1.7rem;
-    /* filter: brightness(15%); */
+    text-align: left;
   }
 
   .game-data {
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 20px;
-    /* padding-top: 20px; */
+    /* width: auto; */
   }
 
   .game-data:hover {
-    /* border-left: solid #f43c04 7px;
-    border-right: solid #f43c04 7px; */
-    /* border-bottom: solid orangered 7px; */
     filter: brightness(100%);
-
-    /* border-top: solid #F43C04 15px; */
-    /* border-bottom: solid #F43C04 15px; */
-    /* background-color: #F43C04; */
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-
-    /* Border-left when hovered */
   }
 
   .game-desc {
@@ -181,7 +182,7 @@ li img {
   }
 
   .game-cover {
-    max-width: 550px;
+    max-width: 30%;
     margin-left: 15px;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
@@ -210,17 +211,8 @@ li img {
 
   .read-less,
   .read-more {
-    margin: 0;
-  }
-
-  .read-more:hover,
-  .read-less:hover {
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    height: 42px;
-    width: 42%;
-    font-size: 1rem;
+    margin-left: 0;
+    margin-top: 40px;
   }
 
   .store-fronts img:hover {
