@@ -1,4 +1,13 @@
 /* GLOBAL STYLINGS html*/
+#logo {
+  width: 25%;
+  /* padding-left: 200px; */
+}
+
+#top-bar {
+  text-align: left;
+}
+
 h2 {
   color: black;
   text-align: center;
@@ -36,7 +45,8 @@ body {
 
 #footer {
   flex-shrink: 0;
-  background-color: red;
+  background-color: Orange;
+  height: 100px;
   width: 100%;
   margin-top: 0;
 }
@@ -143,13 +153,13 @@ li img {
 /* LARGESCREEN MEDIA QUERIES*/
 @media only screen and (min-width: 1000px) {
   #logo {
-    width: 230px;
-    padding-left: 200px;
+    width: 20%;
+    /* padding-left: 200px; */
   }
-
+  /* 
   #top-bar {
     text-align: left;
-  }
+  } */
 
   h2 {
     font-size: 1.7rem;
