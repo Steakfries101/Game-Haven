@@ -115,7 +115,7 @@ async function loopData(gameName) {
       const text = await getGameDescription(game.id);
 
       textDecider(text, gameDesc);
-
+      adjustPadding(gameList);
       //-----------------STOREFRONT LOGO CODE-----------------//
 
       const stores = await getGameStores(game.id);
@@ -258,5 +258,12 @@ function textDecider(text, gameDesc) {
     defaultDesc.className = "defaultDesc";
     defaultDesc.textContent = "No game description found";
     gameInfo.appendChild(defaultDesc);
+  }
+}
+function adjustPadding(gameList) {
+  if (gameList.children.length > 0) {
+    gameList.style.paddingBottom = "200px";
+  } else {
+    gameList.style.padding = "0";
   }
 }
