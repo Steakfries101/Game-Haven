@@ -16,15 +16,33 @@ h2 {
   letter-spacing: 1.4px;
   font-size: 2rem;
 }
+
 #search-bar {
-  border-radius: 5px;
-  border: #f43c04 solid 5px;
-  width: 75%;
-  display: inline-block;
-  margin: 0 auto;
+  width: 100%;
+  padding: 10px;
+  box-shadow: rgba(255, 0, 0, 0.4) 5px 5px, rgba(255, 0, 0, 0.3) 10px 10px,
+    rgba(255, 0, 0, 0.2) 15px 15px, rgba(255, 0, 0, 0.1) 20px 20px,
+    rgba(255, 0, 0, 0.05) 25px 25px;
+  border-radius: 10px;
+  font-size: 25px;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+#search-bar:hover {
+  padding: 20px;
 }
 .search-display {
   color: white;
+}
+.input-container {
+  width: 75%;
+  margin: auto;
+}
+.button-container {
+  width: 75%;
+  margin: auto;
+  margin-top: 30px;
+  text-align: center;
 }
 
 /*CSS responsible for keeping footer at bottom*/
