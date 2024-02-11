@@ -38,7 +38,7 @@ async function getGameDescription(gameId) {
       throw new Error("Failed to fetch game desc data");
     }
     const data = await response.json();
-    return data.description_raw;
+    return data.description;
   } catch (error) {
     console.error("Error fetching game descriptions ERROR: ", error);
   }
@@ -232,7 +232,7 @@ function textDecider(text, gameDesc) {
     const part2 = text.slice(num);
 
     const part1Para = document.createElement("p");
-    part1Para.textContent = part1;
+    part1Para.innerHTML = part1;
     gameDesc.appendChild(part1Para);
 
     const part2Para = document.createElement("p");
