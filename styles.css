@@ -26,6 +26,10 @@ h1 {
   font-size: 3rem;
 }
 
+.search-container {
+  padding-bottom: 100px;
+}
+
 #search-bar {
   width: 100%;
   padding: 10px;
@@ -35,9 +39,27 @@ h1 {
   font-family: "Bebas Neue", sans-serif;
 }
 
-#search-bar:hover {
-  padding: 20px;
+#search-submit {
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 12px 50px;
+  border: 0;
+  color: #fff;
+  background: #f43c04;
+  line-height: 1.15;
+  font-size: 16px;
+  font-family: "poppins", sans-serif;
 }
+
+#search-submit:hover {
+  transition: all 0.1s ease;
+  box-shadow: 0 0 0 0 #fff, 0 0 0 3px orange;
+}
+
+/* #search-submit:hover {
+} */
 .search-display {
   color: white;
 }
