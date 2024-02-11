@@ -7,6 +7,10 @@ let searchButt = document.querySelector(".search-button");
 searchButt.addEventListener("click", search);
 let gameList = document.querySelector(".game-list");
 
+//Stops the form from submitting
+document.getElementById("noRefreshForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+});
 //Get the game data
 async function fetchGameData(gameName) {
   try {
@@ -93,6 +97,7 @@ async function loopData(gameName) {
 
       const gameCover = document.createElement("img");
       gameCover.src = game.background_image;
+      gameCover.alt = `Game image of ${game.name}`;
       gameCover.className = "game-cover";
       gameInfo.appendChild(gameCover);
 
@@ -141,6 +146,7 @@ function createSteam(store, storeFronts) {
   const storeLink = document.createElement("a");
   const image = document.createElement("img");
   image.src = "assets/Steam_icon_logo.svg.png";
+  image.alt = "Steam Logo";
   storeLink.appendChild(image);
   storeLink.href = store.url;
   storeFronts.appendChild(storeLink);
@@ -154,6 +160,7 @@ function createGOG(store, storeFronts) {
   const storeLink = document.createElement("a");
   const image = document.createElement("img");
   image.src = "assets/gog_icon_135545.png";
+  image.alt = "GOG Logo";
   storeLink.appendChild(image);
   storeLink.href = store.url;
   storeFronts.appendChild(storeLink);
@@ -172,6 +179,7 @@ function createEpicGames(store, storeFronts) {
   const storeLink = document.createElement("a");
   const image = document.createElement("img");
   image.src = "assets/Epic_Games_logo.svg.png";
+  image.alt = "Epic Games Logo";
   storeLink.appendChild(image);
   storeLink.href = store.url;
   storeFronts.appendChild(storeLink);
@@ -181,6 +189,7 @@ function createXboxStore(store, storeFronts) {
   const storeLink = document.createElement("a");
   const image = document.createElement("img");
   image.src = "assets/xbox.png";
+  image.alt = "Xbox Logo";
   storeLink.append(image);
   storeLink.href = store.url;
   storeFronts.appendChild(storeLink);
