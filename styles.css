@@ -29,9 +29,7 @@ h1 {
 #search-bar {
   width: 100%;
   padding: 10px;
-  box-shadow: rgba(255, 0, 0, 0.4) 5px 5px, rgba(255, 0, 0, 0.3) 10px 10px,
-    rgba(255, 0, 0, 0.2) 15px 15px, rgba(255, 0, 0, 0.1) 20px 20px,
-    rgba(255, 0, 0, 0.05) 25px 25px;
+
   border-radius: 10px;
   font-size: 25px;
   font-family: "Bebas Neue", sans-serif;
@@ -78,6 +76,9 @@ body {
   margin-top: 0;
   display: flex;
   justify-content: end;
+  box-shadow: rgba(255, 165, 0, 0.4) 0px -5px, rgba(255, 165, 0, 0.3) 0px -10px,
+    rgba(255, 165, 0, 0.2) 0px -15px, rgba(255, 165, 0, 0.1) 0px -20px,
+    rgba(255, 165, 0, 0.05) 0px -25px;
 }
 
 #footer h4 {
@@ -141,9 +142,9 @@ body {
 #top-bar {
   background-color: Orange;
   text-align: center;
-  box-shadow: rgba(255, 0, 0, 0.4) 5px 5px, rgba(255, 0, 0, 0.3) 10px 10px,
-    rgba(255, 0, 0, 0.2) 15px 15px, rgba(255, 0, 0, 0.1) 20px 20px,
-    rgba(255, 0, 0, 0.05) 25px 25px;
+  box-shadow: rgba(255, 165, 0, 0.4) 0px 5px, rgba(255, 165, 0, 0.3) 0px 10px,
+    rgba(255, 165, 0, 0.2) 0px 15px, rgba(255, 165, 0, 0.1) 0px 20px,
+    rgba(255, 165, 0, 0.05) 0px 25px;
 }
 
 li img {
