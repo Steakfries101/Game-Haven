@@ -60,10 +60,11 @@ h1 {
   font-size: 18px;
 }
 
-/* #search-submit:hover {
-} */
 .search-display {
   color: white;
+  text-align: center;
+  padding: 45px;
+  font-size: 3rem;
 }
 .input-container {
   width: 75%;
@@ -257,7 +258,7 @@ li img {
     font-size: 1rem;
     min-width: 15%;
     word-wrap: break-word;
-    margin: 0 25px 0 25px;
+    margin-right: 25px;
   }
 
   .defaultDesc {
