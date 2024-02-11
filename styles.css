@@ -12,6 +12,7 @@ p {
   font-family: "Poppins", sans-serif;
 }
 
+
 h2 {
   color: black;
   text-align: center;
@@ -66,16 +67,19 @@ h1 {
   padding: 45px;
   font-size: 3rem;
 }
+
 .input-container {
   width: 75%;
   margin: auto;
 }
+
 .button-container {
   width: 75%;
   margin: auto;
   margin-top: 30px;
   text-align: center;
 }
+
 
 #search-icon {
   margin-right: 20px;
@@ -86,12 +90,14 @@ h1 {
   size: 23px;
   color: red;
 }
+
 /*CSS responsible for keeping footer at bottom*/
 body,
 html {
   height: 100%;
   margin: 0;
 }
+
 body {
   background-color: black;
 }
@@ -109,7 +115,7 @@ body {
   height: 100px;
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   box-shadow: rgba(255, 165, 0, 0.4) 0px -5px, rgba(255, 165, 0, 0.3) 0px -10px,
     rgba(255, 165, 0, 0.2) 0px -15px, rgba(255, 165, 0, 0.1) 0px -20px,
     rgba(255, 165, 0, 0.05) 0px -25px;
@@ -117,11 +123,17 @@ body {
 
 #footer h3 {
   /* align-self: flex-end; */
-  align-self: flex-end;
+  /* align-self: flex-end; */
   margin-right: 20px;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-family: "poppins", sans-serif;
 }
+
+#copyright {
+  /* width: 50%; */
+  padding-left: 50px;
+}
+
 .site-body {
   flex: 1;
 }
@@ -201,6 +213,7 @@ li img {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   margin-bottom: 0;
 }
+
 .game-data {
   display: flex;
   margin: auto;
@@ -219,6 +232,7 @@ li img {
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border-radius: 5px;
 }
+
 .game-cover {
   max-width: 65%;
   margin-bottom: 50px;
@@ -228,6 +242,7 @@ li img {
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
 .game-desc {
   color: black;
   max-width: 75%;
@@ -245,6 +260,7 @@ li img {
   #top-bar {
     text-align: left;
   }
+
   h2 {
     font-size: 1.7rem;
     text-align: left;
