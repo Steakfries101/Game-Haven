@@ -79,6 +79,7 @@ h1 {
 
 #search-icon {
   margin-right: 20px;
+  transition: color 0.1s linear;
 }
 
 #search-submit:hover #search-icon {
@@ -104,9 +105,9 @@ body {
 #footer {
   flex-shrink: 0;
   background-color: Orange;
+  padding-bottom: 20px;
   height: 100px;
   width: 100%;
-  margin-top: 0;
   display: flex;
   justify-content: end;
   box-shadow: rgba(255, 165, 0, 0.4) 0px -5px, rgba(255, 165, 0, 0.3) 0px -10px,
@@ -114,19 +115,17 @@ body {
     rgba(255, 165, 0, 0.05) 0px -25px;
 }
 
-#footer h4 {
+#footer h3 {
+  /* align-self: flex-end; */
   align-self: flex-end;
   margin-right: 20px;
   font-size: 1.3rem;
+  font-family: "poppins", sans-serif;
 }
 .site-body {
   flex: 1;
 }
 
-.test {
-  width: 50%;
-  display: inline-block;
-}
 /*Read more and Read less button stylings */
 .read-more,
 .read-less {
