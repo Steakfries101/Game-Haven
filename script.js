@@ -125,16 +125,19 @@ async function loopData(gameName) {
 
       const stores = await getGameStores(game.id);
       stores.forEach((store) => {
-        if (store.store_id === 1) {
-          createSteam(store, storeFronts);
-        } else if (store.store_id === 5) {
-          createGOG(store, storeFronts);
-          // } else if (store.store_id === 9) {
-          //   createItch(store, storeFronts);
-        } else if (store.store_id === 11) {
-          createEpicGames(store, storeFronts);
-        } else if (store.store_id === 2) {
-          createXboxStore(store, storeFronts);
+        switch (store.store_id) {
+          case 1:
+            createSteam(store, storeFronts);
+            break;
+          case 5:
+            createGOG(store, storeFronts);
+            break;
+          case 11:
+            createEpicGames(store, storeFronts);
+            break;
+          case 2:
+            createXboxStore(store, storeFronts);
+            break;
         }
       });
     }

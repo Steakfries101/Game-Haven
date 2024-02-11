@@ -224,7 +224,7 @@ li img {
   background-color: orange;
   transition: border-left 200ms ease, border-right 200ms ease, box-shadow 200ms;
   background-color: orange;
-  filter: brightness(85%);
+  filter: brightness(100%);
   transition: filter 200ms linear;
   margin-bottom: 20px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
@@ -269,6 +269,8 @@ li img {
   .game-data {
     flex-direction: row;
     justify-content: space-between;
+    filter: brightness(85%);
+
   }
 
   .game-data:hover {
@@ -278,6 +280,7 @@ li img {
 
   .game-desc {
     max-width: 45%;
+    padding-right: 75px;
     font-size: 1rem;
     min-width: 15%;
     word-wrap: break-word;
