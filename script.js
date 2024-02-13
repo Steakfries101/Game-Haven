@@ -11,6 +11,7 @@ let gameList = document.querySelector(".game-list");
 document.getElementById("noRefreshForm").addEventListener("submit", (e) => {
   e.preventDefault();
 });
+
 //Get the game data
 async function fetchGameData(gameName) {
   try {
@@ -28,7 +29,7 @@ async function fetchGameData(gameName) {
     console.error("Error fetching game data", error);
   }
 }
-
+//Get the game descriptions
 async function getGameDescription(gameId) {
   try {
     const response = await fetch(
@@ -105,10 +106,6 @@ async function loopData(gameName) {
       storeFronts.className = "store-fronts";
       gameInfo.appendChild(storeFronts);
 
-      const storeFrontTitle = document.createElement("h4");
-      storeFrontTitle.textContent = "Storefronts";
-      storeFronts.appendChild(storeFrontTitle);
-
       const gameDesc = document.createElement("div");
       gameDesc.className = "game-desc";
       gameInfo.appendChild(gameDesc);
@@ -155,10 +152,6 @@ function createSteam(store, storeFronts) {
   storeFronts.appendChild(storeLink);
 }
 
-function createStoreLabel(game) {
-  console.log(game.id);
-}
-
 function createGOG(store, storeFronts) {
   const storeLink = document.createElement("a");
   const image = document.createElement("img");
@@ -198,15 +191,13 @@ function createXboxStore(store, storeFronts) {
   storeFronts.appendChild(storeLink);
 }
 
+function createStoreLabel(game) {
+  console.log(game.id);
+}
+
 function getSearchValue() {
   const value = document.querySelector(".search-bar").value;
   return value;
-}
-
-function createTitle(parent) {
-  const title = document.createElement("h3");
-  title.textContent = "Description";
-  parent.appendChild(title);
 }
 
 function search() {
@@ -266,12 +257,13 @@ function textDecider(text, gameDesc) {
     part1Para.textContent = text;
     gameDesc.appendChild(part1Para);
   } else {
-    const defaultDesc = document.createElement("h3");
+    const defaultDesc = document.createElement("p");
     defaultDesc.className = "defaultDesc";
     defaultDesc.textContent = "No game description found";
     gameInfo.appendChild(defaultDesc);
   }
 }
+
 function adjustPadding(gameList) {
   if (gameList.children.length > 0) {
     gameList.style.paddingBottom = "200px";
