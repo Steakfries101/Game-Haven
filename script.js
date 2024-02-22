@@ -102,21 +102,22 @@ async function loopData(gameName) {
       gameCover.className = "game-cover";
       gameInfo.appendChild(gameCover);
 
-      const storeFronts = document.createElement("div");
-      storeFronts.className = "store-fronts";
-      gameInfo.appendChild(storeFronts);
+    
 
       const gameDesc = document.createElement("div");
       gameDesc.className = "game-desc";
       gameInfo.appendChild(gameDesc);
 
+      const storeFronts = document.createElement("div");
+      storeFronts.className = "store-fronts";
+      
       const gameTitle = document.createElement("h2");
       gameTitle.textContent = game.name;
       gameDesc.appendChild(gameTitle);
 
       const text = await getGameDescription(game.id);
 
-      textDecider(text, gameDesc);
+      textDecider(text, gameDesc,storeFronts);
       adjustPadding(gameList);
       //-----------------STOREFRONT LOGO CODE-----------------//
 
@@ -218,7 +219,7 @@ function searchDisplay(data) {
   }
 }
 
-function textDecider(text, gameDesc) {
+function textDecider(text, gameDesc,storeFronts) {
   const num = 250;
 
   if (text.length > num) {
@@ -234,10 +235,18 @@ function textDecider(text, gameDesc) {
     part2Para.style.display = "none";
     gameDesc.appendChild(part2Para);
 
+    const testDiv = document.createElement("div")
+    testDiv.className = "ass"
+    part1Para.appendChild(testDiv)
+
+
+    testDiv.appendChild(storeFronts);
+
+
     const readMore = document.createElement("button");
     readMore.className = "read-more";
     readMore.textContent = "Read More";
-    part1Para.appendChild(readMore);
+    testDiv.appendChild(readMore);
 
     const readLess = document.createElement("button");
     readLess.className = "read-less";
