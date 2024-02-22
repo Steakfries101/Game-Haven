@@ -248,7 +248,7 @@ li img {
 .game-desc {
   color: black;
   max-width: 75%;
-  font-size: 0.85rem;
+  font-size: 1.2rem;
 }
 
 /* LARGESCREEN MEDIA QUERIES*/
@@ -287,6 +287,8 @@ li img {
     min-width: 15%;
     word-wrap: break-word;
     margin: 0 0 25px;
+    display: flex;
+    flex-direction: column;
   }
 
   .defaultDesc {
@@ -307,6 +309,7 @@ li img {
   .store-fronts {
     margin-left: 25px;
     text-align: center;
+    margin-top: -105px;
   }
 
   .store-fronts img {
