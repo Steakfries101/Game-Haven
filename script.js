@@ -1,3 +1,6 @@
+//YOUTUBE API 
+const youtubeKey = "AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI"
+
 //RAWG API
 const baseUrl = "https://api.rawg.io/api/games/";
 const apiKey = "?key=652dc6a240454ec7a98d610a0041a14e";
@@ -12,6 +15,18 @@ let gameList = document.querySelector(".game-list");
 document.getElementById("noRefreshForm").addEventListener("submit", (e) => {
   e.preventDefault();
 });
+
+
+async function fetchYoutube(gameName){
+  
+    const response = await fetch(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${gameName} game trailer&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+    )
+    const youtubeData = await response.json();
+    const trailers = youtubeData.items;
+    // console.log(trailers)
+    return trailers;
+  }
 
 //Get the game data
 async function fetchGameData(gameName) {
