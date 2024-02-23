@@ -264,6 +264,8 @@ function textDecider(text, gameDesc,storeFronts) {
     readLess.addEventListener("click", () => {
       part2Para.style.display = "none";
       part1Para.style.display = "block";
+      readMore.style.display = "block"
+      readLess.style.display = "none"
     });
   } else if (text.length < num) {
     const part1Para = document.createElement("p");
