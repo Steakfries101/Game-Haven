@@ -88,6 +88,7 @@ async function loopData(gameName) {
   const gameData = await fetchGameData(gameName);
   const gameList = document.querySelector(".game-list");
   const error = document.createElement("h2");
+  
   error.className = "search-display";
   error.textContent = searchDisplay(gameData);
   gameList.appendChild(error);
@@ -109,6 +110,8 @@ async function loopData(gameName) {
         return;
       }
 
+
+      
       const gameItem = document.createElement("li");
       gameItem.className = "game-item";
       gameList.appendChild(gameItem);
@@ -136,6 +139,17 @@ async function loopData(gameName) {
       const gameTitle = document.createElement("h2");
       gameTitle.textContent = game.name;
       gameDesc.appendChild(gameTitle);
+
+
+//////////////////////////////////////////*****************************WORK ON THIS */
+      
+      const youtubeData = await fetchYoutube(game.slug)
+      youtubeData.forEach(async(trailer)=>{
+        const trailerUrl = `youtube.ca/watch=${trailer.id}`
+        gameDesc.appendChild(trailerUrl)
+        //TO DO 
+        // FINISH TRAILERURL AND USE IT TO CREATE URL 
+      })
 
       const text = await getGameDescription(game.id);
 
