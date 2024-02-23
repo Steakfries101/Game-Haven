@@ -224,6 +224,9 @@ function searchDisplay(data) {
 function textDecider(text, gameDesc,storeFronts) {
   const num = 250;
 
+  const descriptionContainer = document.createElement("div")
+  descriptionContainer.className = "description-container"
+  
   if (text.length > num) {
     const part1 = text.slice(0, num);
     const part2 = text.slice(num);
@@ -237,8 +240,6 @@ function textDecider(text, gameDesc,storeFronts) {
     part2Para.style.display = "none";
     gameDesc.appendChild(part2Para);
 
-    const descriptionContainer = document.createElement("div")
-    descriptionContainer.className = "description-container"
     
     
     descriptionContainer.appendChild(part1Para)
