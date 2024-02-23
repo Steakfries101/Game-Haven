@@ -212,7 +212,9 @@ li img {
 /* Game infos related CSS */
 .game-list {
   margin-left: -40px;
-  background-color: #f43c04;
+  background-color: #002366;
+  /* background-color: #f43c04; */
+
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   margin-bottom: 0;
 }
