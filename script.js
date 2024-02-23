@@ -65,9 +65,7 @@ async function loopData(gameName) {
       if (!includesStore) {
         return;
       }
-
-
-      
+      //Dom building logic
       const gameItem = document.createElement("li");
       gameItem.className = "game-item";
       gameList.appendChild(gameItem);
@@ -82,7 +80,6 @@ async function loopData(gameName) {
       gameCover.className = "game-cover";
       gameInfo.appendChild(gameCover);
 
-    
 
       const gameDesc = document.createElement("div");
       gameDesc.className = "game-desc";
@@ -90,7 +87,6 @@ async function loopData(gameName) {
 
       const storeFronts = document.createElement("div");
       storeFronts.className = "store-fronts";
-      
       
       const gameTitle = document.createElement("h2");
       gameTitle.textContent = game.name;
@@ -109,9 +105,8 @@ async function loopData(gameName) {
 
       textDecider(text, gameDesc,storeFronts);
       adjustPadding(gameList);
-      console.log(gameList)
-      //-----------------STOREFRONT LOGO CODE-----------------//
-
+      
+      //Determines which storefront logos to include//
       const stores = await api.getGameStores(game.id);
       stores.forEach((store) => {
         switch (store.store_id) {
@@ -131,14 +126,16 @@ async function loopData(gameName) {
       });
     }
   });
+  console.log(gameList)
 }
 
 
+//Gets the search term 
 function getSearchValue() {
   const value = document.querySelector(".search-bar").value;
   return value;
 }
-
+//search logic
 function search() {
   gameList.innerHTML = "";
   if (!getSearchValue()) {
@@ -148,7 +145,7 @@ function search() {
     loopData(getSearchValue());
   }
 }
-
+//Displays the search query (game Name ) in dom
 function searchDisplay(data) {
   if (data == "") {
     return `No game by the name of ${getSearchValue()}`;
@@ -161,10 +158,9 @@ document.getElementById("noRefreshForm").addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
-//**********************************************************THIS PUTS STOREFRONT ICONS INBETWEEN TITLE AND TEXT */
-
+//Function to add padding to end of game list
 function adjustPadding(gameList) {
-  if (gameList.children.length > 0) {
+  if (gameList.children.length > 1) {
     gameList.style.paddingBottom = "200px";
   } else {
     gameList.style.padding = "0";
