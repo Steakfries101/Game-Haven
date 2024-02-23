@@ -251,9 +251,9 @@ li img {
   max-width: 75%;
   font-size: 1.2rem;
 }
-.ass{
+.description-container{
   display:flex;
-  /* flex-direction: column !important; */
+  flex-direction: column-reverse !important;
 }
 /* LARGESCREEN MEDIA QUERIES*/
 @media only screen and (min-width: 1000px) {

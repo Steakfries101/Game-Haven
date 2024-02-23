@@ -220,52 +220,49 @@ function searchDisplay(data) {
   }
 }
 
+//**********************************************************THIS PUTS STOREFRONT ICONS INBETWEEN TITLE AND TEXT */
 function textDecider(text, gameDesc,storeFronts) {
   const num = 250;
 
   if (text.length > num) {
     const part1 = text.slice(0, num);
     const part2 = text.slice(num);
-    
-        const testDiv = document.createElement("div")
-        testDiv.className = "ass"
-        
 
     const part1Para = document.createElement("p");
     part1Para.innerHTML = part1;
-    testDiv.appendChild(part1Para);
+    gameDesc.appendChild(part1Para);
 
     const part2Para = document.createElement("p");
     part2Para.innerHTML = `<p>${part1}${part2}</p>`;
     part2Para.style.display = "none";
-    testDiv.appendChild(part2Para);
-    
-    testDiv.appendChild(storeFronts)
+    gameDesc.appendChild(part2Para);
 
+    const descriptionContainer = document.createElement("div")
+    descriptionContainer.className = "description-container"
+    
+    
+    descriptionContainer.appendChild(part1Para)
+    descriptionContainer.appendChild(storeFronts);
+    descriptionContainer.appendChild(part2Para)
+    
+    gameDesc.appendChild(descriptionContainer)
     const readMore = document.createElement("button");
     readMore.className = "read-more";
     readMore.textContent = "Read More";
-    testDiv.appendChild(readMore);
+    part1Para.appendChild(readMore);
 
     const readLess = document.createElement("button");
     readLess.className = "read-less";
     readLess.textContent = "Read Less";
-    readLess.style.display = "none"
-    testDiv.appendChild(readLess)
-
-    gameDesc.appendChild(testDiv)
+    part2Para.appendChild(readLess);
 
     readMore.addEventListener("click", () => {
       part2Para.style.display = "block";
-      readLess.style.display= "block"
       part1Para.style.display = "none";
-      readMore.style.display = "none";
     });
     readLess.addEventListener("click", () => {
       part2Para.style.display = "none";
       part1Para.style.display = "block";
-      readMore.style.display = "block"
-      readLess.style.display = "none"
     });
   } else if (text.length < num) {
     const part1Para = document.createElement("p");
@@ -278,62 +275,6 @@ function textDecider(text, gameDesc,storeFronts) {
     gameInfo.appendChild(defaultDesc);
   }
 }
-
-//**********************************************************THIS PUTS STOREFRONT ICONS INBETWEEN TITLE AND TEXT */
-// function textDecider(text, gameDesc,storeFronts) {
-//   const num = 250;
-
-//   if (text.length > num) {
-//     const part1 = text.slice(0, num);
-//     const part2 = text.slice(num);
-
-//     const part1Para = document.createElement("p");
-//     part1Para.innerHTML = part1;
-//     gameDesc.appendChild(part1Para);
-
-//     const part2Para = document.createElement("p");
-//     part2Para.innerHTML = `<p>${part1}${part2}</p>`;
-//     part2Para.style.display = "none";
-//     gameDesc.appendChild(part2Para);
-
-//     const testDiv = document.createElement("div")
-//     testDiv.className = "ass"
-    
-    
-//     testDiv.appendChild(part1Para)
-//     testDiv.appendChild(storeFronts);
-//     testDiv.appendChild(part2Para)
-    
-//     gameDesc.appendChild(testDiv)
-//     const readMore = document.createElement("button");
-//     readMore.className = "read-more";
-//     readMore.textContent = "Read More";
-//     part1Para.appendChild(readMore);
-
-//     const readLess = document.createElement("button");
-//     readLess.className = "read-less";
-//     readLess.textContent = "Read Less";
-//     part2Para.appendChild(readLess);
-
-//     readMore.addEventListener("click", () => {
-//       part2Para.style.display = "block";
-//       part1Para.style.display = "none";
-//     });
-//     readLess.addEventListener("click", () => {
-//       part2Para.style.display = "none";
-//       part1Para.style.display = "block";
-//     });
-//   } else if (text.length < num) {
-//     const part1Para = document.createElement("p");
-//     part1Para.textContent = text;
-//     gameDesc.appendChild(part1Para);
-//   } else {
-//     const defaultDesc = document.createElement("p");
-//     defaultDesc.className = "defaultDesc";
-//     defaultDesc.textContent = "No game description found";
-//     gameInfo.appendChild(defaultDesc);
-//   }
-// }
 function adjustPadding(gameList) {
   if (gameList.children.length > 0) {
     gameList.style.paddingBottom = "200px";
