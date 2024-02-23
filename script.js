@@ -1,3 +1,6 @@
+import * as iconGenerator from "/components/storeIconGenerator.js"
+import { textDecider } from "/components/gameTextButtonCreator.js";
+
 //YOUTUBE API 
 const youtubeKey = "AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI"
 
@@ -5,33 +8,29 @@ const youtubeKey = "AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI"
 const baseUrl = "https://api.rawg.io/api/games/";
 const apiKey = "?key=652dc6a240454ec7a98d610a0041a14e";
 
-//IGDB API
 
 let searchButt = document.querySelector(".search-button");
 searchButt.addEventListener("click", search);
 let gameList = document.querySelector(".game-list");
 
 //Stops the form from submitting
-document.getElementById("noRefreshForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-});
 
 
-async function fetchYoutube(gameName){
-  try{
-    const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${gameName} game trailer&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
-    );if (!response.ok){
-      throw new Error("Failed to fetch youtube data")
-    }
-    const youtubeData = await response.json();
-    const videos= youtubeData.items;
-    return videos;
-  }catch (error){
-    console.error("Error fetching youtube data")
-  }
+// async function fetchYoutube(gameName){
+//   try{
+//     const response = await fetch(
+//       `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${gameName} game trailer&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+//     );if (!response.ok){
+//       throw new Error("Failed to fetch youtube data")
+//     }
+//     const youtubeData = await response.json();
+//     const videos= youtubeData.items;
+//     return videos;
+//   }catch (error){
+//     console.error("Error fetching youtube data")
+//   }
   
-  }
+//   }
 
 //Get the game data
 async function fetchGameData(gameName) {
@@ -86,6 +85,9 @@ async function getGameStores(gameId) {
 //Beginning of loop that loops through returned data games and builds javascript
 async function loopData(gameName) {
   const gameData = await fetchGameData(gameName);
+// const youtubeData = await fetchYoutube(game.slug)
+
+
   const gameList = document.querySelector(".game-list");
   const error = document.createElement("h2");
   
@@ -97,6 +99,8 @@ async function loopData(gameName) {
   //If data is there this checks each games storefronts to confirm it has one of the following as a store (5,1,2,11)
   gameData.forEach(async (game) => {
     console.log(game);
+  const text = await getGameDescription(game.id);
+
 
     if (game.stores !== null) {
       const includesStore = game.stores.some(
@@ -143,15 +147,13 @@ async function loopData(gameName) {
 
 //////////////////////////////////////////*****************************WORK ON THIS */
       
-      const youtubeData = await fetchYoutube(game.slug)
-      youtubeData.forEach(async(trailer)=>{
-        const trailerUrl = `youtube.ca/watch=${trailer.id}`
-        gameDesc.appendChild(trailerUrl)
-        //TO DO 
-        // FINISH TRAILERURL AND USE IT TO CREATE URL 
-      })
+      // youtubeData.forEach(async(trailer)=>{
+      //   const trailerUrl = `youtube.ca/watch=${trailer.id}`
+      //   gameDesc.appendChild(trailerUrl)
+      //   //TO DO 
+      //   // FINISH TRAILERURL AND USE IT TO CREATE URL 
+      // })
 
-      const text = await getGameDescription(game.id);
 
       textDecider(text, gameDesc,storeFronts);
       adjustPadding(gameList);
@@ -161,16 +163,16 @@ async function loopData(gameName) {
       stores.forEach((store) => {
         switch (store.store_id) {
           case 1:
-            createSteam(store, storeFronts);
+            iconGenerator.createSteam(store, storeFronts);
             break;
           case 5:
-            createGOG(store, storeFronts);
+            iconGenerator.createGOG(store, storeFronts);
             break;
           case 11:
-            createEpicGames(store, storeFronts);
+            iconGenerator.createEpicGames(store, storeFronts);
             break;
           case 2:
-            createXboxStore(store, storeFronts);
+            iconGenerator.createXboxStore(store, storeFronts);
             break;
         }
       });
@@ -178,59 +180,6 @@ async function loopData(gameName) {
   });
 }
 
-//-----------------STORE FRONT LINKS + LOGO GENERATOR FUNCTIONS-----------------//
-function createSteam(store, storeFronts) {
-  const storeLink = document.createElement("a");
-  const image = document.createElement("img");
-  image.src = "assets/Steam_icon_logo.svg.png";
-  image.alt = "Steam Logo";
-  storeLink.appendChild(image);
-  storeLink.href = store.url;
-  storeFronts.appendChild(storeLink);
-}
-
-function createGOG(store, storeFronts) {
-  const storeLink = document.createElement("a");
-  const image = document.createElement("img");
-  image.src = "assets/gog_icon_135545.png";
-  image.alt = "GOG Logo";
-  storeLink.appendChild(image);
-  storeLink.href = store.url;
-  storeFronts.appendChild(storeLink);
-}
-
-function createItch(store, storeFronts) {
-  const storeLink = document.createElement("a");
-  const image = document.createElement("img");
-  image.src = "assets/itch-io-icon-512x512-wwio9bi8.png";
-  storeLink.appendChild(image);
-  storeLink.href = store.url;
-  storeFronts.appendChild(storeLink);
-}
-
-function createEpicGames(store, storeFronts) {
-  const storeLink = document.createElement("a");
-  const image = document.createElement("img");
-  image.src = "assets/Epic_Games_logo.svg.png";
-  image.alt = "Epic Games Logo";
-  storeLink.appendChild(image);
-  storeLink.href = store.url;
-  storeFronts.appendChild(storeLink);
-}
-
-function createXboxStore(store, storeFronts) {
-  const storeLink = document.createElement("a");
-  const image = document.createElement("img");
-  image.src = "assets/xbox.png";
-  image.alt = "Xbox Logo";
-  storeLink.append(image);
-  storeLink.href = store.url;
-  storeFronts.appendChild(storeLink);
-}
-
-function createStoreLabel(game) {
-  console.log(game.id);
-}
 
 function getSearchValue() {
   const value = document.querySelector(".search-bar").value;
@@ -255,66 +204,12 @@ function searchDisplay(data) {
   }
 }
 
+document.getElementById("noRefreshForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+});
+
 //**********************************************************THIS PUTS STOREFRONT ICONS INBETWEEN TITLE AND TEXT */
-function textDecider(text, gameDesc,storeFronts) {
-  const num = 350;
 
-  const descriptionContainer = document.createElement("div")
-  descriptionContainer.className = "description-container"
-  
-  if (text.length > num) {
-    const part1 = text.slice(0, num);
-    const part2 = text.slice(num);
-
-    const part1Para = document.createElement("p");
-    part1Para.innerHTML = `${part1}<strong>...</strong>`;
-    gameDesc.appendChild(part1Para);
-
-    const part2Para = document.createElement("p");
-    part2Para.innerHTML = `<p>${part1}${part2}</p>`;
-    part2Para.style.display = "none";
-    gameDesc.appendChild(part2Para);
-
-    
-    
-    descriptionContainer.appendChild(part1Para)
-    descriptionContainer.appendChild(part2Para)
-    descriptionContainer.appendChild(storeFronts);
-    
-    gameDesc.appendChild(descriptionContainer)
-    const readMore = document.createElement("button");
-    readMore.className = "read-more";
-    readMore.textContent = "Read More";
-    part1Para.appendChild(readMore);
-
-    const readLess = document.createElement("button");
-    readLess.className = "read-less";
-    readLess.textContent = "Read Less";
-    part2Para.appendChild(readLess);
-
-    readMore.addEventListener("click", () => {
-      part2Para.style.display = "block";
-      part1Para.style.display = "none";
-    });
-    readLess.addEventListener("click", () => {
-      part2Para.style.display = "none";
-      part1Para.style.display = "block";
-    });
-  } else if (text.length < num) {
-    const part1Para = document.createElement("p");
-    part1Para.textContent = text;
-    gameDesc.appendChild(part1Para);
-    descriptionContainer.appendChild(part1Para)
-    descriptionContainer.appendChild(storeFronts)
-    gameDesc.appendChild(descriptionContainer)
-
-  } else {
-    const defaultDesc = document.createElement("p");
-    defaultDesc.className = "defaultDesc";
-    defaultDesc.textContent = "No game description found";
-    gameInfo.appendChild(defaultDesc);
-  }
-}
 function adjustPadding(gameList) {
   if (gameList.children.length > 0) {
     gameList.style.paddingBottom = "200px";
