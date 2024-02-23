@@ -111,6 +111,7 @@ async function loopData(gameName) {
       const storeFronts = document.createElement("div");
       storeFronts.className = "store-fronts";
       
+      
       const gameTitle = document.createElement("h2");
       gameTitle.textContent = game.name;
       gameDesc.appendChild(gameTitle);
@@ -237,16 +238,17 @@ function textDecider(text, gameDesc,storeFronts) {
 
     const testDiv = document.createElement("div")
     testDiv.className = "ass"
-    part1Para.appendChild(testDiv)
-
-
+    
+    
+    testDiv.appendChild(part1Para)
     testDiv.appendChild(storeFronts);
-
-
+    testDiv.appendChild(part2Para)
+    
+    gameDesc.appendChild(testDiv)
     const readMore = document.createElement("button");
     readMore.className = "read-more";
     readMore.textContent = "Read More";
-    testDiv.appendChild(readMore);
+    part1Para.appendChild(readMore);
 
     const readLess = document.createElement("button");
     readLess.className = "read-less";
@@ -273,6 +275,61 @@ function textDecider(text, gameDesc,storeFronts) {
   }
 }
 
+//**********************************************************THIS PUTS STOREFRONT ICONS INBETWEEN TITLE AND TEXT */
+// function textDecider(text, gameDesc,storeFronts) {
+//   const num = 250;
+
+//   if (text.length > num) {
+//     const part1 = text.slice(0, num);
+//     const part2 = text.slice(num);
+
+//     const part1Para = document.createElement("p");
+//     part1Para.innerHTML = part1;
+//     gameDesc.appendChild(part1Para);
+
+//     const part2Para = document.createElement("p");
+//     part2Para.innerHTML = `<p>${part1}${part2}</p>`;
+//     part2Para.style.display = "none";
+//     gameDesc.appendChild(part2Para);
+
+//     const testDiv = document.createElement("div")
+//     testDiv.className = "ass"
+    
+    
+//     testDiv.appendChild(part1Para)
+//     testDiv.appendChild(storeFronts);
+//     testDiv.appendChild(part2Para)
+    
+//     gameDesc.appendChild(testDiv)
+//     const readMore = document.createElement("button");
+//     readMore.className = "read-more";
+//     readMore.textContent = "Read More";
+//     part1Para.appendChild(readMore);
+
+//     const readLess = document.createElement("button");
+//     readLess.className = "read-less";
+//     readLess.textContent = "Read Less";
+//     part2Para.appendChild(readLess);
+
+//     readMore.addEventListener("click", () => {
+//       part2Para.style.display = "block";
+//       part1Para.style.display = "none";
+//     });
+//     readLess.addEventListener("click", () => {
+//       part2Para.style.display = "none";
+//       part1Para.style.display = "block";
+//     });
+//   } else if (text.length < num) {
+//     const part1Para = document.createElement("p");
+//     part1Para.textContent = text;
+//     gameDesc.appendChild(part1Para);
+//   } else {
+//     const defaultDesc = document.createElement("p");
+//     defaultDesc.className = "defaultDesc";
+//     defaultDesc.textContent = "No game description found";
+//     gameInfo.appendChild(defaultDesc);
+//   }
+// }
 function adjustPadding(gameList) {
   if (gameList.children.length > 0) {
     gameList.style.paddingBottom = "200px";
