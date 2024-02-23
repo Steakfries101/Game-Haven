@@ -250,11 +250,16 @@ function textDecider(text, gameDesc,storeFronts) {
     const readLess = document.createElement("button");
     readLess.className = "read-less";
     readLess.textContent = "Read Less";
-    part2Para.appendChild(readLess);
+    readLess.style.display = "none"
+    testDiv.appendChild(readLess)
+
+    gameDesc.appendChild(testDiv)
 
     readMore.addEventListener("click", () => {
       part2Para.style.display = "block";
+      readLess.style.display= "block"
       part1Para.style.display = "none";
+      readMore.style.display = "none";
     });
     readLess.addEventListener("click", () => {
       part2Para.style.display = "none";
