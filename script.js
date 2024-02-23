@@ -8,13 +8,12 @@ const youtubeKey = "AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI"
 const baseUrl = "https://api.rawg.io/api/games/";
 const apiKey = "?key=652dc6a240454ec7a98d610a0041a14e";
 
-//IGDB API
 
 let searchButt = document.querySelector(".search-button");
 searchButt.addEventListener("click", search);
 let gameList = document.querySelector(".game-list");
 
-//Stops the form from submitting
+//Stops the form from submitting (refreshing ) each time a search is made
 document.getElementById("noRefreshForm").addEventListener("submit", (e) => {
   e.preventDefault();
 });
@@ -113,6 +112,7 @@ async function loopData(gameName) {
         return;
       }
 
+      const text = await getGameDescription(game.id);
 
       
       const gameItem = document.createElement("li");
@@ -129,8 +129,6 @@ async function loopData(gameName) {
       gameCover.className = "game-cover";
       gameInfo.appendChild(gameCover);
 
-    
-
       const gameDesc = document.createElement("div");
       gameDesc.className = "game-desc";
       gameInfo.appendChild(gameDesc);
@@ -138,10 +136,22 @@ async function loopData(gameName) {
       const storeFronts = document.createElement("div");
       storeFronts.className = "store-fronts";
       
+     
       
       const gameTitle = document.createElement("h2");
       gameTitle.textContent = game.name;
       gameDesc.appendChild(gameTitle);
+
+      const test = document.createElement("p")
+      test.textContent = "Trailer"
+      gameDesc.appendChild(test)
+     
+      const test1 = document.createElement("p")
+      test1.textContent = "OST"
+      gameDesc.appendChild(test1)
+
+      textDecider(text, gameDesc,storeFronts);
+
 
 
 //////////////////////////////////////////*****************************WORK ON THIS */
@@ -154,9 +164,7 @@ async function loopData(gameName) {
       //   // FINISH TRAILERURL AND USE IT TO CREATE URL 
       // })
 
-      const text = await getGameDescription(game.id);
 
-      textDecider(text, gameDesc,storeFronts);
       adjustPadding(gameList);
       //-----------------STOREFRONT LOGO CODE-----------------//
 
@@ -179,12 +187,6 @@ async function loopData(gameName) {
       });
     }
   });
-}
-
-
-
-function createStoreLabel(game) {
-  console.log(game.id);
 }
 
 function getSearchValue() {
