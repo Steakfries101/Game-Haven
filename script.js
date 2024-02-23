@@ -1,6 +1,7 @@
 //RAWG API
 const baseUrl = "https://api.rawg.io/api/games/";
 const apiKey = "?key=652dc6a240454ec7a98d610a0041a14e";
+
 //IGDB API
 
 let searchButt = document.querySelector(".search-button");

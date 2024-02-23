@@ -212,10 +212,11 @@ li img {
 /* Game infos related CSS */
 .game-list {
   margin-left: -40px;
-  background-color: #002366;
+  background-color: #325BBC;
+  
   /* background-color: #f43c04; */
 
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  box-shadow: rgba(50, 91, 188, 0.4) 0px -5px 0px, rgba(50, 91, 188, 0.3) 0px -10px 0px, rgba(50, 91, 188, 0.2) 0px -15px 0px, rgba(50, 91, 188, 0.1) 0px -20px 0px, rgba(50, 91, 188, 0.05) 0px -25px 0px;
   margin-bottom: 0;
 }
 
@@ -315,34 +316,16 @@ li img {
   }
 
   .store-fronts {
-    /* margin-left: 25px;
-    text-align: center;
-    padding-right:90px;
-    margin-top: -50px;
-    gap:15px;
     display:flex;
-    flex-direction: column; */
-    display:flex;
+    justify-content: start;
   }
-
-  .ass{display:flex;
-  /* flex-direction: column-reverse       THIS IS FOR STOREFRONT LOGO BETWEEN TITLE AND DESCRIPT LAYOUT */
-  flex-direction: column;
-/* align-items: center; */
-justify-content: center;}
-
+  
   .store-fronts img {
     width: 50px;
     height: 50px;
     transition: width 100ms linear, height 100ms linear;
     margin-right: 10px;
   }
-/* 
-  .read-less,
-  .read-more {
-    margin-left: 0;
-    margin-top: 10px;
-  } */
 
   .store-fronts img:hover {
     height: 40px;
