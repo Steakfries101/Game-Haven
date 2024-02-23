@@ -226,29 +226,26 @@ function textDecider(text, gameDesc,storeFronts) {
   if (text.length > num) {
     const part1 = text.slice(0, num);
     const part2 = text.slice(num);
+    
+        const testDiv = document.createElement("div")
+        testDiv.className = "ass"
+        
 
     const part1Para = document.createElement("p");
     part1Para.innerHTML = part1;
-    gameDesc.appendChild(part1Para);
+    testDiv.appendChild(part1Para);
 
     const part2Para = document.createElement("p");
     part2Para.innerHTML = `<p>${part1}${part2}</p>`;
     part2Para.style.display = "none";
-    gameDesc.appendChild(part2Para);
+    testDiv.appendChild(part2Para);
+    
+    testDiv.appendChild(storeFronts)
 
-    const testDiv = document.createElement("div")
-    testDiv.className = "ass"
-    
-    
-    testDiv.appendChild(part1Para)
-    testDiv.appendChild(storeFronts);
-    testDiv.appendChild(part2Para)
-    
-    gameDesc.appendChild(testDiv)
     const readMore = document.createElement("button");
     readMore.className = "read-more";
     readMore.textContent = "Read More";
-    part1Para.appendChild(readMore);
+    testDiv.appendChild(readMore);
 
     const readLess = document.createElement("button");
     readLess.className = "read-less";
