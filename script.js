@@ -32,6 +32,7 @@ let gameList = document.querySelector(".game-list");
 //   }
   
 //   }
+
 //Beginning of loop that loops through returned data games and builds javascript
 async function loopData(gameName) {
   const gameData = await api.fetchGameData(gameName)
@@ -49,7 +50,7 @@ async function loopData(gameName) {
 
   //If data is there this checks each games storefronts to confirm it has one of the following as a store (5,1,2,11)
   gameData.forEach(async (game) => {
-    console.log(game);
+    // console.log(game);
   const text = await api.getGameDescription(game.id);
 
 
@@ -108,6 +109,7 @@ async function loopData(gameName) {
 
       textDecider(text, gameDesc,storeFronts);
       adjustPadding(gameList);
+      console.log(gameList)
       //-----------------STOREFRONT LOGO CODE-----------------//
 
       const stores = await api.getGameStores(game.id);
