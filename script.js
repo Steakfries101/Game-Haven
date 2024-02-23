@@ -232,7 +232,7 @@ function textDecider(text, gameDesc,storeFronts) {
     const part2 = text.slice(num);
 
     const part1Para = document.createElement("p");
-    part1Para.innerHTML = `${part1}...`;
+    part1Para.innerHTML = `${part1}<strong>...</strong>`;
     gameDesc.appendChild(part1Para);
 
     const part2Para = document.createElement("p");
