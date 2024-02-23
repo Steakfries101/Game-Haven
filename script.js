@@ -1,5 +1,6 @@
 import * as iconGenerator from "/components/storeIconGenerator.js"
 import { textDecider } from "/components/gameTextButtonCreator.js";
+import * as api from "/components/apiCalls.js"
 
 //YOUTUBE API 
 const youtubeKey = "AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI"
@@ -31,60 +32,10 @@ let gameList = document.querySelector(".game-list");
 //   }
   
 //   }
-
-//Get the game data
-async function fetchGameData(gameName) {
-  try {
-    const response = await fetch(
-      `https://api.rawg.io/api/games?key=652dc6a240454ec7a98d610a0041a14e&search=${gameName}&parent_platforms=1&search_precise=true`
-    );
-    if (!response.ok) {
-      throw new Error("Failed to fetch game data");
-    }
-
-    const data = await response.json();
-    const games = data.results;
-    return games;
-  } catch (error) {
-    console.error("Error fetching game data", error);
-  }
-}
-//Get the game descriptions
-async function getGameDescription(gameId) {
-  try {
-    const response = await fetch(
-      `https://api.rawg.io/api/games/${gameId}?key=652dc6a240454ec7a98d610a0041a14e`
-    );
-    if (!response.ok) {
-      throw new Error("Failed to fetch game desc data");
-    }
-    const data = await response.json();
-    return data.description;
-  } catch (error) {
-    console.error("Error fetching game descriptions ERROR: ", error);
-  }
-}
-
-//Get stores for each game based on game id
-async function getGameStores(gameId) {
-  try {
-    const response = await fetch(
-      `https://api.rawg.io/api/games/${gameId}/stores?key=652dc6a240454ec7a98d610a0041a14e`
-    );
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch game stores data");
-    }
-    const data = await response.json();
-    return data.results;
-  } catch (error) {
-    console.error("Error fetching game stores data ERROR: ", error);
-  }
-}
-
 //Beginning of loop that loops through returned data games and builds javascript
 async function loopData(gameName) {
-  const gameData = await fetchGameData(gameName);
+  const gameData = await api.fetchGameData(gameName)
+  ;
 // const youtubeData = await fetchYoutube(game.slug)
 
 
@@ -99,7 +50,7 @@ async function loopData(gameName) {
   //If data is there this checks each games storefronts to confirm it has one of the following as a store (5,1,2,11)
   gameData.forEach(async (game) => {
     console.log(game);
-  const text = await getGameDescription(game.id);
+  const text = await api.getGameDescription(game.id);
 
 
     if (game.stores !== null) {
@@ -159,7 +110,7 @@ async function loopData(gameName) {
       adjustPadding(gameList);
       //-----------------STOREFRONT LOGO CODE-----------------//
 
-      const stores = await getGameStores(game.id);
+      const stores = await api.getGameStores(game.id);
       stores.forEach((store) => {
         switch (store.store_id) {
           case 1:
