@@ -1,3 +1,6 @@
+
+
+
 //Get the game data
 async function fetchGameData(gameName) {
     try {
