@@ -151,8 +151,8 @@ body {
   cursor: pointer;
   height: 40px;
   text-align: center;
-  margin-bottom: 35px;
-  margin-right:95px;
+
+   margin: 50px auto 50px;
   width: 25%;
   z-index: 9;
   border: 0;
@@ -335,12 +335,12 @@ justify-content: center;}
     transition: width 100ms linear, height 100ms linear;
     margin-right: 10px;
   }
-
+/* 
   .read-less,
   .read-more {
     margin-left: 0;
     margin-top: 10px;
-  }
+  } */
 
   .store-fronts img:hover {
     height: 40px;

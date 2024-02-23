@@ -222,7 +222,7 @@ function searchDisplay(data) {
 
 //**********************************************************THIS PUTS STOREFRONT ICONS INBETWEEN TITLE AND TEXT */
 function textDecider(text, gameDesc,storeFronts) {
-  const num = 250;
+  const num = 350;
 
   const descriptionContainer = document.createElement("div")
   descriptionContainer.className = "description-container"
@@ -243,8 +243,8 @@ function textDecider(text, gameDesc,storeFronts) {
     
     
     descriptionContainer.appendChild(part1Para)
-    descriptionContainer.appendChild(storeFronts);
     descriptionContainer.appendChild(part2Para)
+    descriptionContainer.appendChild(storeFronts);
     
     gameDesc.appendChild(descriptionContainer)
     const readMore = document.createElement("button");
@@ -269,6 +269,11 @@ function textDecider(text, gameDesc,storeFronts) {
     const part1Para = document.createElement("p");
     part1Para.textContent = text;
     gameDesc.appendChild(part1Para);
+    descriptionContainer.appendChild(part1Para)
+    descriptionContainer.appendChild(storeFronts)
+
+    gameDesc.appendChild(descriptionContainer)
+
   } else {
     const defaultDesc = document.createElement("p");
     defaultDesc.className = "defaultDesc";
