@@ -19,27 +19,27 @@ document.getElementById("noRefreshForm").addEventListener("submit", (e) => {
 });
 
 
-// async function fetchYoutube(gameName){
-//   try{
-//     const response = await fetch(
-//       `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${gameName} game trailer&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
-//     );if (!response.ok){
-//       throw new Error("Failed to fetch youtube data")
-//     }
-//     const youtubeData = await response.json();
-//     const videos= youtubeData.items;
-//     return videos;
-//   }catch (error){
-//     console.error("Error fetching youtube data")
-//   }
+async function fetchYoutube(gameName){
+  try{
+    const response = await fetch(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${gameName} game trailer&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+    );if (!response.ok){
+      throw new Error("Failed to fetch youtube data")
+    }
+    const youtubeData = await response.json();
+    const videos= youtubeData.items;
+    return videos;
+  }catch (error){
+    console.error("Error fetching youtube data")
+  }
   
-//   }
+  }
 
 //Get the game data
 async function fetchGameData(gameName) {
   try {
     const response = await fetch(
-      `https://api.rawg.io/api/games?key=652dc6a240454ec7a98d610a0041a14e&search=${gameName}&parent_platforms=1&search_precise=true`
+      `https://api.rawg.io/api/games?key=652dc6a240454ec7a98d610a0041a14e&search=${gameName}&ordering=name?parent_platforms=1?search_exact=true`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch game data");
@@ -161,13 +161,14 @@ async function loopData(gameName) {
 
 //////////////////////////////////////////*****************************WORK ON THIS */
       
-      // const youtubeData = await fetchYoutube(game.slug)
-      // youtubeData.forEach(async(trailer)=>{
-      //   const trailerUrl = `youtube.ca/watch=${trailer.id}`
-      //   gameDesc.appendChild(trailerUrl)
-      //   //TO DO 
-      //   // FINISH TRAILERURL AND USE IT TO CREATE URL 
-      // })
+      const youtubeData = await fetchYoutube(game.slug)
+      youtubeData.forEach(async(trailer)=>{
+        const trailerUrl = `youtube.ca/watch=${trailer.id}`
+        // gameDesc.appendChild(trailerUrl)
+console.log(youtubeData[0].id.videoId)
+        //TO DO 
+        // FINISH TRAILERURL AND USE IT TO CREATE URL 
+      })
 
 
       adjustPadding(gameList);
