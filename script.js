@@ -98,7 +98,7 @@ async function loopData(gameName) {
 
   //If data is there this checks each games storefronts to confirm it has one of the following as a store (5,1,2,11)
   gameData.forEach(async (game) => {
-    console.log(game);
+    // console.log(game);
 
     if (game.stores !== null) {
       const includesStore = game.stores.some(
@@ -136,19 +136,24 @@ async function loopData(gameName) {
       const storeFronts = document.createElement("div");
       storeFronts.className = "store-fronts";
       
-     
-      
+  
       const gameTitle = document.createElement("h2");
       gameTitle.textContent = game.name;
       gameDesc.appendChild(gameTitle);
 
+      const linkContainer = document.createElement("div")
+      linkContainer.className = "link-container"
+      gameDesc.appendChild(linkContainer)
+
       const test = document.createElement("p")
       test.textContent = "Trailer"
-      gameDesc.appendChild(test)
+      linkContainer.appendChild(test)
      
       const test1 = document.createElement("p")
       test1.textContent = "OST"
-      gameDesc.appendChild(test1)
+      linkContainer.appendChild(test1)
+
+      storeFronts.appendChild(linkContainer)
 
       textDecider(text, gameDesc,storeFronts);
 

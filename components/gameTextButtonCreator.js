@@ -1,5 +1,5 @@
 function textDecider(text, gameDesc,storeFronts) {
-    const num = 350;
+    const num = 300;
   
     const descriptionContainer = document.createElement("div")
     descriptionContainer.className = "description-container"
@@ -16,7 +16,7 @@ function textDecider(text, gameDesc,storeFronts) {
       part2Para.innerHTML = `<p>${part1}${part2}</p>`;
       part2Para.style.display = "none";
       gameDesc.appendChild(part2Para);
-  
+      
       
       
       descriptionContainer.appendChild(part1Para)
