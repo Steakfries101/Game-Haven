@@ -19,7 +19,7 @@ h2 {
   /* font-family: */
   font-family: "Bebas Neue", sans-serif;
   letter-spacing: 1.4px;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 h1 {
@@ -206,7 +206,15 @@ li img {
 }
 
 .store-fronts {
+ /* display:flex;   */
   text-align: center;
+  /* flex-direction: column-reverse; */
+}
+
+.link-container{
+  display:flex;
+  justify-content: center;
+  gap:50px;
 }
 
 /* Game infos related CSS */
@@ -257,6 +265,23 @@ li img {
 .description-container{
   display:flex;
   flex-direction: column-reverse !important;
+}
+
+.link-container{
+  display:flex;
+  justify-content: space-around;
+}
+
+.link-container p {
+  /* background-color:blue; */
+  /* padding:10px;
+  border-radius:10px; */
+  color:navy;
+  font-size:2rem;
+  font-family:"Bebas Neue", sans-serif;
+  border:navy 1px solid;
+  padding:4px;
+
 }
 /* LARGESCREEN MEDIA QUERIES*/
 @media only screen and (min-width: 1000px) {
@@ -317,7 +342,16 @@ li img {
 
   .store-fronts {
     display:flex;
+    /* justify-content: space-between; */
+    flex-direction: row-reverse;
     justify-content: start;
+  }
+  
+  .link-container{
+    display:flex;
+    align-items: end;
+    margin-left:auto
+
   }
   
   .store-fronts img {
