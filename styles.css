@@ -211,11 +211,6 @@ li img {
   /* flex-direction: column-reverse; */
 }
 
-.link-container{
-  display:flex;
-  justify-content: center;
-  gap:50px;
-}
 
 /* Game infos related CSS */
 .game-list {
@@ -269,7 +264,7 @@ li img {
 
 .link-container{
   display:flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .link-container p {

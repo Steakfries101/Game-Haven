@@ -148,14 +148,11 @@ async function loopData(gameName) {
 
       const test = document.createElement("p")
       test.textContent = "Trailer"
-      test.addEventListener('click',()=>{
-        console.log("YOU CLICKED")
-        window.open("https://youtube.ca")
-      })
+      test.addEventListener('click',evan)
       linkContainer.appendChild(test)
      
       const test1 = document.createElement("p")
-      test1.textContent = "OST"
+      test1.textContent = "Soundtrack"
       linkContainer.appendChild(test1)
 
       storeFronts.appendChild(linkContainer)
@@ -163,7 +160,9 @@ async function loopData(gameName) {
       textDecider(text, gameDesc,storeFronts);
 
 
-
+function evan(){
+  alert("HELLO")
+}
 //////////////////////////////////////////*****************************WORK ON THIS */
       
 //       const youtubeData = await fetchYoutube(game.slug)
