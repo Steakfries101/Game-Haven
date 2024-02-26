@@ -36,7 +36,9 @@ async function fetchYoutubeTrailer(gameName) {
 async function fetchYoutubePlaylist(gameName) {
   try {
     const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${gameName} soundtrack #playlist&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+      // https://www.googleapis.com/youtube/v3/search?q=your_search_query&part=snippet&maxResults=10&type=playlist&key=YOUR_API_KEY
+
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${gameName} OST &type=playlist&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch youtube playlist data");
@@ -169,7 +171,7 @@ async function loopData(gameName) {
       test1.textContent = "Soundtrack";
       linkContainer.appendChild(test1);
       test1.addEventListener("click", () => {
-        getPlaylist();
+        getPlaylist(linkContainer);
       });
 
       storeFronts.appendChild(linkContainer);
@@ -190,17 +192,19 @@ async function loopData(gameName) {
         window.open(`https://www.youtube.com/watch?v=${videoId}`);
       }
 
-      async function getPlaylist() {
+      async function getPlaylist(soundtrackText) {
         const playlistData = await fetchYoutubePlaylist(game.slug);
+        console.log(game.name);
         const playList = playlistData[0].id.playlistId;
+        const playListTitle = playlistData[0].snippet.title;
+
         if (!playList) {
-          alert(`Unable to find OST playlist for ${game.slug}`);
+          alert("No soundtrack found");
         } else {
           window.open(`//www.youtube.com/playlist?list=${playlistData[0].id.playlistId}`);
           console.log(playlistData);
         }
       }
-
       adjustPadding(gameList);
       //-----------------STOREFRONT LOGO CODE-----------------//
 

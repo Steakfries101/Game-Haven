@@ -152,7 +152,7 @@ body {
   height: 40px;
   text-align: center;
 
-   margin: 50px auto 50px;
+  margin: 50px auto 50px;
   width: 25%;
   z-index: 9;
   border: 0;
@@ -206,7 +206,7 @@ li img {
 }
 
 .store-fronts {
- /* display:flex;   */
+  /* display:flex;   */
   text-align: center;
   /* flex-direction: column-reverse; */
 }
@@ -216,7 +216,7 @@ li img {
 .game-list {
   margin-left: -40px;
   background-color: #325BBC;
-  
+
   /* background-color: #f43c04; */
 
   box-shadow: rgba(50, 91, 188, 0.4) 0px -5px 0px, rgba(50, 91, 188, 0.3) 0px -10px 0px, rgba(50, 91, 188, 0.2) 0px -15px 0px, rgba(50, 91, 188, 0.1) 0px -20px 0px, rgba(50, 91, 188, 0.05) 0px -25px 0px;
@@ -257,13 +257,14 @@ li img {
   max-width: 75%;
   font-size: 1.2rem;
 }
-.description-container{
-  display:flex;
+
+.description-container {
+  display: flex;
   flex-direction: column-reverse !important;
 }
 
-.link-container{
-  display:flex;
+.link-container {
+  display: flex;
   justify-content: space-between;
 }
 
@@ -271,13 +272,39 @@ li img {
   /* background-color:blue; */
   /* padding:10px;
   border-radius:10px; */
-  color:navy;
-  font-size:2rem;
-  font-family:"Bebas Neue", sans-serif;
-  border:navy 1px solid;
-  padding:4px;
+  color: navy;
+  font-size: 2rem;
+  font-family: "Bebas Neue", sans-serif;
+  border: navy 2px solid;
+  padding: 6px;
+  transition: border-radius .2s linear;
 
 }
+
+.link-container p:hover {
+  cursor: pointer;
+  /* border-top: none; */
+  animation-name: example;
+  animation-duration: .5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes example {
+  0% {
+    border-radius: 20px;
+
+    border-color: aqua
+  }
+
+
+  100% {
+    border-color: navy;
+    border-radius: 0;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  }
+}
+
 /* LARGESCREEN MEDIA QUERIES*/
 @media only screen and (min-width: 1000px) {
   #logo {
@@ -298,7 +325,7 @@ li img {
   .game-data {
     flex-direction: row;
     justify-content: center;
-    gap:100px;
+    gap: 100px;
     filter: brightness(85%);
 
   }
@@ -336,19 +363,18 @@ li img {
   }
 
   .store-fronts {
-    display:flex;
+    display: flex;
     /* justify-content: space-between; */
     flex-direction: row-reverse;
     justify-content: start;
   }
-  
-  .link-container{
-    display:flex;
-    align-items: end;
-    margin-left:auto
 
+  .link-container {
+    display: flex;
+    align-items: end;
+    margin-left: auto
   }
-  
+
   .store-fronts img {
     width: 50px;
     height: 50px;
