@@ -27,7 +27,7 @@ async function fetchYoutube(gameName) {
     }
     const youtubeData = await response.json();
     const videos = youtubeData.items;
-    console.log(youtubeData);
+    // console.log(youtubeData);
     return videos;
   } catch (error) {
     console.error("Error fetching youtube data");
@@ -145,7 +145,7 @@ async function loopData(gameName) {
       const test = document.createElement("p");
       test.textContent = "Trailer";
       test.addEventListener("click", () => {
-        getTrailer;
+        getTrailer();
       });
       linkContainer.appendChild(test);
 
@@ -159,16 +159,17 @@ async function loopData(gameName) {
 
       //////////////////////////////////////////*****************************WORK ON THIS */
 
-      //       const youtubeData = await fetchYoutube(game.slug)
       //       youtubeData.forEach(async(trailer)=>{
-      //         const trailerUrl = `youtube.ca/watch=${trailer.id}`
       //         // gameDesc.appendChild(trailerUrl)
-      // console.log(youtubeData[0].id.videoId)
       //TO DO
       //   // FINISH TRAILERURL AND USE IT TO CREATE URL
       // })
 
-      function
+      async function getTrailer() {
+        const youtubeData = await fetchYoutube(`${game.slug} game trailer`);
+        const videoId = youtubeData[0].id.videoId;
+        window.open(`https://www.youtube.com/watch?v=${videoId}`);
+      }
 
       adjustPadding(gameList);
       //-----------------STOREFRONT LOGO CODE-----------------//
