@@ -17,7 +17,7 @@ document.getElementById("noRefreshForm").addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
-async function fetchYoutube(gameName) {
+async function fetchYoutubeTrailer(gameName) {
   try {
     const response = await fetch(
       `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${gameName} game trailer&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
@@ -31,6 +31,22 @@ async function fetchYoutube(gameName) {
     return videos;
   } catch (error) {
     console.error("Error fetching youtube data");
+  }
+}
+async function fetchYoutubePlaylist(gameName) {
+  try {
+    const response = await fetch(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${gameName} soundtrack #playlist&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch youtube playlist data");
+    }
+    const youtubeData = await response.json();
+    const videos = youtubeData.items;
+    // console.log(youtubeData);
+    return videos;
+  } catch (error) {
+    console.error("Error fetching youtube playlist data");
   }
 }
 
@@ -152,6 +168,9 @@ async function loopData(gameName) {
       const test1 = document.createElement("p");
       test1.textContent = "Soundtrack";
       linkContainer.appendChild(test1);
+      test1.addEventListener("click", () => {
+        getPlaylist();
+      });
 
       storeFronts.appendChild(linkContainer);
 
@@ -166,9 +185,20 @@ async function loopData(gameName) {
       // })
 
       async function getTrailer() {
-        const youtubeData = await fetchYoutube(`${game.slug} game trailer`);
-        const videoId = youtubeData[0].id.videoId;
+        const trailerData = await fetchYoutubeTrailer(game.slug);
+        const videoId = trailerData[0].id.videoId;
         window.open(`https://www.youtube.com/watch?v=${videoId}`);
+      }
+
+      async function getPlaylist() {
+        const playlistData = await fetchYoutubePlaylist(game.slug);
+        const playList = playlistData[0].id.playlistId;
+        if (!playList) {
+          alert(`Unable to find OST playlist for ${game.slug}`);
+        } else {
+          window.open(`//www.youtube.com/playlist?list=${playlistData[0].id.playlistId}`);
+          console.log(playlistData);
+        }
       }
 
       adjustPadding(gameList);
