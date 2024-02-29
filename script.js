@@ -20,7 +20,7 @@ document.getElementById("noRefreshForm").addEventListener("submit", (e) => {
 async function fetchYoutubeTrailer(gameName) {
   try {
     const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${gameName} launch trailer&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&maxResults=1&q=${gameName} trailer&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch youtube data");
@@ -72,7 +72,9 @@ async function fetchGameData(gameName) {
 //Get the game descriptions
 async function getGameDescription(gameId) {
   try {
-    const response = await fetch(`https://api.rawg.io/api/games/${gameId}?key=652dc6a240454ec7a98d610a0041a14e`);
+    const response = await fetch(
+      `https://api.rawg.io/api/games/${gameId}?key=652dc6a240454ec7a98d610a0041a14e`
+    );
     if (!response.ok) {
       throw new Error("Failed to fetch game desc data");
     }
@@ -86,7 +88,9 @@ async function getGameDescription(gameId) {
 //Get stores for each game based on game id
 async function getGameStores(gameId) {
   try {
-    const response = await fetch(`https://api.rawg.io/api/games/${gameId}/stores?key=652dc6a240454ec7a98d610a0041a14e`);
+    const response = await fetch(
+      `https://api.rawg.io/api/games/${gameId}/stores?key=652dc6a240454ec7a98d610a0041a14e`
+    );
 
     if (!response.ok) {
       throw new Error("Failed to fetch game stores data");
@@ -115,7 +119,11 @@ async function loopData(gameName) {
 
     if (game.stores !== null) {
       const includesStore = game.stores.some(
-        (store) => store.store.id === 5 || store.store.id === 1 || store.store.id === 2 || store.store.id === 11
+        (store) =>
+          store.store.id === 5 ||
+          store.store.id === 1 ||
+          store.store.id === 2 ||
+          store.store.id === 11
       );
       if (!includesStore) {
         return;
@@ -157,6 +165,7 @@ async function loopData(gameName) {
       gameDesc.appendChild(linkContainer);
 
       const test = document.createElement("p");
+      test.className = "trailerOst";
       test.textContent = "Trailer";
       test.addEventListener("click", () => {
         //AND HERE
@@ -168,7 +177,7 @@ async function loopData(gameName) {
       test1.textContent = "Soundtrack";
       linkContainer.appendChild(test1); //AND HERE
       test1.addEventListener("click", () => {
-        getPlaylist(linkContainer);
+        getPlaylist(sound);
       });
 
       linksContainer.appendChild(linkContainer);
@@ -184,7 +193,17 @@ async function loopData(gameName) {
       // })
 
       async function getTrailer() {
-        const trailerData = await fetchYoutubeTrailer(game.slug);
+        let gameRename = "";
+
+        if (!game.name.includes("1")) {
+          gameRename = game.name + " 1";
+          // return gameRename;
+        }
+        console.log(gameRename);
+        const trailerData = await fetchYoutubeTrailer(gameRename);
+        console.log(
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&maxResults=1&q=${gameRename} trailer&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+        );
         const videoId = trailerData[0].id.videoId;
         window.open(`https://www.youtube.com/watch?v=${videoId}`);
       }
@@ -193,7 +212,6 @@ async function loopData(gameName) {
         const playlistData = await fetchYoutubePlaylist(game.slug);
         console.log(game.name);
         const playList = playlistData[0].id.playlistId;
-        const playListTitle = playlistData[0].snippet.title;
 
         if (!playList) {
           alert("No soundtrack found");
