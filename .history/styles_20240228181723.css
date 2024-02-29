@@ -347,7 +347,7 @@ li img {
     /* justify-content: space-between; */
     flex-direction: row-reverse;
     justify-content: start;
-    flex-wrap: wrap;
+    flex-wrap:
   }
 
   .link-container {

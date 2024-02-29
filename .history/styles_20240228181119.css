@@ -347,7 +347,6 @@ li img {
     /* justify-content: space-between; */
     flex-direction: row-reverse;
     justify-content: start;
-    flex-wrap: wrap;
   }
 
   .link-container {
@@ -355,17 +354,18 @@ li img {
     padding-top: 0px;
     gap: 20px;
   }
-  .link-container p {
+  .link-container a {
     font-size: 1.7rem;
+    transition: border-bottom 1s linear;
+    border-bottom: no;
   }
-  .link-container p:hover {
+  .link-container a:hover {
     cursor: pointer;
     border-bottom: 3px navy solid;
   }
   .clickables-container {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
+    flex-direction: column-reverse;
   }
   .clickables-container p {
     margin-bottom: 0px;

@@ -263,28 +263,40 @@ li img {
 
 .link-container p {
   /* background-color:blue; */
-  /* padding:10px;*/
-  /* border-radius: 10px;*/
-  color: navy;
-  font-size: 2rem;
+  /* padding:10px;
+  border-radius:10px; */
+  color: black;
+  font-size: 1.3rem;
   font-family: "Bebas Neue", sans-serif;
+  border: navy 2px solid;
+  padding: 6px;
+  transition: border-radius 0.2s linear;
+  margin-top: 0px;
+  background-color: orangered;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px,
+    rgba(240, 46, 170, 0.05) 25px 25px;
+}
 
-  /* transition: border-radius 0.2s linear; */
-  /* margin-top: 0px;
-  background-color: orangered; */
+.link-container p:hover {
+  cursor: pointer;
+  /* border-top: none; */
+  animation-name: example;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
 }
 
 @keyframes example {
   0% {
-    /* border-radius: 20px; */
+    border-radius: 20px;
 
     border-color: aqua;
   }
 
   100% {
     border-color: navy;
-    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px,
-      rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    border-radius: 0;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
   }
 }
 
@@ -347,7 +359,6 @@ li img {
     /* justify-content: space-between; */
     flex-direction: row-reverse;
     justify-content: start;
-    flex-wrap: wrap;
   }
 
   .link-container {
@@ -355,17 +366,9 @@ li img {
     padding-top: 0px;
     gap: 20px;
   }
-  .link-container p {
-    font-size: 1.7rem;
-  }
-  .link-container p:hover {
-    cursor: pointer;
-    border-bottom: 3px navy solid;
-  }
   .clickables-container {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
+    flex-direction: column-reverse;
   }
   .clickables-container p {
     margin-bottom: 0px;

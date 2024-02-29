@@ -263,15 +263,26 @@ li img {
 
 .link-container p {
   /* background-color:blue; */
-  /* padding:10px;*/
-  /* border-radius: 10px;*/
-  color: navy;
-  font-size: 2rem;
+  /* padding:10px;
+  border-radius:10px; */
+  color: black;
+  font-size: 1.3rem;
   font-family: "Bebas Neue", sans-serif;
-
+  border: navy 2px solid;
+  padding: 6px;
   /* transition: border-radius 0.2s linear; */
-  /* margin-top: 0px;
-  background-color: orangered; */
+  margin-top: 0px;
+  background-color: #325bbc;
+}
+
+.link-container p:hover {
+  cursor: pointer;
+  font-size: 1.4rem;
+  /* border-top: none; */
+  animation-name: example;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
 }
 
 @keyframes example {
@@ -347,7 +358,6 @@ li img {
     /* justify-content: space-between; */
     flex-direction: row-reverse;
     justify-content: start;
-    flex-wrap: wrap;
   }
 
   .link-container {
@@ -355,17 +365,9 @@ li img {
     padding-top: 0px;
     gap: 20px;
   }
-  .link-container p {
-    font-size: 1.7rem;
-  }
-  .link-container p:hover {
-    cursor: pointer;
-    border-bottom: 3px navy solid;
-  }
   .clickables-container {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
+    flex-direction: column-reverse;
   }
   .clickables-container p {
     margin-bottom: 0px;

@@ -347,11 +347,10 @@ li img {
     /* justify-content: space-between; */
     flex-direction: row-reverse;
     justify-content: start;
-    flex-wrap: wrap;
   }
 
   .link-container {
-    justify-content: start;
+    justify-content: center;
     padding-top: 0px;
     gap: 20px;
   }
@@ -364,8 +363,8 @@ li img {
   }
   .clickables-container {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
+    flex-direction: column-reverse;
+    align-items: space-between;
   }
   .clickables-container p {
     margin-bottom: 0px;

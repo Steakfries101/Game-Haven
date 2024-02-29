@@ -354,6 +354,7 @@ li img {
     justify-content: start;
     padding-top: 0px;
     gap: 20px;
+    flex-direction: column;
   }
   .link-container p {
     font-size: 1.7rem;

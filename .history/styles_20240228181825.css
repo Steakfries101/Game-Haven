@@ -347,7 +347,6 @@ li img {
     /* justify-content: space-between; */
     flex-direction: row-reverse;
     justify-content: start;
-    flex-wrap: wrap;
   }
 
   .link-container {
@@ -365,7 +364,7 @@ li img {
   .clickables-container {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-between;
+    justify-content: ;
   }
   .clickables-container p {
     margin-bottom: 0px;

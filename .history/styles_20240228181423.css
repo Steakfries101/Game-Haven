@@ -347,7 +347,6 @@ li img {
     /* justify-content: space-between; */
     flex-direction: row-reverse;
     justify-content: start;
-    flex-wrap: wrap;
   }
 
   .link-container {
@@ -364,7 +363,7 @@ li img {
   }
   .clickables-container {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column-reverse;
     justify-content: space-between;
   }
   .clickables-container p {
