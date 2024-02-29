@@ -141,39 +141,41 @@ async function loopData(gameName) {
       gameDesc.className = "game-desc";
       gameInfo.appendChild(gameDesc);
 
-      const storeFronts = document.createElement("div");
-      storeFronts.className = "store-fronts";
-
       const gameTitle = document.createElement("h2");
       gameTitle.textContent = game.name;
       gameDesc.appendChild(gameTitle);
 
-      const linksContainer = document.createElement("div");
-      linksContainer.className = "clickables-container";
+      // Create the buttons container
+      const buttonContainer = document.createElement("div");
+      buttonContainer.className = "button-container";
+      gameDesc.appendChild(buttonContainer);
 
-      gameDesc.appendChild(linksContainer); //CHANGE NAMES HERE
-      const linkContainer = document.createElement("div");
-      linkContainer.className = "link-container";
-      gameDesc.appendChild(linkContainer);
-
-      const test = document.createElement("p");
-      test.textContent = "Trailer";
-      test.addEventListener("click", () => {
-        //AND HERE
-        getTrailer();
+      // Create the "Trailer" button
+      const trailerButton = document.createElement("button");
+      trailerButton.textContent = "Trailer";
+      trailerButton.addEventListener("click", () => {
+          getTrailer(game.slug);
       });
-      linkContainer.appendChild(test);
+      buttonContainer.appendChild(trailerButton);
 
-      const test1 = document.createElement("p");
-      test1.textContent = "Soundtrack";
-      linkContainer.appendChild(test1); //AND HERE
-      test1.addEventListener("click", () => {
-        getPlaylist(linkContainer);
+      // Create the "Soundtrack" button
+      const soundtrackButton = document.createElement("button");
+      soundtrackButton.textContent = "Soundtrack";
+      soundtrackButton.addEventListener("click", () => {
+          getPlaylist(game.slug);
       });
+      buttonContainer.appendChild(soundtrackButton);
 
-      linksContainer.appendChild(linkContainer);
+      // Fetch and display game description and storefront icons
+      const text = await getGameDescription(game.id);
+      textDecider(text, gameDesc, storeFronts);
+      adjustPadding(gameList);
+  }
+});
 
-      textDecider(text, gameDesc, storeFronts, linksContainer);
+      storeFronts.appendChild(linkContainer);
+
+      textDecider(text, gameDesc, storeFronts);
 
       //////////////////////////////////////////*****************************WORK ON THIS */
 

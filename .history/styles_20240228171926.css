@@ -352,14 +352,14 @@ li img {
 
   .store-fronts {
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     flex-direction: row-reverse;
     justify-content: start;
   }
 
   .link-container {
-    display: flex;
-    align-items: end;
+    /* display: flex;
+    align-items: end; */
   }
 
   .store-fronts img {

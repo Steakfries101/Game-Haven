@@ -149,7 +149,7 @@ async function loopData(gameName) {
       gameDesc.appendChild(gameTitle);
 
       const linksContainer = document.createElement("div");
-      linksContainer.className = "clickables-container";
+      linksContainer.className = "linksContainer";
 
       gameDesc.appendChild(linksContainer); //CHANGE NAMES HERE
       const linkContainer = document.createElement("div");

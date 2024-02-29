@@ -359,7 +359,7 @@ li img {
 
   .link-container {
     display: flex;
-    align-items: end;
+    align-content: end;
   }
 
   .store-fronts img {

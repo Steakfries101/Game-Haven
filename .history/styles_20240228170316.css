@@ -358,8 +358,10 @@ li img {
   }
 
   .link-container {
-    display: flex;
+    /* display: flex;
+    padding-top: 50px;
     align-items: end;
+    margin-left: auto; */
   }
 
   .store-fronts img {

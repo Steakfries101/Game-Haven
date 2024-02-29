@@ -20,7 +20,7 @@ document.getElementById("noRefreshForm").addEventListener("submit", (e) => {
 async function fetchYoutubeTrailer(gameName) {
   try {
     const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${gameName} launch trailer&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${gameName}trailer&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch youtube data");
@@ -148,10 +148,6 @@ async function loopData(gameName) {
       gameTitle.textContent = game.name;
       gameDesc.appendChild(gameTitle);
 
-      const linksContainer = document.createElement("div");
-      linksContainer.className = "clickables-container";
-
-      gameDesc.appendChild(linksContainer); //CHANGE NAMES HERE
       const linkContainer = document.createElement("div");
       linkContainer.className = "link-container";
       gameDesc.appendChild(linkContainer);
@@ -159,21 +155,20 @@ async function loopData(gameName) {
       const test = document.createElement("p");
       test.textContent = "Trailer";
       test.addEventListener("click", () => {
-        //AND HERE
         getTrailer();
       });
       linkContainer.appendChild(test);
 
       const test1 = document.createElement("p");
       test1.textContent = "Soundtrack";
-      linkContainer.appendChild(test1); //AND HERE
+      linkContainer.appendChild(test1);
       test1.addEventListener("click", () => {
         getPlaylist(linkContainer);
       });
 
-      linksContainer.appendChild(linkContainer);
+      storeFronts.appendChild(linkContainer);
 
-      textDecider(text, gameDesc, storeFronts, linksContainer);
+      textDecider(text, gameDesc, storeFronts);
 
       //////////////////////////////////////////*****************************WORK ON THIS */
 
@@ -186,6 +181,15 @@ async function loopData(gameName) {
       async function getTrailer() {
         const trailerData = await fetchYoutubeTrailer(game.slug);
         const videoId = trailerData[0].id.videoId;
+        const trailerTitle = trailerData[0].snippet.title;
+        if (trailerTitle.includes(game.slug)) {
+          console.log("IT DOES");
+         console.log(game.name,game) 
+        } else {
+          console.log("IT DOESNT");
+          console.log(game.slug);
+        }
+
         window.open(`https://www.youtube.com/watch?v=${videoId}`);
       }
 

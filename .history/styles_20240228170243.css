@@ -351,15 +351,17 @@ li img {
   }
 
   .store-fronts {
-    display: flex;
+    /* display: flex;
     /* justify-content: space-between; */
     flex-direction: row-reverse;
-    justify-content: start;
+    justify-content: start; */
   }
 
   .link-container {
     display: flex;
+    padding-top: 50px;
     align-items: end;
+    margin-left: auto;
   }
 
   .store-fronts img {

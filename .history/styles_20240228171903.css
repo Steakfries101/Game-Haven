@@ -352,7 +352,7 @@ li img {
 
   .store-fronts {
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     flex-direction: row-reverse;
     justify-content: start;
   }

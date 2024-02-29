@@ -121,59 +121,61 @@ async function loopData(gameName) {
         return;
       }
 
-      const text = await getGameDescription(game.id);
+  const text = await getGameDescription(game.id);
 
-      const gameItem = document.createElement("li");
-      gameItem.className = "game-item";
-      gameList.appendChild(gameItem);
+        const gameItem = document.createElement("li");
+        gameItem.className = "game-item";
+        gameList.appendChild(gameItem);
 
-      const gameInfo = document.createElement("article");
-      gameInfo.className = "game-data";
-      gameItem.appendChild(gameInfo);
+        const gameInfo = document.createElement("article");
+        gameInfo.className = "game-data";
+        gameItem.appendChild(gameInfo);
 
-      const gameCover = document.createElement("img");
-      gameCover.src = game.background_image;
-      gameCover.alt = `Game image of ${game.name}`;
-      gameCover.className = "game-cover";
-      gameInfo.appendChild(gameCover);
+        const gameCover = document.createElement("img");
+        gameCover.src = game.background_image;
+        gameCover.alt = `Game image of ${game.name}`;
+        gameCover.className = "game-cover";
+        gameInfo.appendChild(gameCover);
 
-      const gameDesc = document.createElement("div");
-      gameDesc.className = "game-desc";
-      gameInfo.appendChild(gameDesc);
+        const gameDesc = document.createElement("div");
+        gameDesc.className = "game-desc";
+        gameInfo.appendChild(gameDesc);
 
-      const storeFronts = document.createElement("div");
-      storeFronts.className = "store-fronts";
+        const gameTitle = document.createElement("h2");
+        gameTitle.textContent = game.name;
+        gameDesc.appendChild(gameTitle);
 
-      const gameTitle = document.createElement("h2");
-      gameTitle.textContent = game.name;
-      gameDesc.appendChild(gameTitle);
+        // Create the buttons container
+        const buttonContainer = document.createElement("div");
+        buttonContainer.className = "button-container";
+        gameDesc.appendChild(buttonContainer);
 
-      const linksContainer = document.createElement("div");
-      linksContainer.className = "clickables-container";
+        // Create the "Trailer" button
+        const trailerButton = document.createElement("button");
+        trailerButton.textContent = "Trailer";
+        trailerButton.addEventListener("click", () => {
+            getTrailer(game.slug);
+        });
+        buttonContainer.appendChild(trailerButton);
 
-      gameDesc.appendChild(linksContainer); //CHANGE NAMES HERE
-      const linkContainer = document.createElement("div");
-      linkContainer.className = "link-container";
-      gameDesc.appendChild(linkContainer);
+        // Create the "Soundtrack" button
+        const soundtrackButton = document.createElement("button");
+        soundtrackButton.textContent = "Soundtrack";
+        soundtrackButton.addEventListener("click", () => {
+            getPlaylist(game.slug);
+        });
+        buttonContainer.appendChild(soundtrackButton);
 
-      const test = document.createElement("p");
-      test.textContent = "Trailer";
-      test.addEventListener("click", () => {
-        //AND HERE
-        getTrailer();
-      });
-      linkContainer.appendChild(test);
+        // Fetch and display game description and storefront icons
+        const text = await getGameDescription(game.id);
+        textDecider(text, gameDesc, storeFronts);
+        adjustPadding(gameList);
+    }
+});
 
-      const test1 = document.createElement("p");
-      test1.textContent = "Soundtrack";
-      linkContainer.appendChild(test1); //AND HERE
-      test1.addEventListener("click", () => {
-        getPlaylist(linkContainer);
-      });
+      storeFronts.appendChild(linkContainer);
 
-      linksContainer.appendChild(linkContainer);
-
-      textDecider(text, gameDesc, storeFronts, linksContainer);
+      textDecider(text, gameDesc, storeFronts);
 
       //////////////////////////////////////////*****************************WORK ON THIS */
 
