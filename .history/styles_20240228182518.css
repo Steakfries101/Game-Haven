@@ -210,7 +210,7 @@ li img {
 .game-list {
   margin-left: -40px;
   background-color: #325bbc;
-
+  padding-top: 50px;
   /* background-color: #f43c04; */
 
   box-shadow: rgba(50, 91, 188, 0.4) 0px -5px 0px, rgba(50, 91, 188, 0.3) 0px -10px 0px, rgba(50, 91, 188, 0.2) 0px -15px 0px,

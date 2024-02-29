@@ -307,9 +307,10 @@ li img {
 
   .game-data {
     flex-direction: row;
-    justify-content: space-between;
-
+    justify-content: center;
+    gap: 100px;
     filter: brightness(85%);
+    min-width: 86%;
   }
 
   .game-data:hover {

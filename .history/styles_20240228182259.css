@@ -307,8 +307,8 @@ li img {
 
   .game-data {
     flex-direction: row;
-    justify-content: space-between;
-
+    justify-content: center;
+    gap: 100px;
     filter: brightness(85%);
   }
 
@@ -321,7 +321,7 @@ li img {
     max-width: 40%;
     padding-right: 95px;
     font-size: 1rem;
-    min-width: 15%;
+    min-width: 86%;
     word-wrap: break-word;
     /* margin: 0 0 25px; */
     display: flex;

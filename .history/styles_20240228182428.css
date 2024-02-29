@@ -307,7 +307,7 @@ li img {
 
   .game-data {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     filter: brightness(85%);
   }
