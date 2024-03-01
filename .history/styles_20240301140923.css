@@ -253,7 +253,7 @@ li img {
 
 .description-container {
   margin-top: 20px;
-  max-height: 256px;
+  max-height: 250px;
   overflow: hidden;
   overflow-y: auto;
   padding-right: 10px;
@@ -400,7 +400,7 @@ li img {
   }
 
   .description-container {
-    scrollbar-color: #d98c00 #f43c04;
+    scrollbar-color: orange #f43c04;
     flex-direction: column !important;
   }
 }

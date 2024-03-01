@@ -55,7 +55,7 @@ async function fetchYoutubePlaylist(gameName) {
 //Get the game data
 async function fetchGameData(gameName) {
   try {
-    const response = await fetch(`${baseUrl}${apiKey}&search=${gameName}&search_exact=true&ordering=name?parent_platforms=1`);
+    const response = await fetch(`${baseUrl}${apiKey}&search=${gameName}&search_=true&ordering=name?parent_platforms=1`);
     if (!response.ok) {
       throw new Error("Failed to fetch game data");
     }
@@ -188,17 +188,18 @@ async function loopData(gameName) {
       }
 
       async function getPlaylist() {
-        // const playlistData = await fetchYoutubePlaylist(game.name);
-        // // console.log(game.name);
-        // const playList = playlistData[0].id.playlistId;
+        const playlistData = await fetchYoutubePlaylist(game.name);
+        // console.log(game.name);
+        const playList = playlistData[0].id.playlistId;
 
-        // if (!playList) {
-        //   alert("No soundtrack found");
-        // } else {
-        //   window.open(`//www.youtube.com/playlist?list=${playlistData[0].id.playlistId}`);
-        console.log(
-          `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${game.name} OST &type=playlist&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
-        );
+        if (!playList) {
+          alert("No soundtrack found");
+        } else {
+          window.open(`//www.youtube.com/playlist?list=${playlistData[0].id.playlistId}`);
+          console.log(
+            `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${game.name} OST &type=playlist&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+          );
+        }
       }
       adjustPadding(gameList);
       //-----------------STOREFRONT LOGO CODE-----------------//

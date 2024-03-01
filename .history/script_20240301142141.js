@@ -196,9 +196,10 @@ async function loopData(gameName) {
         //   alert("No soundtrack found");
         // } else {
         //   window.open(`//www.youtube.com/playlist?list=${playlistData[0].id.playlistId}`);
-        console.log(
-          `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${game.name} OST &type=playlist&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
-        );
+          console.log(
+            `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${game.name} OST &type=playlist&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+          );
+        
       }
       adjustPadding(gameList);
       //-----------------STOREFRONT LOGO CODE-----------------//
