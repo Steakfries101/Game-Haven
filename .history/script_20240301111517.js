@@ -146,7 +146,7 @@ async function loopData(gameName) {
       gameTitle.textContent = game.name;
       gameDesc.appendChild(gameTitle);
 
-      const clickables = document.createElement("div");
+      const linksContainer = document.createElement("div");
       clickables.className = "clickables-container";
 
       gameDesc.appendChild(clickables);

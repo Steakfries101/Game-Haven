@@ -146,10 +146,10 @@ async function loopData(gameName) {
       gameTitle.textContent = game.name;
       gameDesc.appendChild(gameTitle);
 
-      const clickables = document.createElement("div");
-      clickables.className = "clickables-container";
+      const linksContainer = document.createElement("div");
+      linksContainer.className = "clickables-container";
 
-      gameDesc.appendChild(clickables);
+      gameDesc.appendChild(linksContainer); 
       const linkContainer = document.createElement("div");
       linkContainer.className = "link-container";
       gameDesc.appendChild(linkContainer);
@@ -162,16 +162,16 @@ async function loopData(gameName) {
       });
       linkContainer.appendChild(trailerLink);
 
-      const soundtrackLink = document.createElement("p");
-      soundtrackLink.textContent = "Soundtrack";
-      linkContainer.appendChild(soundtrackLink);
-      soundtrackLink.addEventListener("click", () => {
+      const test1 = document.createElement("p");
+      test1.textContent = "Soundtrack";
+      linkContainer.appendChild(test1); //AND HERE
+      test1.addEventListener("click", () => {
         getPlaylist(sound);
       });
 
-      clickables.appendChild(linkContainer);
+      linksContainer.appendChild(linkContainer);
 
-      textDecider(text, gameDesc, storeFronts, clickables);
+      textDecider(text, gameDesc, storeFronts, linksContainer);
 
       async function getTrailer() {
         let gameRename = "";

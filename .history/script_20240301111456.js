@@ -146,10 +146,10 @@ async function loopData(gameName) {
       gameTitle.textContent = game.name;
       gameDesc.appendChild(gameTitle);
 
-      const clickables = document.createElement("div");
+      const linksContainer = document.createElement("div");
       clickables.className = "clickables-container";
 
-      gameDesc.appendChild(clickables);
+      gameDesc.appendChild(linksContainer);
       const linkContainer = document.createElement("div");
       linkContainer.className = "link-container";
       gameDesc.appendChild(linkContainer);
@@ -169,9 +169,9 @@ async function loopData(gameName) {
         getPlaylist(sound);
       });
 
-      clickables.appendChild(linkContainer);
+      linksContainer.appendChild(linkContainer);
 
-      textDecider(text, gameDesc, storeFronts, clickables);
+      textDecider(text, gameDesc, storeFronts, linksContainer);
 
       async function getTrailer() {
         let gameRename = "";
