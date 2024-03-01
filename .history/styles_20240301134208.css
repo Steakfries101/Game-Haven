@@ -255,7 +255,7 @@ li img {
 .description-container {
   display: flex;
   flex-direction: column-reverse !important;
-  max-height: 400px;
+  /* max-height: 400px; */
   overflow: hidden;
   overflow-y: auto;
 
@@ -404,6 +404,5 @@ li img {
 
   .description-container {
     scrollbar-color: orange #f43c04;
-    flex-direction: column !important;
   }
 }

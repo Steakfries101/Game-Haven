@@ -402,8 +402,5 @@ li img {
     width: 40px;
   }
 
-  .description-container {
-    scrollbar-color: orange #f43c04;
-    flex-direction: column !important;
-  }
+  .description-container
 }

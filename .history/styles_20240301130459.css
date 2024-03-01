@@ -258,7 +258,6 @@ li img {
   max-height: 400px;
   overflow: hidden;
   overflow-y: auto;
-
   padding-right: 10px;
 }
 
@@ -402,8 +401,34 @@ li img {
     width: 40px;
   }
 
+  /* Webkit-based browsers (Chrome, Safari) */
+  .description-container::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+    margin-left: 200px;
+  }
+
+  .description-container::-webkit-scrollbar-thumb {
+    background-color: blue; /* Color of the thumb */
+    border-radius: 6px; /* Rounded corners of the thumb */
+  }
+
+  /* Optional: Track color */
+  .description-container::-webkit-scrollbar-track {
+    background-color: lightgray; /* Color of the track */
+  }
+
+  /* Firefox */
   .description-container {
-    scrollbar-color: orange #f43c04;
-    flex-direction: column !important;
+    scrollbar-width: thin; /* Width of the scrollbar */
+  }
+
+  .description-container::-webkit-scrollbar-thumb {
+    background-color: blue; /* Color of the thumb */
+    border-radius: 6px; /* Rounded corners of the thumb */
+  }
+
+  /* Optional: Track color for Firefox */
+  .description-container {
+    scrollbar-color: blue lightgray; /* Thumb and track color */
   }
 }

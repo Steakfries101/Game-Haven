@@ -258,7 +258,6 @@ li img {
   max-height: 400px;
   overflow: hidden;
   overflow-y: auto;
-
   padding-right: 10px;
 }
 
@@ -402,8 +401,3 @@ li img {
     width: 40px;
   }
 
-  .description-container {
-    scrollbar-color: orange #f43c04;
-    flex-direction: column !important;
-  }
-}

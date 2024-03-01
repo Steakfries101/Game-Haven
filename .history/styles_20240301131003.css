@@ -258,7 +258,6 @@ li img {
   max-height: 400px;
   overflow: hidden;
   overflow-y: auto;
-
   padding-right: 10px;
 }
 
@@ -402,8 +401,14 @@ li img {
     width: 40px;
   }
 
+  .description-container::-webkit-scrollbar-thumb {
+    background-color: blue; /* Color of the thumb */
+    border-radius: 66px; /* Rounded corners of the thumb */
+  }
+
+  /* Optional: Track color for Firefox */
   .description-container {
-    scrollbar-color: orange #f43c04;
-    flex-direction: column !important;
+    scrollbar-color: blue green; /* Thumb and track color */
+    scroll
   }
 }

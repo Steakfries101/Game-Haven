@@ -13,14 +13,13 @@ function textDecider(text, gameDesc, storeFronts, gameTitle) {
     gameDesc.appendChild(part1Para);
 
     const part2Para = document.createElement("p");
-    part2Para.innerHTML = `${part1}${part2}`;
+    part2Para.innerHTML = `<p>${part1}${part2}</p>`;
     part2Para.style.display = "none";
     gameDesc.appendChild(part2Para);
 
     descriptionContainer.appendChild(part1Para);
     descriptionContainer.appendChild(part2Para);
     gameTitle.appendChild(storeFronts);
-    part2Para.scrollTop = 50;
 
     gameDesc.appendChild(descriptionContainer);
     const readMore = document.createElement("button");
@@ -54,6 +53,7 @@ function textDecider(text, gameDesc, storeFronts, gameTitle) {
     defaultDesc.textContent = "No game description found";
     gameInfo.appendChild(defaultDesc);
   }
+  descriptionContainer.scrollTop = 0;
 }
 
 export { textDecider };

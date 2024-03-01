@@ -404,6 +404,7 @@ li img {
 
   .description-container {
     scrollbar-color: orange #f43c04;
-    flex-direction: column !important;
+    flex-direction: column-reverse !important;
+
   }
 }

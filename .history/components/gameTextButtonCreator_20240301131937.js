@@ -3,6 +3,7 @@ function textDecider(text, gameDesc, storeFronts, gameTitle) {
 
   const descriptionContainer = document.createElement("div");
   descriptionContainer.className = "description-container";
+  
 
   if (text.length > num) {
     const part1 = text.slice(0, num);
@@ -13,14 +14,13 @@ function textDecider(text, gameDesc, storeFronts, gameTitle) {
     gameDesc.appendChild(part1Para);
 
     const part2Para = document.createElement("p");
-    part2Para.innerHTML = `${part1}${part2}`;
+    part2Para.innerHTML = `<p>${part1}${part2}</p>`;
     part2Para.style.display = "none";
     gameDesc.appendChild(part2Para);
 
     descriptionContainer.appendChild(part1Para);
     descriptionContainer.appendChild(part2Para);
     gameTitle.appendChild(storeFronts);
-    part2Para.scrollTop = 50;
 
     gameDesc.appendChild(descriptionContainer);
     const readMore = document.createElement("button");
@@ -36,6 +36,8 @@ function textDecider(text, gameDesc, storeFronts, gameTitle) {
     readMore.addEventListener("click", () => {
       part2Para.style.display = "block";
       part1Para.style.display = "none";
+      descriptionContainer.scrollTop = descriptionContainer.scrollHeight;
+
     });
     readLess.addEventListener("click", () => {
       part2Para.style.display = "none";

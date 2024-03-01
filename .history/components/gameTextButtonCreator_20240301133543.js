@@ -20,7 +20,7 @@ function textDecider(text, gameDesc, storeFronts, gameTitle) {
     descriptionContainer.appendChild(part1Para);
     descriptionContainer.appendChild(part2Para);
     gameTitle.appendChild(storeFronts);
-    part2Para.scrollTop = 50;
+    descriptionContainer.scrollTop = 0;
 
     gameDesc.appendChild(descriptionContainer);
     const readMore = document.createElement("button");
