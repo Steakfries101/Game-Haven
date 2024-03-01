@@ -285,18 +285,26 @@ li img {
   flex-wrap: wrap-reverse;
 }
 
-/* LARGESCREEN MEDIA QUERIES*/
+@keyframes example {
+  0% {
+    /* border-radius: 20px; */
 
-@media only screen and (min-width: 1000px) {
-  @media only screen and (min-width: 1000px) and (max-width: 1200px) {
-    .clickables-container {
-      flex-direction: column-reverse !important;
-    }
-
-    .link-container p {
-      margin-top: 5px !important;
-    }
+    border-color: aqua;
   }
+
+  100% {
+    border-color: navy;
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px,
+      rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .clickables-container {
+    flex-direction: row-reverse;
+  }
+}
+/* LARGESCREEN MEDIA QUERIES*/
+@media only screen and (min-width: 1000px) {
   #logo {
     width: 15%;
     /* padding-left: 200px; */

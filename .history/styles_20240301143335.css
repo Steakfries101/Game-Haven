@@ -259,6 +259,7 @@ li img {
   padding-bottom: 50px;
   overflow: hidden;
   overflow-y: auto;
+  /* padding-right: 10px; */
 }
 
 .link-container {
@@ -285,18 +286,22 @@ li img {
   flex-wrap: wrap-reverse;
 }
 
-/* LARGESCREEN MEDIA QUERIES*/
+@keyframes example {
+  0% {
+    /* border-radius: 20px; */
 
-@media only screen and (min-width: 1000px) {
-  @media only screen and (min-width: 1000px) and (max-width: 1200px) {
-    .clickables-container {
-      flex-direction: column-reverse !important;
-    }
-
-    .link-container p {
-      margin-top: 5px !important;
-    }
+    border-color: aqua;
   }
+
+  100% {
+    border-color: navy;
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px,
+      rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+  }
+}
+
+/* LARGESCREEN MEDIA QUERIES*/
+@media only screen and (min-width: 1000px) {
   #logo {
     width: 15%;
     /* padding-left: 200px; */
@@ -401,6 +406,5 @@ li img {
     scrollbar-color: #d98c00 #f43c04;
     flex-direction: column !important;
     max-height: 256px;
-    padding-right: 10px;
   }
 }

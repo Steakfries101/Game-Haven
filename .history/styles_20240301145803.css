@@ -293,9 +293,9 @@ li img {
       flex-direction: column-reverse !important;
     }
 
-    .link-container p {
-      margin-top: 5px !important;
-    }
+  .link-container{
+    padding-top:
+  }
   }
   #logo {
     width: 15%;

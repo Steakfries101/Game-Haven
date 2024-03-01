@@ -288,13 +288,9 @@ li img {
 /* LARGESCREEN MEDIA QUERIES*/
 
 @media only screen and (min-width: 1000px) {
-  @media only screen and (min-width: 1000px) and (max-width: 1200px) {
+  @media only screen and (min-width: 1200px) and (max-width: 130px) {
     .clickables-container {
-      flex-direction: column-reverse !important;
-    }
-
-    .link-container p {
-      margin-top: 5px !important;
+      background-color: red;
     }
   }
   #logo {
