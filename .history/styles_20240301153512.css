@@ -405,9 +405,9 @@ li img {
   .site-body {
     display: flex;
     flex-direction: column;
-    align-content: center;
-
-    width: 60%;
+    align-content: start;
+    align-items: start;
+    width: 50%;
     margin: auto;
   }
   .intro {
@@ -415,7 +415,7 @@ li img {
   }
 
   .form-container {
-    align-items: center;
+    align-items: start;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -424,6 +424,12 @@ li img {
     margin: 0;
   }
   .button-container {
+    text-align: left;
+  }
+  .search-container {
+    width: 100%;
+  }
+  .search-bar {
     text-align: center;
   }
 }

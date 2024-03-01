@@ -405,17 +405,17 @@ li img {
   .site-body {
     display: flex;
     flex-direction: column;
-    align-content: center;
-
-    width: 60%;
+    align-content: start;
+    align-items: start;
+    width: 50%;
     margin: auto;
   }
   .intro {
-    margin: auto;
+    margin: 0;
   }
 
   .form-container {
-    align-items: center;
+    align-items: start;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -424,6 +424,9 @@ li img {
     margin: 0;
   }
   .button-container {
-    text-align: center;
+    text-align: left;
+  }
+  #search-bar {
+    width: 150%;
   }
 }

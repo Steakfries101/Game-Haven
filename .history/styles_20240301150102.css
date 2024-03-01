@@ -74,6 +74,7 @@ h1 {
 
 .button-container {
   width: 75%;
+  margin: auto;
   margin-top: 30px;
   text-align: center;
 }
@@ -393,7 +394,7 @@ li img {
 
   .store-fronts img:hover {
     height: 47px;
-    width: 47px;
+    width: 40px;
   }
 
   .description-container {
@@ -401,29 +402,5 @@ li img {
     flex-direction: column !important;
     max-height: 256px;
     padding-right: 10px;
-  }
-  .site-body {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-
-    width: 60%;
-    margin: auto;
-  }
-  .intro {
-    margin: auto;
-  }
-
-  .form-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  .input-container {
-    margin: 0;
-  }
-  .button-container {
-    text-align: center;
   }
 }

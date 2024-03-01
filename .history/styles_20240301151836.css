@@ -74,6 +74,7 @@ h1 {
 
 .button-container {
   width: 75%;
+  margin: auto;
   margin-top: 30px;
   text-align: center;
 }
@@ -405,25 +406,20 @@ li img {
   .site-body {
     display: flex;
     flex-direction: column;
-    align-content: center;
-
-    width: 60%;
+    align-items: start;
     margin: auto;
+    width: 50%;
   }
   .intro {
-    margin: auto;
-  }
-
-  .form-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  .input-container {
     margin: 0;
   }
-  .button-container {
-    text-align: center;
+
+  .search-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    align-content: ;
   }
 }

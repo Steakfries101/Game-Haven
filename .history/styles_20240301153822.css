@@ -407,7 +407,7 @@ li img {
     flex-direction: column;
     align-content: center;
 
-    width: 60%;
+    width: 50%;
     margin: auto;
   }
   .intro {
@@ -424,6 +424,6 @@ li img {
     margin: 0;
   }
   .button-container {
-    text-align: center;
+    text-align: left;
   }
 }

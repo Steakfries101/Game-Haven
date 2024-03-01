@@ -405,25 +405,22 @@ li img {
   .site-body {
     display: flex;
     flex-direction: column;
-    align-content: center;
-
-    width: 60%;
-    margin: auto;
+    align-content: start;
+    align-items: start;
   }
   .intro {
-    margin: auto;
+    margin: 0;
   }
 
   .form-container {
-    align-items: center;
+    align-items: start;
     display: flex;
     flex-direction: column;
-    width: 100%;
   }
   .input-container {
     margin: 0;
   }
   .button-container {
-    text-align: center;
+    margin: 0;
   }
 }

@@ -76,6 +76,7 @@ h1 {
   width: 75%;
   margin-top: 30px;
   text-align: center;
+  margin: auto;
 }
 
 #search-icon {
@@ -405,9 +406,9 @@ li img {
   .site-body {
     display: flex;
     flex-direction: column;
-    align-content: center;
-
-    width: 60%;
+    align-content: start;
+    align-items: start;
+    width: 50%;
     margin: auto;
   }
   .intro {
@@ -424,6 +425,6 @@ li img {
     margin: 0;
   }
   .button-container {
-    text-align: center;
+    text-align: left;
   }
 }
