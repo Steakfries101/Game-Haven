@@ -175,7 +175,9 @@ async function loopData(gameName) {
       textDecider(text, gameDesc, storeFronts, linksContainer);
 
       async function getTrailer() {
+        // let gameNamer = game.name.split(" ");
         let gameRename = "";
+
         if (!game.name.includes("1")) {
           gameRename = game.name + " 1";
         } else {

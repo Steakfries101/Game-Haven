@@ -175,14 +175,23 @@ async function loopData(gameName) {
       textDecider(text, gameDesc, storeFronts, linksContainer);
 
       async function getTrailer() {
+        // let gameNamer = game.name.split(" ");
         let gameRename = "";
-        if (!game.name.includes("1")) {
+
+        // if (!game.name.contains(gameNamer)) {
+        // }
+        if (!game.name.includes("1") {
           gameRename = game.name + " 1";
-        } else {
-          gameRename = game.name;
-        }
+        // } else {
+        //   gameRename = game.name;
+        // }
+        console.log(game.name);
+        console.log(
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&maxResults=1&q=${gameRename} trailer&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+        );
         const trailerData = await fetchYoutubeTrailer(gameRename);
 
+        console.log(gameNamer);
         const videoId = trailerData[0].id.videoId;
         window.open(`https://www.youtube.com/watch?v=${videoId}`);
       }

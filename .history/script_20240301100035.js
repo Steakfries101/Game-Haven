@@ -55,7 +55,7 @@ async function fetchYoutubePlaylist(gameName) {
 //Get the game data
 async function fetchGameData(gameName) {
   try {
-    const response = await fetch(`${baseUrl}${apiKey}&search=${gameName}&search_precise=true&ordering=name?parent_platforms=1`);
+    const response = await fetch(`${baseUrl}${apiKey}&search=${gameName}&ordering=name?parent_platforms=1??searchsearch_exact=true`);
     if (!response.ok) {
       throw new Error("Failed to fetch game data");
     }
@@ -118,7 +118,7 @@ async function loopData(gameName) {
       if (!includesStore) {
         return;
       }
-      console.log(game.name);
+
       const text = await getGameDescription(game.id);
 
       const gameItem = document.createElement("li");
@@ -176,13 +176,15 @@ async function loopData(gameName) {
 
       async function getTrailer() {
         let gameRename = "";
+        
         if (!game.name.includes("1")) {
           gameRename = game.name + " 1";
-        } else {
-          gameRename = game.name;
         }
+     
         const trailerData = await fetchYoutubeTrailer(gameRename);
-
+        console.log(
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&maxResults=1&q=${gameRename} trailer&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+        );
         const videoId = trailerData[0].id.videoId;
         window.open(`https://www.youtube.com/watch?v=${videoId}`);
       }

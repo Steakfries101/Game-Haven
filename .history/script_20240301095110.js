@@ -5,8 +5,8 @@ import { textDecider } from "/components/gameTextButtonCreator.js";
 const youtubeKey = "AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI";
 
 //RAWG API
-const baseUrl = "https://api.rawg.io/api/games";
-const apiKey = "?key=eb297cab936749b380d022a9e1f0c9f1";
+const baseUrl = "https://api.rawg.io/api/games/";
+const apiKey = "?key=652dc6a240454ec7a98d610a0041a14e";
 
 let searchButt = document.querySelector(".search-button");
 searchButt.addEventListener("click", search);
@@ -55,7 +55,9 @@ async function fetchYoutubePlaylist(gameName) {
 //Get the game data
 async function fetchGameData(gameName) {
   try {
-    const response = await fetch(`${baseUrl}${apiKey}&search=${gameName}&search_precise=true&ordering=name?parent_platforms=1`);
+    const response = await fetch(
+      `?key=652dc6a240454ec7a98d610a0041a14e&search=${gameName}&ordering=name?parent_platforms=1?search_exact=true`
+    );
     if (!response.ok) {
       throw new Error("Failed to fetch game data");
     }
@@ -70,7 +72,9 @@ async function fetchGameData(gameName) {
 //Get the game descriptions
 async function getGameDescription(gameId) {
   try {
-    const response = await fetch(`${baseUrl}/${gameId}${apiKey}`);
+    const response = await fetch(
+      `https://api.rawg.io/api/games/${gameId}?key=652dc6a240454ec7a98d610a0041a14e`
+    );
     if (!response.ok) {
       throw new Error("Failed to fetch game desc data");
     }
@@ -84,7 +88,9 @@ async function getGameDescription(gameId) {
 //Get stores for each game based on game id
 async function getGameStores(gameId) {
   try {
-    const response = await fetch(`${baseUrl}/${gameId}/stores${apiKey}`);
+    const response = await fetch(
+      `https://api.rawg.io/api/games/${gameId}/stores?key=652dc6a240454ec7a98d610a0041a14e`
+    );
 
     if (!response.ok) {
       throw new Error("Failed to fetch game stores data");
@@ -113,12 +119,16 @@ async function loopData(gameName) {
 
     if (game.stores !== null) {
       const includesStore = game.stores.some(
-        (store) => store.store.id === 5 || store.store.id === 1 || store.store.id === 2 || store.store.id === 11
+        (store) =>
+          store.store.id === 5 ||
+          store.store.id === 1 ||
+          store.store.id === 2 ||
+          store.store.id === 11
       );
       if (!includesStore) {
         return;
       }
-      console.log(game.name);
+
       const text = await getGameDescription(game.id);
 
       const gameItem = document.createElement("li");
@@ -174,15 +184,26 @@ async function loopData(gameName) {
 
       textDecider(text, gameDesc, storeFronts, linksContainer);
 
+      //////////////////////////////////////////*****************************WORK ON THIS */
+
+      //       youtubeData.forEach(async(trailer)=>{
+      //         // gameDesc.appendChild(trailerUrl)
+      //TO DO
+      //   // FINISH TRAILERURL AND USE IT TO CREATE URL
+      // })
+
       async function getTrailer() {
         let gameRename = "";
+
         if (!game.name.includes("1")) {
           gameRename = game.name + " 1";
-        } else {
-          gameRename = game.name;
+          // return gameRename;
         }
+        console.log(gameRename);
         const trailerData = await fetchYoutubeTrailer(gameRename);
-
+        console.log(
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&maxResults=1&q=${gameRename} trailer&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+        );
         const videoId = trailerData[0].id.videoId;
         window.open(`https://www.youtube.com/watch?v=${videoId}`);
       }
