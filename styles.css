@@ -261,7 +261,7 @@ li img {
   justify-content: space-between;
 }
 
-.link-container p {
+.trailerOst {
   /* background-color:blue; */
   /* padding:10px;*/
   /* border-radius: 10px;*/
@@ -355,22 +355,29 @@ li img {
     padding-top: 0px;
     gap: 20px;
   }
-  .link-container p {
+
+  .trailerOst {
     font-size: 1.7rem;
+    height: 30px;
   }
-  .link-container p:hover {
+
+  .trailerOst:hover {
     cursor: pointer;
     border-bottom: 3px navy solid;
+    padding-bottom: 0px;
   }
+
   .clickables-container {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
   }
+
   .clickables-container p {
     margin-bottom: 0px;
     margin-top: 20px;
   }
+
   .store-fronts img {
     width: 50px;
     height: 50px;
