@@ -1,5 +1,5 @@
 function textDecider(text, gameDesc, storeFronts, gameTitle) {
-  const num = 250;
+  const num = 200;
 
   const descriptionContainer = document.createElement("div");
   descriptionContainer.className = "description-container";

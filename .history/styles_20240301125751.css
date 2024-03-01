@@ -277,12 +277,6 @@ li img {
   /* margin-top: 0px;
   background-color: orangered; */
 }
-.clickables-container {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: space-between;
-  flex-wrap: wrap-reverse;
-}
 
 @keyframes example {
   0% {
@@ -379,13 +373,11 @@ li img {
     padding-bottom: 0px;
   }
 
+
+
   .clickables-container p {
     margin-bottom: 0px;
     margin-top: 20px;
-  }
-
-  .clickables-container {
-    flex-direction: row-reverse;
   }
 
   .store-fronts img {

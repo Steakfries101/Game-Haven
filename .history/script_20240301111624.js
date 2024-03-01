@@ -155,7 +155,7 @@ async function loopData(gameName) {
       gameDesc.appendChild(linkContainer);
 
       const trailerLink = document.createElement("p");
-      trailerLink.className = "trailer-ost-links";
+      trailerLink.className = "trailerOst";
       trailerLink.textContent = "Trailer";
       trailerLink.addEventListener("click", () => {
         getTrailer();
@@ -164,10 +164,9 @@ async function loopData(gameName) {
 
       const soundtrackLink = document.createElement("p");
       soundtrackLink.textContent = "Soundtrack";
-      soundtrackLink.className = "trailer-ost-links";
       linkContainer.appendChild(soundtrackLink);
       soundtrackLink.addEventListener("click", () => {
-        getPlaylist();
+        getPlaylist(sound);
       });
 
       clickables.appendChild(linkContainer);
@@ -188,17 +187,15 @@ async function loopData(gameName) {
       }
 
       async function getPlaylist() {
-        const playlistData = await fetchYoutubePlaylist(game.name);
-        // console.log(game.name);
+        const playlistData = await fetchYoutubePlaylist(game.slug);
+        console.log(game.name);
         const playList = playlistData[0].id.playlistId;
 
         if (!playList) {
           alert("No soundtrack found");
         } else {
           window.open(`//www.youtube.com/playlist?list=${playlistData[0].id.playlistId}`);
-          console.log(
-            `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${game.name} OST &type=playlist&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
-          );
+          console.log(playlistData);
         }
       }
       adjustPadding(gameList);

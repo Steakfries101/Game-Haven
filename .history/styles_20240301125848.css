@@ -385,8 +385,7 @@ li img {
   }
 
   .clickables-container {
-    flex-direction: row-reverse;
-  }
+
 
   .store-fronts img {
     width: 50px;

@@ -279,7 +279,7 @@ li img {
 }
 .clickables-container {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: space-between;
   flex-wrap: wrap-reverse;
 }
@@ -382,10 +382,6 @@ li img {
   .clickables-container p {
     margin-bottom: 0px;
     margin-top: 20px;
-  }
-
-  .clickables-container {
-    flex-direction: row-reverse;
   }
 
   .store-fronts img {

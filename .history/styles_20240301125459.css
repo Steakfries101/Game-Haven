@@ -277,9 +277,10 @@ li img {
   /* margin-top: 0px;
   background-color: orangered; */
 }
+
 .clickables-container {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: row-reverse;
   justify-content: space-between;
   flex-wrap: wrap-reverse;
 }
@@ -382,10 +383,6 @@ li img {
   .clickables-container p {
     margin-bottom: 0px;
     margin-top: 20px;
-  }
-
-  .clickables-container {
-    flex-direction: row-reverse;
   }
 
   .store-fronts img {

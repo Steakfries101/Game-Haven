@@ -188,7 +188,7 @@ async function loopData(gameName) {
       }
 
       async function getPlaylist() {
-        const playlistData = await fetchYoutubePlaylist(game.name);
+        const playlistData = await fetchYoutubePlaylist(game.slug);
         // console.log(game.name);
         const playList = playlistData[0].id.playlistId;
 
