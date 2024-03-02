@@ -252,7 +252,7 @@ function searchDisplay(data) {
 //**********************************************************THIS PUTS STOREFRONT ICONS INBETWEEN TITLE AND TEXT */
 
 function adjustPadding(gameList) {
-  if (gameList.children.length > 0) {
+  if (gameList.length > 0) {
     gameList.style.paddingBottom = "200px";
   } else {
     gameList.style.padding = "0";

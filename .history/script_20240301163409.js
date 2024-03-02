@@ -100,6 +100,7 @@ async function getGameStores(gameId) {
 async function loopData(gameName) {
   const gameData = await fetchGameData(gameName);
   const gameList = document.querySelector(".game-list");
+  
 
   const error = document.createElement("h2");
 
@@ -223,7 +224,6 @@ async function loopData(gameName) {
       });
     }
   });
-  backToTopCreate(gameList);
 }
 
 function getSearchValue() {

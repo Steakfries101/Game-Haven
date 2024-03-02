@@ -100,7 +100,6 @@ async function getGameStores(gameId) {
 async function loopData(gameName) {
   const gameData = await fetchGameData(gameName);
   const gameList = document.querySelector(".game-list");
-
   const error = document.createElement("h2");
 
   error.className = "search-display";
@@ -223,7 +222,6 @@ async function loopData(gameName) {
       });
     }
   });
-  backToTopCreate(gameList);
 }
 
 function getSearchValue() {
@@ -260,13 +258,7 @@ function adjustPadding(gameList) {
 }
 
 //Create back to top button
-function backToTopCreate(gameList) {
+function backToTopCreate() {
   const toTopElement = document.querySelector(".to-top");
-  toTopElement.style.display = "block";
-
-  if (gameList.children.length > 0) {
-    toTopElement.style.display = "block";
-  } else {
-    toTopElement.style.display = "none";
-  }
+    toTopElement.style.display = ""
 }

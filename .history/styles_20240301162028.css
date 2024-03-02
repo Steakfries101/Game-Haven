@@ -428,13 +428,7 @@ li img {
   .read-more {
     margin-bottom: -30px;
   }
-  .to-top {
-    position: fixed;
-    display: none;
-    color: red;
-    font-size: 50px;
-    z-index: 35;
-    right: 0;
-    bottom: 0;
+  .top-top {
+    display: fixedl;
   }
 }

@@ -252,7 +252,7 @@ function searchDisplay(data) {
 //**********************************************************THIS PUTS STOREFRONT ICONS INBETWEEN TITLE AND TEXT */
 
 function adjustPadding(gameList) {
-  if (gameList.children.length > 0) {
+  if (gameList.length > 0) {
     gameList.style.paddingBottom = "200px";
   } else {
     gameList.style.padding = "0";
@@ -262,9 +262,7 @@ function adjustPadding(gameList) {
 //Create back to top button
 function backToTopCreate(gameList) {
   const toTopElement = document.querySelector(".to-top");
-  toTopElement.style.display = "block";
-
-  if (gameList.children.length > 0) {
+  if (gameList.children.length > 1) {
     toTopElement.style.display = "block";
   } else {
     toTopElement.style.display = "none";

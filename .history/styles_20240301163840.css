@@ -433,8 +433,6 @@ li img {
     display: none;
     color: red;
     font-size: 50px;
-    z-index: 35;
-    right: 0;
-    bottom: 0;
+    z-index: ;
   }
 }
