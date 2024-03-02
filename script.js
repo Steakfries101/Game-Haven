@@ -55,7 +55,9 @@ async function fetchYoutubePlaylist(gameName) {
 //Get the game data
 async function fetchGameData(gameName) {
   try {
-    const response = await fetch(`${baseUrl}${apiKey}&search=${gameName}&search_exact=true&ordering=name?parent_platforms=1`);
+    const response = await fetch(
+      `${baseUrl}${apiKey}&search=${gameName}&search_exact=true&ordering=name?parent_platforms=1`
+    );
     if (!response.ok) {
       throw new Error("Failed to fetch game data");
     }
@@ -116,7 +118,11 @@ async function loopData(gameName) {
 
       if (game.stores !== null) {
         const includesStore = game.stores.some(
-          (store) => store.store.id === 5 || store.store.id === 1 || store.store.id === 2 || store.store.id === 11
+          (store) =>
+            store.store.id === 5 ||
+            store.store.id === 1 ||
+            store.store.id === 2 ||
+            store.store.id === 11
         );
         if (!includesStore) {
           return;
@@ -225,7 +231,7 @@ async function loopData(gameName) {
         });
       }
     });
-    console.log(gameData.length);
+    adjustPadding(gameData);
 
     backToTopCreate(gameList);
   } else {
@@ -245,7 +251,6 @@ async function search() {
     return;
   } else {
     await loopData(getSearchValue());
-    adjustPadding(gameList);
   }
 }
 
@@ -259,9 +264,10 @@ function searchDisplay(data) {
 
 //**********************************************************THIS PUTS STOREFRONT ICONS INBETWEEN TITLE AND TEXT */
 
-function adjustPadding(gameList) {
-  if (gameList.children.length > 0) {
+function adjustPadding(gameData) {
+  if (gameData.length > 0) {
     gameList.style.paddingBottom = "200px";
+    console.log(gameData.length);
   } else {
     gameList.style.padding = "0";
   }
