@@ -288,11 +288,21 @@ li img {
 #to-top {
   position: fixed;
   display: none;
-  color: red;
-  font-size: 2rem;
+  color: white;
+  font-size: 3.5rem;
   z-index: 35;
-  right: 0;
-  bottom: 0;
+  right: 10px;
+  bottom: 10px;
+
+}
+
+#to-top:hover {
+  cursor: pointer;
+  filter: brightness(75%)
+}
+
+#to-top:active {
+  font-size: 3rem;
 }
 
 /* LARGESCREEN MEDIA QUERIES*/
