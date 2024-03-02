@@ -102,135 +102,129 @@ async function loopData(gameName) {
   const gameList = document.querySelector(".game-list");
 
   const error = document.createElement("h2");
-
   error.className = "search-display";
   error.textContent = searchDisplay(gameData);
   gameList.appendChild(error);
+
   //Check if data returned from search query
-  if (gameData) {
-    console.log("NOT EMPTY");
 
-    //If data is there this checks each games storefronts to confirm it has one of the following as a store (5,1,2,11)
-    gameData.forEach(async (game) => {
-      // console.log(game);
+  //If data is there this checks each games storefronts to confirm it has one of the following as a store (5,1,2,11)
+  gameData.forEach(async (game) => {
+    // console.log(game);
 
-      if (game.stores !== null) {
-        const includesStore = game.stores.some(
-          (store) => store.store.id === 5 || store.store.id === 1 || store.store.id === 2 || store.store.id === 11
-        );
-        if (!includesStore) {
-          return;
-        }
-        console.log(game.name);
-        const text = await getGameDescription(game.id);
-
-        const gameItem = document.createElement("li");
-        gameItem.className = "game-item";
-        gameList.appendChild(gameItem);
-
-        const gameInfo = document.createElement("article");
-        gameInfo.className = "game-data";
-        gameItem.appendChild(gameInfo);
-
-        const gameCover = document.createElement("img");
-        gameCover.src = game.background_image;
-        gameCover.alt = `Game image of ${game.name}`;
-        gameCover.className = "game-cover";
-        gameInfo.appendChild(gameCover);
-
-        const gameDesc = document.createElement("div");
-        gameDesc.className = "game-desc";
-        gameInfo.appendChild(gameDesc);
-
-        const storeFronts = document.createElement("div");
-        storeFronts.className = "store-fronts";
-
-        const gameTitle = document.createElement("h2");
-        gameTitle.textContent = game.name;
-        gameDesc.appendChild(gameTitle);
-
-        const clickables = document.createElement("div");
-        clickables.className = "clickables-container";
-
-        gameDesc.appendChild(clickables);
-        const linkContainer = document.createElement("div");
-        linkContainer.className = "link-container";
-        gameDesc.appendChild(linkContainer);
-
-        const trailerLink = document.createElement("p");
-        trailerLink.className = "trailer-ost-links";
-        trailerLink.textContent = "Trailer";
-        trailerLink.addEventListener("click", () => {
-          getTrailer();
-        });
-        linkContainer.appendChild(trailerLink);
-
-        const soundtrackLink = document.createElement("p");
-        soundtrackLink.textContent = "Soundtrack";
-        soundtrackLink.className = "trailer-ost-links";
-        linkContainer.appendChild(soundtrackLink);
-        soundtrackLink.addEventListener("click", () => {
-          getPlaylist();
-        });
-
-        clickables.appendChild(linkContainer);
-
-        textDecider(text, gameDesc, storeFronts, clickables);
-
-        async function getTrailer() {
-          let gameRename = "";
-          if (!game.name.includes("1")) {
-            gameRename = game.name + " 1";
-          } else {
-            gameRename = game.name;
-          }
-          const trailerData = await fetchYoutubeTrailer(gameRename);
-
-          const videoId = trailerData[0].id.videoId;
-          window.open(`https://www.youtube.com/watch?v=${videoId}`);
-        }
-
-        async function getPlaylist() {
-          // const playlistData = await fetchYoutubePlaylist(game.name);
-          // // console.log(game.name);
-          // const playList = playlistData[0].id.playlistId;
-
-          // if (!playList) {
-          //   alert("No soundtrack found");
-          // } else {
-          //   window.open(`//www.youtube.com/playlist?list=${playlistData[0].id.playlistId}`);
-          console.log(
-            `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${game.name} OST &type=playlist&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
-          );
-        }
-        // adjustPadding(gameList);
-        //-----------------STOREFRONT LOGO CODE-----------------//
-
-        const stores = await getGameStores(game.id);
-        stores.forEach((store) => {
-          switch (store.store_id) {
-            case 1:
-              iconGenerator.createSteam(store, storeFronts);
-              break;
-            case 5:
-              iconGenerator.createGOG(store, storeFronts);
-              break;
-            case 11:
-              iconGenerator.createEpicGames(store, storeFronts);
-              break;
-            case 2:
-              iconGenerator.createXboxStore(store, storeFronts);
-              break;
-          }
-        });
+    if (game.stores !== null) {
+      const includesStore = game.stores.some(
+        (store) => store.store.id === 5 || store.store.id === 1 || store.store.id === 2 || store.store.id === 11
+      );
+      if (!includesStore) {
+        return;
       }
-    });
-    console.log(gameData.length);
+      console.log(game.name);
+      const text = await getGameDescription(game.id);
 
-    backToTopCreate(gameList);
-  } else {
-    return;
-  }
+      const gameItem = document.createElement("li");
+      gameItem.className = "game-item";
+      gameList.appendChild(gameItem);
+
+      const gameInfo = document.createElement("article");
+      gameInfo.className = "game-data";
+      gameItem.appendChild(gameInfo);
+
+      const gameCover = document.createElement("img");
+      gameCover.src = game.background_image;
+      gameCover.alt = `Game image of ${game.name}`;
+      gameCover.className = "game-cover";
+      gameInfo.appendChild(gameCover);
+
+      const gameDesc = document.createElement("div");
+      gameDesc.className = "game-desc";
+      gameInfo.appendChild(gameDesc);
+
+      const storeFronts = document.createElement("div");
+      storeFronts.className = "store-fronts";
+
+      const gameTitle = document.createElement("h2");
+      gameTitle.textContent = game.name;
+      gameDesc.appendChild(gameTitle);
+
+      const clickables = document.createElement("div");
+      clickables.className = "clickables-container";
+
+      gameDesc.appendChild(clickables);
+      const linkContainer = document.createElement("div");
+      linkContainer.className = "link-container";
+      gameDesc.appendChild(linkContainer);
+
+      const trailerLink = document.createElement("p");
+      trailerLink.className = "trailer-ost-links";
+      trailerLink.textContent = "Trailer";
+      trailerLink.addEventListener("click", () => {
+        getTrailer();
+      });
+      linkContainer.appendChild(trailerLink);
+
+      const soundtrackLink = document.createElement("p");
+      soundtrackLink.textContent = "Soundtrack";
+      soundtrackLink.className = "trailer-ost-links";
+      linkContainer.appendChild(soundtrackLink);
+      soundtrackLink.addEventListener("click", () => {
+        getPlaylist();
+      });
+
+      clickables.appendChild(linkContainer);
+
+      textDecider(text, gameDesc, storeFronts, clickables);
+
+      async function getTrailer() {
+        let gameRename = "";
+        if (!game.name.includes("1")) {
+          gameRename = game.name + " 1";
+        } else {
+          gameRename = game.name;
+        }
+        const trailerData = await fetchYoutubeTrailer(gameRename);
+
+        const videoId = trailerData[0].id.videoId;
+        window.open(`https://www.youtube.com/watch?v=${videoId}`);
+      }
+
+      async function getPlaylist() {
+        // const playlistData = await fetchYoutubePlaylist(game.name);
+        // // console.log(game.name);
+        // const playList = playlistData[0].id.playlistId;
+
+        // if (!playList) {
+        //   alert("No soundtrack found");
+        // } else {
+        //   window.open(`//www.youtube.com/playlist?list=${playlistData[0].id.playlistId}`);
+        console.log(
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${game.name} OST &type=playlist&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+        );
+      }
+      adjustPadding(gameList);
+      //-----------------STOREFRONT LOGO CODE-----------------//
+
+      const stores = await getGameStores(game.id);
+      stores.forEach((store) => {
+        switch (store.store_id) {
+          case 1:
+            iconGenerator.createSteam(store, storeFronts);
+            break;
+          case 5:
+            iconGenerator.createGOG(store, storeFronts);
+            break;
+          case 11:
+            iconGenerator.createEpicGames(store, storeFronts);
+            break;
+          case 2:
+            iconGenerator.createXboxStore(store, storeFronts);
+            break;
+        }
+      });
+    }
+  });
+  await backToTopCreate(gameList);
+  console.log(gameList.children.length);
 }
 
 function getSearchValue() {
@@ -238,14 +232,13 @@ function getSearchValue() {
   return value;
 }
 
-async function search() {
+function search() {
   gameList.innerHTML = "";
   if (!getSearchValue()) {
     alert("Please Enter A Game Name!");
     return;
   } else {
-    await loopData(getSearchValue());
-    adjustPadding(gameList);
+    loopData(getSearchValue());
   }
 }
 
@@ -268,11 +261,11 @@ function adjustPadding(gameList) {
 }
 
 //Create back to top button
-function backToTopCreate(gameList) {
+async function backToTopCreate(gameList) {
   const toTopElement = document.querySelector(".to-top");
   toTopElement.style.display = "block";
 
-  if (gameList.children.length > 0) {
+  if (gameList.children.length > 1) {
     toTopElement.style.display = "block";
   } else {
     toTopElement.style.display = "none";

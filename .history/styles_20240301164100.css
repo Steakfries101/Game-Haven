@@ -191,16 +191,13 @@ li img {
 /*Storefront CSS (Store logos and links)*/
 
 .store-fronts img {
-  /* padding-right: 10px; */
+  padding-right: 10px;
   width: 67px;
 }
 
 .store-fronts {
-  display: flex;
+  /* display:flex;   */
   text-align: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
   /* flex-direction: column-reverse; */
 }
 
@@ -288,7 +285,7 @@ li img {
   position: fixed;
   display: none;
   color: red;
-  font-size: 2rem;
+
   z-index: 35;
   right: 0;
   bottom: 0;

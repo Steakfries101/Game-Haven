@@ -225,8 +225,6 @@ async function loopData(gameName) {
         });
       }
     });
-    console.log(gameData.length);
-
     backToTopCreate(gameList);
   } else {
     return;

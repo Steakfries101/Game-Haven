@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a00487040a.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Game Haven</title>
+    <link id="favicon" rel="icon" href="assets/Asset-2.ico" type="image/png" sizes="32*32">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="top-bar">
+            <img src="/assets/game-haven-logo.png" id="logo" alt="Gamehaven Logo">
+        </div>
+        <div class=site-body>
+            <div class=intro>
+                <h1>What is Game Haven?</h1>
+                <p>Immerse yourself in the world of PC gaming with Game Haven. Fueled by the <strong>RAWG API</strong>,
+                    Game Haven is your go-to spot to help you discover where to buy your PC games with links to the
+                    direct purchase page.
+                    Delve into detailed game descriptions and uncover available storefronts effortlessly. From Steam to
+                    GOG, Epic Games, and the Xbox Store, Game Haven ensures you get what you need and fast. <br>
+                    <br>Simply type in the name of your desired PC game, and let Game Haven reveal
+                    exactly where to purchase it.
+                </p>
+            </div>
+            <h2>Search</h2>
+            <form class="search-container" id="noRefreshForm">
+                <div class="form-container">
+                    <div class="input-container">
+                        <input type="search" class="search-bar" id="search-bar"
+                            placeholder="Search for a game by title...">
+                        <label for="search-bar">Example Label:</label>
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="search-button" id="search-submit">
+                            <i class="fa-solid fa-magnifying-glass fa-lg" id="search-icon"></i>Search
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <a class="to-top">HELLO</a>
+
+        <ul class="game-list">
+
+        </ul>
+    </div>
+    <footer id="footer">
+        <div id="copyright">
+            <h3>Game Details and Imagery Provided by RAWG</h3>
+            <h3>Game haven Copyright ©</h3>
+        </div>
+    </footer>
+</body>
+<script type="module" src="script.js"></script>
+
+</html>

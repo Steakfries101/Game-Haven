@@ -110,6 +110,7 @@ async function loopData(gameName) {
   if (gameData) {
     console.log("NOT EMPTY");
 
+
     //If data is there this checks each games storefronts to confirm it has one of the following as a store (5,1,2,11)
     gameData.forEach(async (game) => {
       // console.log(game);
@@ -225,8 +226,6 @@ async function loopData(gameName) {
         });
       }
     });
-    console.log(gameData.length);
-
     backToTopCreate(gameList);
   } else {
     return;

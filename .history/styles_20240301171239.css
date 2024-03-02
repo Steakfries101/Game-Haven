@@ -196,11 +196,8 @@ li img {
 }
 
 .store-fronts {
-  display: flex;
+  /* display:flex;   */
   text-align: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
   /* flex-direction: column-reverse; */
 }
 
