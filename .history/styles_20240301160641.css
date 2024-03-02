@@ -298,9 +298,6 @@ li img {
     .link-container p {
       margin-top: 5px !important;
     }
-    .description-container {
-      max-height: fit-content;
-    }
   }
   #logo {
     width: 15%;
@@ -405,7 +402,7 @@ li img {
   .description-container {
     scrollbar-color: #d98c00 #f43c04;
     flex-direction: column !important;
-    max-height: 256px;
+    max-height: 306px;
     padding-right: 10px;
   }
   .site-body {
@@ -424,8 +421,5 @@ li img {
   }
   .site-body {
     max-width: 70%;
-  }
-  .read-more {
-    margin-bottom: -30px;
   }
 }

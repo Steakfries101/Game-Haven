@@ -425,7 +425,5 @@ li img {
   .site-body {
     max-width: 70%;
   }
-  .read-more {
-    margin-bottom: -30px;
-  }
+  .read-more
 }

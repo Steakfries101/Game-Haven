@@ -407,6 +407,7 @@ li img {
     flex-direction: column !important;
     max-height: 256px;
     padding-right: 10px;
+    padding-top: -20px;
   }
   .site-body {
     display: flex;

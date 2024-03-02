@@ -133,6 +133,10 @@ body {
   padding-left: 50px;
 }
 
+.site-body {
+  flex: 1;
+}
+
 /*Read more and Read less button stylings */
 .read-more,
 .read-less {
@@ -298,9 +302,6 @@ li img {
     .link-container p {
       margin-top: 5px !important;
     }
-    .description-container {
-      max-height: fit-content;
-    }
   }
   #logo {
     width: 15%;
@@ -407,25 +408,5 @@ li img {
     flex-direction: column !important;
     max-height: 256px;
     padding-right: 10px;
-  }
-  .site-body {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-
-    margin: auto;
-  }
-  .intro {
-    margin: auto;
-  }
-
-  .input-container {
-    margin: 0;
-  }
-  .site-body {
-    max-width: 70%;
-  }
-  .read-more {
-    margin-bottom: -30px;
   }
 }

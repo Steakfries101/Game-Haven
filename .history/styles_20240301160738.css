@@ -298,9 +298,6 @@ li img {
     .link-container p {
       margin-top: 5px !important;
     }
-    .description-container {
-      max-height: fit-content;
-    }
   }
   #logo {
     width: 15%;
@@ -425,7 +422,9 @@ li img {
   .site-body {
     max-width: 70%;
   }
+
   .read-more {
-    margin-bottom: -30px;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 }

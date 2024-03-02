@@ -426,6 +426,6 @@ li img {
     max-width: 70%;
   }
   .read-more {
-    margin-bottom: -30px;
+    margin-bottom: 0;
   }
 }
