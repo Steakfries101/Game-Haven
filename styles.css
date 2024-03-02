@@ -277,6 +277,7 @@ li img {
   /* margin-top: 0px;
   background-color: orangered; */
 }
+
 .clickables-container {
   display: flex;
   flex-direction: column-reverse;
@@ -284,7 +285,7 @@ li img {
   flex-wrap: wrap-reverse;
 }
 
-.to-top {
+#to-top {
   position: fixed;
   display: none;
   color: red;
@@ -311,10 +312,12 @@ li img {
     .link-container p {
       margin-top: 5px !important;
     }
+
     .description-container {
       max-height: fit-content;
     }
   }
+
   #logo {
     width: 15%;
     /* padding-left: 200px; */
@@ -421,6 +424,7 @@ li img {
     max-height: 256px;
     padding-right: 10px;
   }
+
   .site-body {
     display: flex;
     flex-direction: column;
@@ -428,6 +432,7 @@ li img {
 
     margin: auto;
   }
+
   .intro {
     margin: auto;
   }
@@ -435,9 +440,11 @@ li img {
   .input-container {
     margin: 0;
   }
+
   .site-body {
     max-width: 70%;
   }
+
   .read-more {
     margin-bottom: -30px;
   }

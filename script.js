@@ -232,8 +232,7 @@ async function loopData(gameName) {
       }
     });
     adjustPadding(gameData);
-
-    backToTopCreate(gameList);
+    backToTopCreate(gameData);
   } else {
     return;
   }
@@ -274,11 +273,9 @@ function adjustPadding(gameData) {
 }
 
 //Create back to top button
-function backToTopCreate(gameList) {
-  const toTopElement = document.querySelector(".to-top");
-  toTopElement.style.display = "block";
-
-  if (gameList.children.length > 0) {
+function backToTopCreate(gameData) {
+  const toTopElement = document.getElementById("to-top");
+  if (gameData.length > 0) {
     toTopElement.style.display = "block";
   } else {
     toTopElement.style.display = "none";
