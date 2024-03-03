@@ -56,7 +56,7 @@ async function fetchYoutubePlaylist(gameName) {
 async function fetchGameData(gameName) {
   try {
     const response = await fetch(
-      `${baseUrl}${apiKey}&search=${gameName}&search_exact=true&ordering=name?parent_platforms=1`
+      `${baseUrl}${apiKey}&search=${gameName}&search_precise=true&ordering=name?parent_platforms=1`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch game data");
