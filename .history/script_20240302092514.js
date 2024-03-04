@@ -55,7 +55,9 @@ async function fetchYoutubePlaylist(gameName) {
 //Get the game data
 async function fetchGameData(gameName) {
   try {
-    const response = await fetch(`${baseUrl}${apiKey}&search=${gameName}&search_precise=true&ordering=name?parent_platforms=1`);
+    const response = await fetch(
+      `${baseUrl}${apiKey}&search=${gameName}&search_exact=true&ordering=name?parent_platforms=1`
+    );
     if (!response.ok) {
       throw new Error("Failed to fetch game data");
     }
@@ -116,7 +118,11 @@ async function loopData(gameName) {
 
       if (game.stores !== null) {
         const includesStore = game.stores.some(
-          (store) => store.store.id === 5 || store.store.id === 1 || store.store.id === 2 || store.store.id === 11
+          (store) =>
+            store.store.id === 5 ||
+            store.store.id === 1 ||
+            store.store.id === 2 ||
+            store.store.id === 11
         );
         if (!includesStore) {
           return;
@@ -199,10 +205,9 @@ async function loopData(gameName) {
             alert("No soundtrack found");
           } else {
             window.open(`//www.youtube.com/playlist?list=${playlistData[0].id.playlistId}`);
-            console.log(
-              `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${game.name} OST &type=playlist&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
-            );
-          }
+          console.log(
+            `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${game.name} OST &type=playlist&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+          );
         }
         // adjustPadding(gameList);
         //-----------------STOREFRONT LOGO CODE-----------------//
@@ -225,7 +230,7 @@ async function loopData(gameName) {
           }
         });
       }
-    });
+    };
     adjustPadding(gameData);
     backToTopCreate(gameData);
   } else {
