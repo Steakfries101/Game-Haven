@@ -20,7 +20,7 @@ document.getElementById("noRefreshForm").addEventListener("submit", (e) => {
 async function fetchYoutubeTrailer(gameName) {
   try {
     const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&maxResults=1&q=${gameName} game trailer&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&maxResults=1&q=${gameName} game trailer&key=${youtubeKey}`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch youtube data");
@@ -33,19 +33,17 @@ async function fetchYoutubeTrailer(gameName) {
     console.error("Error fetching youtube data");
   }
 }
+
 async function fetchYoutubePlaylist(gameName) {
   try {
     const response = await fetch(
-      // https://www.googleapis.com/youtube/v3/search?q=your_search_query&part=snippet&maxResults=10&type=playlist&key=YOUR_API_KEY
-
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${gameName} 'intitle:ost|intitle:soundtrack' &type=playlist&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${gameName} intitle:ost|intitle:soundtrack &type=playlist&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch youtube playlist data");
     }
     const youtubeData = await response.json();
     const videos = youtubeData.items;
-    // console.log(youtubeData);
     return videos;
   } catch (error) {
     console.error("Error fetching youtube playlist data");
@@ -167,7 +165,7 @@ async function loopData(gameName) {
         trailerLink.className = "trailer-ost-links";
         trailerLink.textContent = "Trailer";
         trailerLink.addEventListener("click", () => {
-          getTrailer();
+          getTrailer(game.name);
         });
         linkContainer.appendChild(trailerLink);
 
@@ -176,47 +174,13 @@ async function loopData(gameName) {
         soundtrackLink.className = "trailer-ost-links";
         linkContainer.appendChild(soundtrackLink);
         soundtrackLink.addEventListener("click", () => {
-          getPlaylist();
+          getPlaylist(game.name);
         });
 
         clickables.appendChild(linkContainer);
 
         textDecider(text, gameDesc, storeFronts, clickables);
 
-        async function getTrailer() {
-          let gameRename = "";
-          if (!game.name.includes("1")) {
-            gameRename = game.name + " 1";
-          } else {
-            gameRename = game.name;
-          }
-          const trailerData = await fetchYoutubeTrailer(gameRename);
-
-          const videoId = trailerData[0].id.videoId;
-          window.open(`https://www.youtube.com/watch?v=${videoId}`);
-        }
-
-        async function getPlaylist() {
-          const encodePlaylist = encodeURIComponent(game.name);
-          const playlistData = await fetchYoutubePlaylist(encodePlaylist);
-          // console.log(game.name);
-          const playList = playlistData[0].id.playlistId;
-          // console.log(
-          //   `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${gameName} intitle:ost|intitle:soundtrack &type=playlist&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
-          // );
-          console.log(encodeName);
-          if (!playList) {
-            alert("No soundtrack found");
-          } else {
-            window.open(
-              `//www.youtube.com/playlist?list=${playlistData[0].id.playlistId}`
-            );
-
-            // console.log(
-            //   `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${game.name} OST &type=playlist&key=AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI`
-            // );
-          }
-        }
         // adjustPadding(gameList);
         //-----------------STOREFRONT LOGO CODE-----------------//
 
@@ -288,4 +252,28 @@ function backToTopCreate(gameData) {
   } else {
     toTopElement.style.display = "none";
   }
+}
+
+async function getPlaylist(gameName) {
+  const encodePlaylist = encodeURIComponent(gameName);
+  const playlistData = await fetchYoutubePlaylist(encodePlaylist);
+  const playList = playlistData[0].id.playlistId;
+  if (!playList) {
+    alert("No soundtrack found");
+  } else {
+    window.open(`//www.youtube.com/playlist?list=${playlistData[0].id.playlistId}`);
+  }
+}
+
+async function getTrailer(gameName) {
+  let gameRename = "";
+  if (!gameName.includes("1")) {
+    gameRename = gameName + " 1";
+  } else {
+    gameRename = gameName;
+  }
+  const encodeTrailer = encodeURIComponent(gameRename);
+  const trailerData = await fetchYoutubeTrailer(encodeTrailer);
+  const videoId = trailerData[0].id.videoId;
+  window.open(`https://www.youtube.com/watch?v=${videoId}`);
 }
