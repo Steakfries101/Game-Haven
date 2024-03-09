@@ -1,0 +1,10 @@
+
+    const params = new URLSearchParams(window.location.search);
+  const searchQuery = params.get("search");
+  
+  
+  if (searchQuery) {
+    window.location.document // Perform search with search query from URL
+      .querySelector(".search-bar").value = searchQuery;
+    search();
+  }

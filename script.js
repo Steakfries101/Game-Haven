@@ -1,6 +1,9 @@
 import * as iconGenerator from "/components/storeIconGenerator.js";
 import { textDecider } from "/components/gameTextButtonCreator.js";
 
+document.addEventListener("DOMContentLoaded", function () {
+  window.history.pushState({}, "", "/gamehaven");
+});
 //YOUTUBE API
 const youtubeKey = "AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI";
 
@@ -165,7 +168,8 @@ async function loopData(gameName) {
         trailerLink.className = "trailer-ost-links";
         trailerLink.textContent = "Trailer";
         trailerLink.addEventListener("click", () => {
-          getTrailer(game.name);
+          // getTrailer(game.name);
+          onclick = "javascript:window.location='http://www.google.com/'";
         });
         linkContainer.appendChild(trailerLink);
 
@@ -217,11 +221,20 @@ function getSearchValue() {
 
 async function search() {
   gameList.innerHTML = "";
-  if (!getSearchValue()) {
+  const searchValue = getSearchValue();
+  if (!searchValue) {
     alert("Please Enter A Game Name!");
     return;
   } else {
-    await loopData(getSearchValue());
+    await loopData(searchValue);
+    // Update URL with search query
+    const params = new URLSearchParams(window.location.search);
+    const url = window.location.pathname;
+
+    // params.set("search", searchValue);
+
+    // window.history.pushState({}, "", `${url}?${params.toString()}`);
+    // console.log(window.location.pathname);
   }
 }
 
