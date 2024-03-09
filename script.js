@@ -233,6 +233,13 @@ async function search() {
     return;
   } else {
     await loopData(searchValue);
+    const params = new URLSearchParams(location.search);
+    const url = location.pathname;
+
+    params.set("search", searchValue);
+
+    history.pushState({}, "", `${url}?${params.toString()}`);
+    // console.log(window.location.pathname);
   }
 }
 
