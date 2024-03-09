@@ -2,7 +2,13 @@ import * as iconGenerator from "/components/storeIconGenerator.js";
 import { textDecider } from "/components/gameTextButtonCreator.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-  window.history.pushState({}, "", "/gamehaven");
+  const params = new URLSearchParams(window.location.search);
+  const searchQuery = params.get("search");
+
+  if (searchQuery) {
+    document.querySelector(".search-bar").value = searchQuery; // corrected
+    search();
+  }
 });
 //YOUTUBE API
 const youtubeKey = "AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI";
@@ -227,14 +233,6 @@ async function search() {
     return;
   } else {
     await loopData(searchValue);
-    // Update URL with search query
-    const params = new URLSearchParams(window.location.search);
-    const url = window.location.pathname;
-
-    // params.set("search", searchValue);
-
-    // window.history.pushState({}, "", `${url}?${params.toString()}`);
-    // console.log(window.location.pathname);
   }
 }
 

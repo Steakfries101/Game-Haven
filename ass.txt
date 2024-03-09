@@ -1,10 +1,11 @@
 
-    const params = new URLSearchParams(window.location.search);
-  const searchQuery = params.get("search");
-  
-  
-  if (searchQuery) {
-    window.location.document // Perform search with search query from URL
-      .querySelector(".search-bar").value = searchQuery;
-    search();
-  }
+
+
+      // // Update URL with search query
+    // const params = new URLSearchParams(window.location.search);
+    // const url = window.location.pathname;
+
+    // params.set("search", searchValue);
+
+    // window.history.pushState({}, "", `${url}?${params.toString()}`);
+    // console.log(window.location.pathname);
