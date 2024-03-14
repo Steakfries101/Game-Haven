@@ -1,4 +1,5 @@
-import { gameList, getSearchValue, loopData } from "../script.js";
+import { gameList, getSearchValue } from "../script.js";
+import { loopData } from "../script.js";
 
 export async function search() {
   gameList.innerHTML = "";
