@@ -4,7 +4,7 @@ console.log(evan);
 window.addEventListener("scroll", () => {
   var scroll = window.scrollY;
   const toTop = document.getElementById("to-top");
-  if (scroll < 500) {
+  if (scroll < 900) {
     toTop.className = "hide";
   } else {
     toTop.className = "show";
