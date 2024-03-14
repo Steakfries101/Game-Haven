@@ -1,4 +1,12 @@
 /* GLOBAL STYLINGS html*/
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: inheri !important;
+}
+
 
 #logo {
   width: 45%;
