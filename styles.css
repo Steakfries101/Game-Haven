@@ -476,14 +476,14 @@ li img {
 
   #search-submit {
     /* position: relative; */
-    padding: 5px 30px 0px 40px;
+    padding: 5px 20px 0px 40px;
     /* bottom: 90px; */
   }
 
   #search-submit:hover {
     transition: all 0.1s ease;
     /* box-shadow: 0 0 0 0 #fff, 0 0 0 3px white; */
-    font-size: 18px;
+    /* font-size: 18px; */
   }
 
 
