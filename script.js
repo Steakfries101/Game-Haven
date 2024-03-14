@@ -1,5 +1,6 @@
-const evan = window.scrollY;
-console.log(evan);
+import * as iconGenerator from "/components/storeIconGenerator.js";
+import { textDecider } from "/components/gameTextButtonCreator.js";
+import { adjustPadding } from "./components/utils/adjustPadding.js";
 
 window.addEventListener("scroll", () => {
   var scroll = window.scrollY;
@@ -10,9 +11,6 @@ window.addEventListener("scroll", () => {
     toTop.className = "show";
   }
 });
-
-import * as iconGenerator from "/components/storeIconGenerator.js";
-import { textDecider } from "/components/gameTextButtonCreator.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   const params = new URLSearchParams(window.location.search);
@@ -32,7 +30,7 @@ const apiKey = "?key=eb297cab936749b380d022a9e1f0c9f1";
 
 let searchButt = document.querySelector(".search-button");
 searchButt.addEventListener("click", search);
-let gameList = document.querySelector(".game-list");
+export let gameList = document.querySelector(".game-list");
 
 //Stops the form from submitting (refreshing ) each time a search is made
 document.getElementById("noRefreshForm").addEventListener("submit", (e) => {
@@ -226,7 +224,7 @@ async function loopData(gameName) {
         });
       }
     });
-    adjustPadding(gameData);
+    adjustPadding(gameData, gameList);
     backToTopCreate(gameData);
   } else {
     return;
@@ -261,17 +259,6 @@ function searchDisplay(data) {
     return `No game by the name of ${getSearchValue()}`;
   } else {
     return `Showing results for ${getSearchValue()}`;
-  }
-}
-
-//**********************************************************THIS PUTS STOREFRONT ICONS INBETWEEN TITLE AND TEXT */
-
-function adjustPadding(gameData) {
-  if (gameData.length > 0) {
-    gameList.style.paddingBottom = "200px";
-    console.log(gameData.length);
-  } else {
-    gameList.style.padding = "0";
   }
 }
 
