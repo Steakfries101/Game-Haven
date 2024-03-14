@@ -1,4 +1,5 @@
 /* GLOBAL STYLINGS html*/
+
 #logo {
   width: 45%;
   /* padding-left: 200px; */
@@ -261,7 +262,7 @@ li img {
   /* padding:10px;*/
   /* border-radius: 10px;*/
   color: navy;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-family: "Bebas Neue", sans-serif;
 
   /* transition: border-radius 0.2s linear; */
@@ -284,10 +285,18 @@ li img {
   z-index: 35;
   right: 10px;
   bottom: 10px;
+  background-color: #f43c04;
+  border-radius: 75%;
+  justify-content: center;
+  text-decoration: none;
+  align-items: center;
+  width: 75px;
+  height: 75px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
 }
 
-#to-top:hover {
+#to-top:hover .fa-angles-up {
   cursor: pointer;
   filter: brightness(75%)
 }
@@ -478,6 +487,11 @@ li img {
     transition: all 0.1s ease;
     /* box-shadow: 0 0 0 0 #fff, 0 0 0 3px white; */
     /* font-size: 18px; */
+  }
+
+  #to-top {
+    right: 40px;
+    bottom: 40px;
   }
 
 
