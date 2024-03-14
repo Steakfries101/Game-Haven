@@ -1,11 +1,13 @@
 import * as iconGenerator from "/components/storeIconGenerator.js";
 import { textDecider } from "/components/gameTextButtonCreator.js";
 import { adjustPadding } from "./components/utils/adjustPadding.js";
+import { search } from "./components/search.js";
+// import { backToTopCreate } from "./components/utils/backToTopCreate.js";
 
 window.addEventListener("scroll", () => {
   var scroll = window.scrollY;
   const toTop = document.getElementById("to-top");
-  if (scroll < 900) {
+  if (scroll < 1200) {
     toTop.className = "hide";
   } else {
     toTop.className = "show";
@@ -117,7 +119,7 @@ async function getGameStores(gameId) {
 }
 
 //Beginning of loop that loops through returned data games and builds javascript
-async function loopData(gameName) {
+export async function loopData(gameName) {
   const gameData = await fetchGameData(gameName);
   const gameList = document.querySelector(".game-list");
 
@@ -231,27 +233,9 @@ async function loopData(gameName) {
   }
 }
 
-function getSearchValue() {
+export function getSearchValue() {
   const value = document.querySelector(".search-bar").value;
   return value;
-}
-
-async function search() {
-  gameList.innerHTML = "";
-  const searchValue = getSearchValue();
-  if (!searchValue) {
-    alert("Please Enter A Game Name!");
-    return;
-  } else {
-    await loopData(searchValue);
-    const params = new URLSearchParams(location.search);
-    const url = location.pathname;
-
-    params.set("search", searchValue);
-
-    history.pushState({}, "", `${url}?${params.toString()}`);
-    // console.log(window.location.pathname);
-  }
 }
 
 function searchDisplay(data) {
@@ -259,16 +243,6 @@ function searchDisplay(data) {
     return `No game by the name of ${getSearchValue()}`;
   } else {
     return `Showing results for ${getSearchValue()}`;
-  }
-}
-
-//Create back to top button
-function backToTopCreate(gameData) {
-  const toTopElement = document.getElementById("to-top");
-  if (gameData.length > 0) {
-    toTopElement.style.display = "flex";
-  } else {
-    toTopElement.style.display = "none";
   }
 }
 
