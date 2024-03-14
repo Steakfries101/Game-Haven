@@ -137,7 +137,7 @@ body {
 }
 
 /*Read more and Read less button stylings */
-.read-more,
+/* .read-more,
 .read-less {
   display: block;
   background-color: black;
@@ -152,7 +152,7 @@ body {
   z-index: 9;
   border: 0;
   transition: box-shadow 0.2s, font-size 0.2s, width 0.2s, height 0.2s;
-}
+} */
 
 .intro {
   width: 75%;
@@ -163,14 +163,14 @@ body {
   color: white;
 }
 
-.read-more:hover,
+/* .read-more:hover,
 .read-less:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   height: 42px;
   width: 26%;
   font-size: 0.9rem;
-}
+} */
 
 /* CSS */
 
@@ -222,7 +222,7 @@ li img {
 .game-data {
   display: flex;
   margin: auto;
-  width: 86%;
+  /* width: 86%; */
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -231,10 +231,7 @@ li img {
   background-color: orange;
   filter: brightness(100%);
   transition: filter 200ms linear;
-  margin-bottom: 20px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  border-radius: 5px;
+
 }
 
 .game-cover {
@@ -353,6 +350,10 @@ li img {
     justify-content: space-between;
     max-width: 85%;
     filter: brightness(85%);
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 5px;
   }
 
   .game-data:hover {

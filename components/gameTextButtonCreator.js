@@ -23,12 +23,12 @@ function textDecider(text, gameDesc, storeFronts, gameTitle) {
     part2Para.scrollTop = 50;
 
     gameDesc.appendChild(descriptionContainer);
-    const readMore = document.createElement("button");
+    const readMore = document.createElement("a");
     readMore.className = "read-more";
     readMore.textContent = "Read More";
     part1Para.appendChild(readMore);
 
-    const readLess = document.createElement("button");
+    const readLess = document.createElement("a");
     readLess.className = "read-less";
     readLess.textContent = "Read Less";
     part2Para.appendChild(readLess);
