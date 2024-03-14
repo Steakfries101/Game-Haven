@@ -1,3 +1,16 @@
+const evan = window.scrollY;
+console.log(evan);
+
+window.addEventListener("scroll", () => {
+  var scroll = window.scrollY;
+  const toTop = document.getElementById("to-top");
+  if (scroll < 500) {
+    toTop.className = "hide";
+  } else {
+    toTop.className = "show";
+  }
+});
+
 import * as iconGenerator from "/components/storeIconGenerator.js";
 import { textDecider } from "/components/gameTextButtonCreator.js";
 
@@ -63,7 +76,7 @@ async function fetchYoutubePlaylist(gameName) {
 async function fetchGameData(gameName) {
   try {
     const response = await fetch(
-      `${baseUrl}${apiKey}&search=${gameName}&search_precise=true&ordering=name?parent_platforms=1`
+      `${baseUrl}${apiKey}&search=${gameName}&search_exact=true&ordering=name?parent_platforms=1`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch game data");
@@ -117,7 +130,7 @@ async function loopData(gameName) {
   gameList.appendChild(error);
   //Check if data returned from search query
   if (gameData) {
-    console.log("NOT EMPTY");
+    // console.log("NOT EMPTY");
 
     //If data is there this checks each games storefronts to confirm it has one of the following as a store (5,1,2,11)
     gameData.forEach(async (game) => {
@@ -134,7 +147,7 @@ async function loopData(gameName) {
         if (!includesStore) {
           return;
         }
-        console.log(game.name);
+        // console.log(game.name);
         const text = await getGameDescription(game.id);
 
         const gameItem = document.createElement("li");
@@ -266,7 +279,7 @@ function adjustPadding(gameData) {
 function backToTopCreate(gameData) {
   const toTopElement = document.getElementById("to-top");
   if (gameData.length > 0) {
-    toTopElement.style.display = "block";
+    toTopElement.style.display = "flex";
   } else {
     toTopElement.style.display = "none";
   }
