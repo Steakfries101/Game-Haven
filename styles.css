@@ -137,22 +137,18 @@ body {
 }
 
 /*Read more and Read less button stylings */
-/* .read-more,
+.read-more,
 .read-less {
+  width: 20%;
+  font-weight: bolder;
+  color: #000080;
   display: block;
-  background-color: black;
-  border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
-  color: #ffffff;
   cursor: pointer;
   height: 40px;
   text-align: center;
   margin: auto;
-  width: 25%;
-  z-index: 9;
-  border: 0;
-  transition: box-shadow 0.2s, font-size 0.2s, width 0.2s, height 0.2s;
-} */
+  font-size: 1.1rem;
+}
 
 .intro {
   width: 75%;
@@ -163,14 +159,10 @@ body {
   color: white;
 }
 
-/* .read-more:hover,
+.read-more:hover,
 .read-less:hover {
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  height: 42px;
-  width: 26%;
-  font-size: 0.9rem;
-} */
+  text-decoration: underline;
+}
 
 /* CSS */
 
@@ -436,10 +428,12 @@ li img {
 
   .description-container {
     scrollbar-color: #d98c00 #f43c04;
-    flex-direction: column !important;
     max-height: 256px;
     padding-right: 10px;
+    align-content: center;
   }
+
+
 
   .site-body {
     display: flex;
