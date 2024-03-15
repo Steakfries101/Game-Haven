@@ -1,6 +1,6 @@
-import * as iconGenerator from "/components/storeIconGenerator.js";
-import { textDecider } from "/components/gameTextButtonCreator.js";
-import { getPlaylist, getTrailer } from "../script.js";
+import * as iconGenerator from "./storeIconGenerator.js";
+import { textDecider } from "./gameTextButtonCreator.js";
+import { getPlaylist, getTrailer } from "./getGameYoutubeMedia.js";
 import { getGameDescription, getGameStores } from "./fetchGameData.js";
 
 export async function buildGame(game, gameList) {

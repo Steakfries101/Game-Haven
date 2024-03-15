@@ -1,4 +1,4 @@
-import { youtubeKey, baseUrl, apiKey } from "../script.js";
+import { youtubeKey, baseUrl, apiKey } from "../../apiKeys.js";
 
 export async function fetchYoutubeTrailer(gameName) {
   try {
