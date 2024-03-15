@@ -3,7 +3,9 @@ import { textDecider } from "./gameTextButtonCreator.js";
 import { getPlaylist, getTrailer } from "./getGameYoutubeMedia.js";
 import { getGameDescription, getGameStores } from "./fetchGameData.js";
 
-export async function buildGame(game, gameList) {
+export const gameList = document.querySelector(".game-list");
+
+export async function buildGame(game) {
   if (game.stores !== null) {
     const includesStore = game.stores.some(
       (store) =>

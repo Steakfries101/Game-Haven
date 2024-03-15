@@ -1,6 +1,6 @@
-import { gameList, getSearchValue } from "../script.js";
+import { getSearchValue } from "../script.js";
 import { loopData } from "../script.js";
-
+import { gameList } from "./utils/buildGameItem.js";
 export async function search() {
   gameList.innerHTML = "";
   const searchValue = getSearchValue();
@@ -18,3 +18,8 @@ export async function search() {
     // console.log(window.location.pathname);
   }
 }
+
+//Stops the form from submitting (refreshing ) each time a search is made
+document.getElementById("noRefreshForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+});

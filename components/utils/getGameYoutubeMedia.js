@@ -13,6 +13,7 @@ export async function getPlaylist(gameName) {
     console.error("Unable to find playlist");
   }
 }
+
 export async function getTrailer(gameName) {
   let gameRename = "";
   if (!gameName.includes("1")) {
