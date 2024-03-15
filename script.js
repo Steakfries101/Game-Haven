@@ -2,20 +2,13 @@ import { adjustPadding } from "./components/adjustPadding.js";
 import { search } from "./components/search.js";
 import { buildGame } from "./components/utils/buildGameItem.js";
 import { fetchGameData } from "./components/utils/fetchGameData.js";
+import { toTopHider } from "./components/toTopLink.js";
+import { gameList } from "./components/utils/buildGameItem.js";
 
-let searchButt = document.querySelector(".search-button");
+const searchButt = document.querySelector(".search-button");
+
 searchButt.addEventListener("click", search);
-
-window.addEventListener("scroll", () => {
-  var scroll = window.scrollY;
-  const toTop = document.getElementById("to-top");
-  if (scroll < 1200) {
-    toTop.className = "hide";
-  } else {
-    toTop.className = "show";
-  }
-});
-
+window.addEventListener("scroll", toTopHider);
 document.addEventListener("DOMContentLoaded", function () {
   const params = new URLSearchParams(window.location.search);
   const searchQuery = params.get("search");
@@ -25,18 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-//YOUTUBE API
-
-export let gameList = document.querySelector(".game-list");
-//Stops the form from submitting (refreshing ) each time a search is made
-document.getElementById("noRefreshForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-});
-
 //Beginning of loop that loops through returned data games and builds javascript
 export async function loopData(gameName) {
   const gameData = await fetchGameData(gameName);
-  const gameList = document.querySelector(".game-list");
   const error = document.createElement("h2");
   error.className = "search-display";
   error.textContent = searchDisplay(gameData);
@@ -46,7 +30,7 @@ export async function loopData(gameName) {
     gameData.forEach(async (game) => {
       buildGame(game, gameList);
     });
-    adjustPadding(gameData, gameList);
+    adjustPadding(gameData);
   } else {
     return;
   }
