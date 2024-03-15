@@ -1,65 +1,106 @@
-/* GLOBAL STYLINGS html*/
-.hide {
-  /* display: none !important; */
-  opacity: 0%;
+/*VARIABLES*/
+:root {
+  --primary-color: orange;
+  --body-font: "Poppins", sans-serif;
+  --heading-font: "Bebas Neue", sans-serif;
+  --full-width: 100%;
+  --full-height: 100%;
+  --scrollbar-color: #d98c00 #f43c04;
+  ;
 }
 
-.show {
-  opacity: 100%;
+/**************************************************GLOBAL STYLINGS html*/
+
+
+p {
+  font-family: var(--body-font);
 }
 
+h2 {
+  color: black;
+  text-align: center;
+  font-family: var(--heading-font);
+  letter-spacing: 1.4px;
+  font-size: 3rem;
+}
+
+h1 {
+  font-family: var(--heading-font);
+  font-size: 3rem;
+}
+
+/***********CSS TO KEEP FOOTER AT BOTTOM OF SCREEN */
+body,
+html {
+  height: var(--full-height);
+  margin: 0;
+}
+
+body {
+  background-color: black;
+}
+
+li img {
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: var(--full-height);
+  ;
+}
 
 #logo {
   width: 45%;
-  /* padding-left: 200px; */
 }
 
 #top-bar {
   text-align: left;
 }
 
-p {
-  font-family: "Poppins", sans-serif;
+.hide {
+  opacity: 0%;
 }
 
-h2 {
-  color: black;
-  text-align: center;
-  /* font-family: */
-  font-family: "Bebas Neue", sans-serif;
-  letter-spacing: 1.4px;
-  font-size: 3rem;
+.show {
+  opacity: 100% !important;
 }
 
-h1 {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 3rem;
+/*Intro text CSS */
+.intro {
+  width: 75%;
+  display: block;
+  margin: auto;
+  padding-top: 50px;
+  color: white;
 }
 
+/************************************************** Search Bar CSS*/
 .search-container {
   padding-bottom: 100px;
 }
 
 #search-bar {
-  width: 100%;
+  width: var(--full-width);
+  ;
   padding: 10px;
   border: #f43c04 solid 5px;
   border-radius: 10px;
   font-size: 20px;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--heading-font);
 }
 
 #search-submit {
-  outline: none;
   cursor: pointer;
   border-radius: 3px;
   padding-left: 30px;
   border: none;
   color: black;
-  background: orange;
+  background: var(--primary-color);
   line-height: 1.15;
   font-size: 20px;
-  font-family: "poppins", sans-serif;
+  font-family: var(--body-font);
   position: absolute;
   top: 5px;
   right: 5px;
@@ -102,29 +143,16 @@ h1 {
   color: red;
 }
 
-/*CSS responsible for keeping footer at bottom*/
-body,
-html {
-  height: 100%;
-  margin: 0;
-}
-
-body {
-  background-color: black;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
+/************************************************** Footer CSS */
 
 #footer {
   flex-shrink: 0;
-  background-color: Orange;
+  background-color: var(--primary-color);
+  ;
   padding-bottom: 20px;
   height: 100px;
-  width: 100%;
+  width: var(--full-width);
+  ;
   display: flex;
   align-content: center;
   justify-content: center;
@@ -133,16 +161,13 @@ body {
 }
 
 #footer h3 {
-  /* align-self: flex-end; */
-  /* align-self: flex-end; */
   margin-top: 20px;
   margin-right: 20px;
   font-size: 1rem;
-  font-family: "poppins", sans-serif;
+  font-family: var(--body-font);
 }
 
 #copyright {
-  /* width: 50%; */
   padding-left: 50px;
 }
 
@@ -160,45 +185,64 @@ body {
   font-size: 1rem;
 }
 
-.intro {
-  width: 75%;
-  display: block;
-  margin: auto;
-  padding-top: 50px;
-
-  color: white;
-}
-
 .read-more:hover,
 .read-less:hover {
   text-decoration: underline;
 }
 
-/* CSS */
 
-.store-fronts h4 {
-  font-family: "Poppins", sans-serif;
-  display: none;
-}
 
-/*TOP BAR STYLINGS  */
+/************************************************** Top bar CSS */
 #top-bar {
-  background-color: Orange;
+  background-color: var(--primary-color);
+  ;
   text-align: center;
   box-shadow: rgba(255, 165, 0, 0.4) 0px 5px, rgba(255, 165, 0, 0.3) 0px 10px, rgba(255, 165, 0, 0.2) 0px 15px, rgba(255, 165, 0, 0.1) 0px 20px,
     rgba(255, 165, 0, 0.05) 0px 25px;
 }
 
-li img {
-  text-align: center;
+/************************************************** To top button CSS */
+#to-top {
+  position: fixed;
+  display: flex;
+  opacity: 0;
+  color: white;
+  font-size: 3.5rem;
+  z-index: 35;
+  right: 10px;
+  bottom: 10px;
+  background-color: #f43c04;
+  border-radius: 75%;
+  justify-content: center;
+  text-decoration: none;
+  align-items: center;
+  width: 75px;
+  height: 75px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transition: opacity .2s linear;
 }
 
-/*Storefront CSS (Store logos and links)*/
+#to-top:hover .fa-angles-up {
+  cursor: pointer;
+  filter: brightness(75%)
+}
+
+#to-top:active {
+  font-size: 3rem;
+}
+
+
+/***********************************Storefront CSS (Store logos and links)*/
 
 .store-fronts img {
-  /* padding-right: 10px; */
   width: 67px;
 }
+
+.store-fronts h4 {
+  font-family: var(--body-font);
+  display: none;
+}
+
 
 .store-fronts {
   display: flex;
@@ -206,15 +250,12 @@ li img {
   justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
-  /* flex-direction: column-reverse; */
 }
 
-/* Game infos related CSS */
+/*********************************** Game Item (card) CSS */
 .game-list {
   margin-left: -40px;
-  background-color: #244186;
-  /* background-color: #f43c04; */
-
+  background-color: #203a78;
   box-shadow: rgba(50, 91, 188, 0.4) 0px -5px 0px, rgba(50, 91, 188, 0.3) 0px -10px 0px, rgba(50, 91, 188, 0.2) 0px -15px 0px,
     rgba(50, 91, 188, 0.1) 0px -20px 0px, rgba(50, 91, 188, 0.05) 0px -25px 0px;
   margin-bottom: 0;
@@ -223,13 +264,12 @@ li img {
 .game-data {
   display: flex;
   margin: auto;
-  /* width: 86%; */
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: orange;
+  background-color: var(--primary-color);
   transition: border-left 200ms ease, border-right 200ms ease, box-shadow 200ms;
-  background-color: orange;
+  background-color: var(--primary-color);
   filter: brightness(100%);
   transition: filter 200ms linear;
 
@@ -238,7 +278,6 @@ li img {
 .game-cover {
   max-width: 90%;
   max-height: 399px;
-
   margin-bottom: 50px;
   margin-top: 50px;
   border-radius: 20px;
@@ -267,16 +306,9 @@ li img {
 }
 
 .trailer-ost-links {
-  /* background-color:blue; */
-  /* padding:10px;*/
-  /* border-radius: 10px;*/
   color: navy;
   font-size: 1.8rem;
-  font-family: "Bebas Neue", sans-serif;
-
-  /* transition: border-radius 0.2s linear; */
-  /* margin-top: 0px;
-  background-color: orangered; */
+  font-family: var(--heading-font);
 }
 
 .clickables-container {
@@ -286,41 +318,17 @@ li img {
   flex-wrap: wrap-reverse;
 }
 
-#to-top {
-  position: fixed;
-  display: none;
-  color: white;
-  font-size: 3.5rem;
-  z-index: 35;
-  right: 10px;
-  bottom: 10px;
-  background-color: #f43c04;
-  border-radius: 75%;
-  justify-content: center;
-  text-decoration: none;
-  align-items: center;
-  width: 75px;
-  height: 75px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  transition: opacity .2s linear;
-}
 
-#to-top:hover .fa-angles-up {
-  cursor: pointer;
-  filter: brightness(75%)
-}
-
-#to-top:active {
-  font-size: 3rem;
-}
-
-/* LARGESCREEN MEDIA QUERIES*/
 .form-container {
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: var(--full-width);
+  ;
 }
+
+/*********************************** LARGESCREEN MEDIA QUERIES*/
+
 
 @media only screen and (min-width: 1000px) {
   @media only screen and (min-width: 1000px) and (max-width: 1200px) {
@@ -341,7 +349,6 @@ li img {
 
   #logo {
     width: 15%;
-    /* padding-left: 200px; */
     margin-left: 200px;
   }
 
@@ -353,6 +360,8 @@ li img {
     font-size: 2rem;
     text-align: left;
   }
+
+  /************************************************** Game Item CSS Media Queries*/
 
   .game-data {
     flex-direction: row;
@@ -376,7 +385,6 @@ li img {
     font-size: 1rem;
     min-width: 15%;
     word-wrap: break-word;
-    /* margin: 0 0 25px; */
     display: flex;
     flex-direction: column;
   }
@@ -396,13 +404,7 @@ li img {
       rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
 
-  .store-fronts {
-    display: flex;
-    /* justify-content: space-between; */
-    flex-direction: row-reverse;
-    justify-content: start;
-    /* flex: 0 0 80%; */
-  }
+
 
   .link-container {
     justify-content: start;
@@ -431,6 +433,15 @@ li img {
     flex-direction: row-reverse;
   }
 
+  .description-container {
+    scrollbar-color: var(--scrollbar-color);
+    max-height: 256px;
+    padding-right: 10px;
+    align-content: center;
+  }
+
+  /*Storefront link/icon CSS*/
+
   .store-fronts img {
     width: 50px;
     height: 50px;
@@ -443,12 +454,12 @@ li img {
     width: 47px;
   }
 
-  .description-container {
-    scrollbar-color: #d98c00 #f43c04;
-    max-height: 256px;
-    padding-right: 10px;
-    align-content: center;
+  .store-fronts {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
   }
+
 
 
 
@@ -464,9 +475,7 @@ li img {
     margin: auto;
   }
 
-  .input-container {
-    margin: 0;
-  }
+
 
   .site-body {
     max-width: 70%;
@@ -476,28 +485,31 @@ li img {
     margin-bottom: -30px;
   }
 
+  /************************************************** Search CSS*/
+
   #search-bar {
     font-size: 25px;
 
   }
-
 
   #search-text {
     display: block;
   }
 
   #search-submit {
-    /* position: relative; */
     padding: 5px 20px 0px 40px;
-    /* bottom: 90px; */
   }
 
   #search-submit:hover {
     transition: all 0.1s ease;
-    /* box-shadow: 0 0 0 0 #fff, 0 0 0 3px white; */
-    /* font-size: 18px; */
+
   }
 
+  .input-container {
+    margin: 0;
+  }
+
+  /************************************************** To Top Button CSS */
   #to-top {
     right: 40px;
     bottom: 40px;
