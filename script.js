@@ -1,11 +1,7 @@
-import { adjustPadding } from "./components/utils/adjustPadding.js";
+import { adjustPadding } from "./components/adjustPadding.js";
 import { search } from "./components/search.js";
-import { buildGame } from "./components/buildGameItem.js";
-import {
-  fetchGameData,
-  fetchYoutubePlaylist,
-  fetchYoutubeTrailer,
-} from "./components/fetchGameData.js";
+import { buildGame } from "./components/utils/buildGameItem.js";
+import { fetchGameData } from "./components/utils/fetchGameData.js";
 
 let searchButt = document.querySelector(".search-button");
 searchButt.addEventListener("click", search);
@@ -30,11 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //YOUTUBE API
-export const youtubeKey = "AIzaSyCsEU3Fe6wNACeFTvZQgKA46QnreQL12NI";
-
-//RAWG API
-export const baseUrl = "https://api.rawg.io/api/games";
-export const apiKey = "?key=eb297cab936749b380d022a9e1f0c9f1";
 
 export let gameList = document.querySelector(".game-list");
 //Stops the form from submitting (refreshing ) each time a search is made
@@ -70,26 +61,4 @@ function searchDisplay(data) {
   } else {
     return `Showing results for ${getSearchValue()}`;
   }
-}
-export async function getPlaylist(gameName) {
-  const encodePlaylist = encodeURIComponent(gameName);
-  const playlistData = await fetchYoutubePlaylist(encodePlaylist);
-  const playListId = playlistData[0].id.playlistId;
-  if (playListId) {
-    window.open(`//www.youtube.com/playlist?list=${playlistData[0].id.playlistId}`);
-  } else {
-    alert("No soundtrack found");
-  }
-}
-export async function getTrailer(gameName) {
-  let gameRename = "";
-  if (!gameName.includes("1")) {
-    gameRename = gameName + " 1";
-  } else {
-    gameRename = gameName;
-  }
-  const encodeTrailer = encodeURIComponent(gameRename);
-  const trailerData = await fetchYoutubeTrailer(encodeTrailer);
-  const videoId = trailerData[0].id.videoId;
-  window.open(`https://www.youtube.com/watch?v=${videoId}`);
 }
