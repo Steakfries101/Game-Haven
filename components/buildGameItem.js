@@ -1,6 +1,7 @@
 import * as iconGenerator from "/components/storeIconGenerator.js";
 import { textDecider } from "/components/gameTextButtonCreator.js";
-import { getGameDescription, getPlaylist, getGameStores } from "../script.js";
+import { getPlaylist, getTrailer } from "../script.js";
+import { getGameDescription, getGameStores } from "./fetchGameData.js";
 
 export async function buildGame(game, gameList) {
   if (game.stores !== null) {
@@ -54,7 +55,7 @@ export async function buildGame(game, gameList) {
     trailerLink.className = "trailer-ost-links";
     trailerLink.textContent = "Trailer";
     trailerLink.addEventListener("click", () => {
-      // getTrailer(game.name);
+      getTrailer(game.name);
       onclick = "javascript:window.location='http://www.google.com/'";
     });
     linkContainer.appendChild(trailerLink);
