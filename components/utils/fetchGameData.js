@@ -1,5 +1,3 @@
-import { youtubeKey, baseUrl, apiKey } from "../../apiKeys.js";
-
 export async function fetchYoutubeTrailer(gameName) {
   try {
     const response = await fetch(
@@ -51,7 +49,7 @@ export async function fetchGameData(gameName) {
 //Get the game descriptions
 export async function getGameDescription(gameId) {
   try {
-    const response = await fetch(`${baseUrl}/${gameId}?key=${RAWG_API_KEY}`);
+    const response = await fetch(`https://api.rawg.io/api/games/${gameId}?key=${RAWG_API_KEY}`);
     if (!response.ok) {
       throw new Error("Failed to fetch game desc data");
     }
