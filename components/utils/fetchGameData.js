@@ -1,4 +1,4 @@
-import { youtubeKey, baseUrl, apiKey } from "../../apiKeys.js";
+import { apiKey } from "../../apiKeys.js";
 
 export async function fetchYoutubeTrailer(gameName) {
   try {
@@ -34,7 +34,7 @@ export async function fetchYoutubePlaylist(gameName) {
 //Get the game data
 export async function fetchGameData(gameName) {
   try {
-    const response = await fetch(`${baseUrl}${apiKey}&search=${gameName}&search_precise=true&ordering=name?parent_platforms=1`);
+    const response = await fetch(`https://api.rawg.io/api/games${apiKey}&search=${gameName}&search_precise=true&ordering=name?parent_platforms=1`);
     if (!response.ok) {
       throw new Error("Failed to fetch game data");
     }
@@ -49,7 +49,7 @@ export async function fetchGameData(gameName) {
 //Get the game descriptions
 export async function getGameDescription(gameId) {
   try {
-    const response = await fetch(`${baseUrl}/${gameId}${apiKey}`);
+    const response = await fetch(`https://api.rawg.io/api/games/${gameId}${apiKey}`);
     if (!response.ok) {
       throw new Error("Failed to fetch game desc data");
     }
